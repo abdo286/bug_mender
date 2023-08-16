@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f1f3f5;
+  box-sizing: border-box;
+}
+/* @layer components {
+  .hover-link {
+    @apply relative text-white hover:text-green-500 transition-all ease-in duration-300;
+
+    &::before,
+    &::after {
+      @apply content-[''];
+      @apply h-6 w-6 absolute transition-all ease-in duration-300 opacity-0;
+    }
+
+    &::before {
+      @apply right-0 top-0 border-t-4 border-r-4 border-green-700 transform -translate-x-full translate-y-1/2;
+    }
+
+    &::after {
+      @apply left-0 bottom-0 border-b-4 border-l-4 border-green-700 transform translate-x-full -translate-y-1/2;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      @apply transform translate-x-0 translate-y-0 opacity-100;
+    }
+  }
+} */
