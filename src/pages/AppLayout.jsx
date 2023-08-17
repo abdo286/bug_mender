@@ -3,12 +3,10 @@ import { Sidebar } from "../features/Sidebar";
 import { Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
-    <section className="grid grid-cols-[17fr_83fr] items-center py-6 h-screen w-screen overflow-visible">
-      <section className="h-full relative ">
+    <section className="h-[200rem] relative grid grid-rows-[auto,1fr]">
+      <Header />
+      <section className="grid grid-cols-[17fr_83fr] items-start">
         <Sidebar />
-      </section>
-      <section className="h-full ">
-        <Header />
         <Outlet />
       </section>
     </section>

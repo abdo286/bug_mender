@@ -11,3 +11,6 @@ export { default as Account } from "./Account";
 export { default as SearchResults } from "./SearchResults";
 export { default as Project } from "./Project";
 export { default as Ticket } from "./Ticket";
+export { default as NotFound } from "./NotFound";
+export { default as Login } from "./Login";
+export { default as Register } from "./Register";

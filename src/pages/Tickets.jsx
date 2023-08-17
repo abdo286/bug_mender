@@ -6,9 +6,17 @@ import { TicketsStats } from "../features/Tickets";
 
 const data = [
   {
-    title: "Modal doesn't close when I press the modal icon ",
+    title:
+      "Modal doesn't close when I press the modal iconModal doesn't close when I press the modal icon ",
     priority: "low",
+    status: "New",
     key: "title",
+    projectTitle: "bugTracker",
+    created: "23/7/2023",
+    updated: "23/7/2023",
+    type: "defect",
+    assignedTo: "fighter",
+    submittedBy: "user36",
   },
 ];
 const state = {
@@ -17,7 +25,8 @@ const state = {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      className: "max-w-[8rem] text-gray-800 font-medium text-sm",
+      className:
+        "max-w-[10rem] min-w-[10rem] text-gray-800 font-medium text-sm",
     },
     {
       title: "Priority",
@@ -35,9 +44,9 @@ const state = {
         }
 
         return (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-start items-center">
             <span
-              className={`border-2 rounded-2xl px-4 py-1 font-bold text-white shadow tracking-wider ${priorityClass} `}
+              className={`border-2 rounded-2xl px-4 py-1 font-bold text-white shadow tracking-wider text-sm ${priorityClass} `}
             >
               {priority}
             </span>
@@ -45,13 +54,116 @@ const state = {
         );
       },
     },
-    { title: "Status", dataIndex: "status", key: "status" },
-    { title: "Project Title", dataIndex: "projectTitle", key: "projectTitle" },
-    { title: "Created", dataIndex: "created", key: "created" },
-    { title: "Updated", dataIndex: "updated", key: "updated" },
-    { title: "Type", dataIndex: "type", key: "type" },
-    { title: "Assigned To", dataIndex: "assignedTo", key: "assignedTo" },
-    { title: "Submitted By", dataIndex: "submittedBy", key: "submittedBy" },
+    {
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
+      render(status) {
+        let statusClass = "";
+
+        if (status === "New") {
+          statusClass = "bg-blue-600";
+        } else if (status === "Development") {
+          statusClass = "bg-yellow-600";
+        } else if (status === "Resolved") {
+          statusClass = "bg-green-600";
+        }
+
+        return (
+          <div className="flex justify-start items-center">
+            <span
+              className={`border-2 rounded-2xl px-4 py-1 font-bold text-white shadow tracking-wider text-sm ${statusClass} `}
+            >
+              {status}
+            </span>
+          </div>
+        );
+      },
+    },
+    {
+      title: "Project Title",
+      dataIndex: "projectTitle",
+      key: "projectTitle",
+      render(projectTitle) {
+        return (
+          <div className="flex justify-start items-center">
+            <span className="px-4 py-1 font-bold tracking-wider text-sm">
+              {projectTitle}
+            </span>
+          </div>
+        );
+      },
+    },
+    // {
+    //   title: "Created",
+    //   dataIndex: "created",
+    //   key: "created",
+    //   render(created) {
+    //     return (
+    //       <div className="flex justify-start items-center">
+    //         <span className="px-4 py-1 font-bold tracking-wider text-sm">
+    //           {created}
+    //         </span>
+    //       </div>
+    //     );
+    //   },
+    // },
+    // {
+    //   title: "Updated",
+    //   dataIndex: "updated",
+    //   key: "updated",
+    //   render(updated) {
+    //     return (
+    //       <div className="flex justify-start items-center">
+    //         <span className="px-4 py-1 font-bold tracking-wider text-sm">
+    //           {updated}
+    //         </span>
+    //       </div>
+    //     );
+    //   },
+    // },
+    {
+      title: "Type",
+      dataIndex: "type",
+      key: "type",
+      render(type) {
+        return (
+          <div className="flex justify-start items-center">
+            <span className="px-4 py-1 font-bold tracking-wider text-sm">
+              {type}
+            </span>
+          </div>
+        );
+      },
+    },
+    {
+      title: "Assigned To",
+      dataIndex: "assignedTo",
+      key: "assignedTo",
+      render(type) {
+        return (
+          <div className="flex justify-start items-center">
+            <span className="px-4 py-1 font-bold tracking-wider text-sm">
+              {type}
+            </span>
+          </div>
+        );
+      },
+    },
+    {
+      title: "Submitted By",
+      dataIndex: "submittedBy",
+      key: "submittedBy",
+      render(type) {
+        return (
+          <div className="flex justify-start items-center">
+            <span className="px-4 py-1 font-bold tracking-wider text-sm">
+              {type}
+            </span>
+          </div>
+        );
+      },
+    },
     {
       title: "Actions",
       dataIndex: "",
@@ -59,7 +171,7 @@ const state = {
       width: "fit-content",
       render() {
         return (
-          <devi className="flex items-center gap-4 justify-center">
+          <devi className="flex items-center gap-4 justify-start">
             <BiShow className="text-xl text-gray-500 cursor-pointer " />
             <LuEdit className="text-xl text-blue-500 cursor-pointer " />
             <RiDeleteBin7Line className="text-xl text-red-500 cursor-pointer  " />

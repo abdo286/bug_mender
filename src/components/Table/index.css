@@ -12,6 +12,7 @@
   width: 100%;
   border-spacing: 0px;
 }
+
 .rc-table th,
 .rc-table td {
   position: relative;
@@ -20,11 +21,15 @@
   padding: 16px 8px;
   white-space: normal;
   word-break: break-word;
-  border: 1px solid #ced4da;
   border-top: 0;
   border-left: 0;
   transition: box-shadow 0.3s;
 }
+
+.rc-table td {
+  border: 1px solid #ced4da;
+}
+
 .rc-table-rtl.rc-table th,
 .rc-table-rtl.rc-table td {
   border-right: 0;
@@ -123,12 +128,14 @@ thead .rc-table-cell {
   width: 60px;
 }
 .rc-table-row-expand-icon-cell {
-  text-align: center;
+  /* text-align: center; */
 }
 .rc-table thead th {
-  text-align: center;
+  /* text-align: center; */
   /* background: #f7f7f7; */
   background: #343a40;
+  text-align: start;
+  padding-left: 18px;
 }
 .rc-table thead .rc-table-cell-scrollbar::after {
   position: absolute;
@@ -149,7 +156,7 @@ thead .rc-table-cell {
   border-bottom: 0;
 }
 .rc-table-placeholder {
-  text-align: center;
+  /* text-align: center; */
 }
 .rc-table tbody tr td {
   background: #fff;
@@ -202,7 +209,7 @@ thead .rc-table-cell {
   height: 16px;
   color: #aaa;
   line-height: 16px;
-  text-align: center;
+  /* text-align: center; */
   vertical-align: middle;
   border: 1px solid currentColor;
   cursor: pointer;

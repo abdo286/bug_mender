@@ -18,7 +18,7 @@ const ResizableTitle = (props) => {
   );
 };
 
-const ProjectTable = ({ data, state: propState, title }) => {
+const ProjectTable = ({ data, state: propState, title, sortByColor }) => {
   const [state, setState] = useState(propState);
   const components = {
     header: {
@@ -52,6 +52,42 @@ const ProjectTable = ({ data, state: propState, title }) => {
   return (
     <div className="mt-12">
       <h2 className="text-xl font-bold mb-5">{title}</h2>
+      <section className="flex">
+        <form action="" className="flex gap-16 ml-auto">
+          <div>
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="grid-first-name"
+            >
+              Search
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
+            id="grid-first-name"
+              type="text"
+              placeholder="Search"
+            />
+          </div>
+          <div>
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="grid-last-name"
+            >
+              Sort By
+            </label>
+            <select
+              className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-600 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="grid-last-name ${sortByColor}`}
+            >
+              <option value="">Name (A-Z)</option>
+              <option value="">Name (Z-A)</option>
+              <option value="">Priority</option>
+              <option value="">Start Date</option>
+              <option value="">End Date</option>{" "}
+            </select>
+          </div>
+        </form>
+      </section>
       <Table components={components} columns={columns} data={data} />
     </div>
   );

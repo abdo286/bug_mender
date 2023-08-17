@@ -41,8 +41,18 @@ const Projects = () => {
       <div className="mt-3">
         <Breadcrumbs />
       </div>
-      <ProjectsHeader />
-      <Table data={data} state={state} title={"Projects"} />;
+      <section className="w-[90%]">
+        <ProjectsHeader />
+
+        <section className="bg-white px-10 py-6 mt-16">
+          <Table
+            data={data}
+            state={state}
+            title={"Projects"}
+            sortByColor="bg-white"
+          />
+        </section>
+      </section>
     </div>
   );
 };

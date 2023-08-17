@@ -11,48 +11,37 @@ const sidebarData = [
   {
     text: "Dashboard",
     icon: SlSpeedometer,
-    to: "",
+    to: "/",
     id: nanoid(),
   },
   {
     text: "Notification Inbox",
     icon: PiNotificationBold,
-    to: "",
+    to: "/notification-inbox",
     id: nanoid(),
   },
   {
     text: "Projects",
     icon: GoProject,
-    to: "",
+    to: "/projects",
     id: nanoid(),
   },
   {
     text: "Tickets",
     icon: PiTicketLight,
-    to: "",
+    to: "/tickets",
     id: nanoid(),
   },
   {
     text: "Admin",
     icon: MdPersonAdd,
-    to: "",
+    to: "/admin",
     id: nanoid(),
   },
 ];
 const Sidebar = () => {
   return (
-    <div className="flex flex-col sticky top-5 ">
-      <header>
-        <section className="flex items-center gap-3 text-2xl px-6">
-          <button className="hover:scale-110">
-            <AiOutlineMenu className="cursor-pointer " />
-          </button>
-          <Link className="text-red-500 font-semibold " to="/">
-            BugMender
-          </Link>
-        </section>
-      </header>
-
+    <div className="flex flex-col sticky top-5">
       <nav className="mt-12">
         <ul className="flex flex-col gap-3 ">
           {sidebarData.map((cur) => (
