@@ -41,7 +41,7 @@ const sidebarData = [
 ];
 const Sidebar = () => {
   return (
-    <div className="flex flex-col fixed top-6 z-50 ">
+    <div className="flex flex-col sticky top-5 ">
       <header>
         <section className="flex items-center gap-3 text-2xl px-6">
           <button className="hover:scale-110">
@@ -53,12 +53,12 @@ const Sidebar = () => {
         </section>
       </header>
 
-      <nav className="mt-12 ">
+      <nav className="mt-12">
         <ul className="flex flex-col gap-3 ">
           {sidebarData.map((cur) => (
             <li key={cur.id} className="inline-block ">
               <NavLink
-                className="flex items-center gap-5 text-lg px-5 transition-all duration-300 hover:bg-[#dee2e6] py-3 ease-in-out"
+                className="flex items-center gap-5 text-lg px-5 transition-all duration-300 hover:bg-[#dee2e6be] py-3 ease-in-out border-l-8 border-l-green-100 hover:border-l-green-500"
                 to={cur.to}
               >
                 <cur.icon className="text-green-600" />
