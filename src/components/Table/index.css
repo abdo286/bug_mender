@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
   color: #666;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .rc-table-rtl {
@@ -27,13 +27,13 @@
 }
 
 .rc-table td {
-  border: 1px solid #ced4da;
+  border: 1px solid #ced4da6e;
 }
 
 .rc-table-rtl.rc-table th,
 .rc-table-rtl.rc-table td {
   border-right: 0;
-  border-left: 1px solid #ced4da;
+  border-left: 1px solid #ced4da6e;
 }
 
 thead .rc-table-cell {

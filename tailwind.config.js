@@ -6,5 +6,5 @@ export default {
   daisyui: {
     themes: [],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), "prettier-plugin-tailwindcss"],
 };

@@ -1,9 +1,10 @@
-import { ProjectsHeader } from "../features/Projects";
+import { ProjectsGrid, ProjectsHeader } from "../features/Projects";
 import { Table } from "../components";
 import { Breadcrumbs } from "../components";
 import { BiShow } from "react-icons/bi";
 import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin7Line } from "react-icons/ri";
+import { useState } from "react";
 
 const data = [
   { a: "123", key: "1" },
@@ -36,21 +37,26 @@ const state = {
 };
 
 const Projects = () => {
+  const [view, setView] = useState("grid");
   return (
     <div>
       <div className="mt-3">
         <Breadcrumbs />
       </div>
       <section className="w-[90%]">
-        <ProjectsHeader />
+        <ProjectsHeader view={view} setView={setView} />
 
         <section className="bg-white px-10 py-6 mt-16">
-          <Table
-            data={data}
-            state={state}
-            title={"Projects"}
-            sortByColor="bg-white"
-          />
+          {view === "grid" ? (
+            <ProjectsGrid />
+          ) : (
+            <Table
+              data={data}
+              state={state}
+              title={"Projects"}
+              sortByColor="bg-white"
+            />
+          )}
         </section>
       </section>
     </div>

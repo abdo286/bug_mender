@@ -32,6 +32,6 @@ export const router = createBrowserRouter(
       <Route path="admin" element={<Admin />} />
       <Route path="account" element={<Account />} />
       <Route path="*" element={<NotFound />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );

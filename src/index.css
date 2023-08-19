@@ -33,3 +33,25 @@ body {
     }
   }
 } */
+
+.tooltip-arrow,
+.tooltip-arrow::before,
+.tooltip-arrow::after,
+.tooltip-container[data-popper-placement*="bottom"] .tooltip-arrow,
+.tooltip-container[data-popper-placement*="bottom"] .tooltip-arrow::before,
+.tooltip-container[data-popper-placement*="bottom"] .tooltip-arrow::after,
+.tooltip-container[data-popper-placement*="top"] .tooltip-arrow,
+.tooltip-container,
+.tooltip-container[data-popper-placement*="top"]
+  .tooltip-arrow::after
+  [data-popper-placement*="top"]
+  .tooltip-arrow::before,
+.tooltip-container[data-popper-placement*="right"] .tooltip-arrow,
+.tooltip-container[data-popper-placement*="right"] .tooltip-arrow::before,
+.tooltip-container[data-popper-placement*="right"] .tooltip-arrow::after,
+.tooltip-container[data-popper-placement*="left"] .tooltip-arrow,
+.tooltip-container[data-popper-placement*="left"] .tooltip-arrow::before,
+.tooltip-container[data-popper-placement*="left"] .tooltip-arrow::after {
+  background-color: black !important;
+  color: white !important;
+}

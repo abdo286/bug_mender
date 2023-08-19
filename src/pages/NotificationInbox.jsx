@@ -1,6 +1,4 @@
 const NotificationInbox = () => {
-  return (
-    <div>NotificationInbox</div>
-  )
-}
-export default NotificationInbox
+  return <div>NotificationInbox</div>;
+};
+export default NotificationInbox;
