@@ -1,4 +1,4 @@
-const ToggleMode = () => {
+const ToggleMode = ({ scrolling }) => {
   return (
     <div>
       <label className="swap swap-rotate relative top-1">
@@ -7,7 +7,9 @@ const ToggleMode = () => {
 
         {/* sun icon */}
         <svg
-          className="swap-on fill-current w-7 h-7 text-gray-500"
+          className={`swap-on fill-current w-7 h-7 ${
+            scrolling ? "text-gray-100" : "text-gray-600"
+          } `}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -16,7 +18,9 @@ const ToggleMode = () => {
 
         {/* moon icon */}
         <svg
-          className="swap-off fill-current w-7 h-7 text-gray-500"
+          className={`swap-off fill-current w-7 h-7 ${
+            scrolling ? "text-gray-300" : "text-gray-600"
+          }`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >

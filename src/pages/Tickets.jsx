@@ -1,8 +1,9 @@
-import { Breadcrumbs, Table } from "../components";
+import { Breadcrumbs, MainHeader, Table } from "../components";
 import { BiShow } from "react-icons/bi";
 import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { TicketsStats } from "../features/Tickets";
+import { useState } from "react";
 
 const data = [
   {
@@ -183,17 +184,29 @@ const state = {
 };
 
 const Tickets = () => {
+  const [view, setView] = useState("table");
   return (
     <div>
       <div className="mt-3">
         <Breadcrumbs />
       </div>
-      <div className="bg-white mx-16 mt-10 px-10 py-12">
-        <TicketsStats />
+      <section className="w-[90%] mx-auto">
         <section>
-          <Table data={data} state={state} title={"Tickets"} />;
+          <MainHeader view={view} setView={setView} text="Tickets" />
         </section>
-      </div>
+        <div className="bg-white mt-16 px-10 py-12">
+          <TicketsStats />
+          <section>
+            <Table
+              data={data}
+              state={state}
+              title={"Tickets"}
+              className="mt-12"
+            />
+            ;
+          </section>
+        </div>
+      </section>
     </div>
   );
 };
@@ -201,3 +214,4 @@ export default Tickets;
 
 // Status: New, Development, Resolved
 // Priority: Hight, Medium, Low
+// className="bg-white mx-16   "

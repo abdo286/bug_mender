@@ -1,10 +1,9 @@
-import { AiOutlineMenu } from "react-icons/ai";
 import { SlSpeedometer } from "react-icons/sl";
 import { PiNotificationBold } from "react-icons/pi";
 import { GoProject } from "react-icons/go";
 import { PiTicketLight } from "react-icons/pi";
 import { MdPersonAdd } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 const sidebarData = [

@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header
       className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0 z-50 ${
-        scrolling ? "bg-[#20c997]" : ""
+        scrolling ? "bg-[#212529]" : ""
       }`}
       onScroll={(e) => {
         console.log(e);
@@ -31,7 +31,9 @@ const Header = () => {
       <header>
         <section className="flex items-center gap-3 text-2xl px-6">
           <button className="hover:scale-110">
-            <AiOutlineMenu className="cursor-pointer " />
+            <AiOutlineMenu
+              className={`cursor-pointer ${scrolling && "text-white"} `}
+            />
           </button>
           <Link className="text-red-500 font-semibold " to="/">
             BugMender
@@ -56,8 +58,12 @@ const Header = () => {
         <button className="bg-blue-500 text-white px-3 py-2 text-sm rounded-md cursor-pointer font-medium hover:brightness-95 transition-all duration-150">
           Create Ticket
         </button>
-        <RiNotificationLine className="text-2xl text-gray-500 cursor-pointe " />
-        <ToggleMode />
+        <RiNotificationLine
+          className={`text-2xl text-gray-500 cursor-pointe ${
+            scrolling && "text-gray-300"
+          }`}
+        />
+        <ToggleMode scrolling={scrolling} />
         <div className="w-12 h-12">
           <img
             src={userImage}

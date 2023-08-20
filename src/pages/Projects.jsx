@@ -1,4 +1,5 @@
-import { ProjectsGrid, ProjectsHeader } from "../features/Projects";
+import { ProjectsGrid } from "../features/Projects";
+import { MainHeader } from "../components";
 import { Table } from "../components";
 import { Breadcrumbs } from "../components";
 import { BiShow } from "react-icons/bi";
@@ -43,8 +44,8 @@ const Projects = () => {
       <div className="mt-3">
         <Breadcrumbs />
       </div>
-      <section className="w-[90%]">
-        <ProjectsHeader view={view} setView={setView} />
+      <section className="w-[90%] mx-auto">
+        <MainHeader view={view} setView={setView} text="Projects" />
 
         <section className="bg-white px-10 py-6 mt-16">
           {view === "grid" ? (
@@ -55,6 +56,7 @@ const Projects = () => {
               state={state}
               title={"Projects"}
               sortByColor="bg-white"
+              className="mt-12"
             />
           )}
         </section>

@@ -23,3 +23,6 @@ Tips
 6. Stay away from YouTube & Tutorials once you get the basics of the Technology otherwise, you will live in beginner stage for so long. Build Projects and Learning new stuff in the way, is one of the easiest way to get to the Intermadiate Level
 7. Don't waste your time in building the stuff you know you can build it. Use Libraries for this. Invest your time in the challenging stuff
 8. Read Others code and imitate them. Don't get me wrong, Trial & Error is great but it takes too much time. See how someone else did it and imitate him/her is one of the easiest way. Instead of creating your own style, imitate someone else 's style.
+
+9. Landing Page for the Project is crucial and explain briefly how the project works 
+10. Demo Accounts are very crucial to the project 
