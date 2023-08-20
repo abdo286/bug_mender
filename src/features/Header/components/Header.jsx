@@ -59,8 +59,8 @@ const Header = () => {
           Create Ticket
         </button>
         <RiNotificationLine
-          className={`text-2xl text-gray-500 cursor-pointe ${
-            scrolling && "text-gray-300"
+          className={`text-2xl text-blue-500 cursor-pointer ${
+            scrolling && "!text-gray-300"
           }`}
         />
         <ToggleMode scrolling={scrolling} />

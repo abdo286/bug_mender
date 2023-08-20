@@ -16,6 +16,7 @@ import {
   Project,
   Ticket,
   NotFound,
+  AdminProjectRoles,
 } from "../pages";
 
 export const router = createBrowserRouter(
@@ -30,8 +31,9 @@ export const router = createBrowserRouter(
       <Route path="create-project" element={<CreateProject />} />
       <Route path="create-ticket" element={<CreateTicket />} />
       <Route path="admin" element={<Admin />} />
+      <Route path="admin/project/:id" element={<AdminProjectRoles />} />
       <Route path="account" element={<Account />} />
       <Route path="*" element={<NotFound />} />
-    </Route>,
-  ),
+    </Route>
+  )
 );

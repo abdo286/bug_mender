@@ -192,7 +192,7 @@ const Tickets = () => {
       </div>
       <section className="w-[90%] mx-auto">
         <section>
-          <MainHeader view={view} setView={setView} text="Tickets" />
+          <MainHeader view={view} setView={setView} text="Ticket" />
         </section>
         <div className="bg-white mt-16 px-10 py-12">
           <TicketsStats />

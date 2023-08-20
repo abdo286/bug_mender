@@ -8,7 +8,7 @@ const ToggleMode = ({ scrolling }) => {
         {/* sun icon */}
         <svg
           className={`swap-on fill-current w-7 h-7 ${
-            scrolling ? "text-gray-100" : "text-gray-600"
+            scrolling ? "text-gray-100" : "text-blue-500"
           } `}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -19,7 +19,7 @@ const ToggleMode = ({ scrolling }) => {
         {/* moon icon */}
         <svg
           className={`swap-off fill-current w-7 h-7 ${
-            scrolling ? "text-gray-300" : "text-gray-600"
+            scrolling ? "text-gray-300" : "text-blue-500"
           }`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

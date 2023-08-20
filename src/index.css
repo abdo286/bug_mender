@@ -61,3 +61,7 @@ body {
   min-height: 13rem;
   font-size: 16px;
 }
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

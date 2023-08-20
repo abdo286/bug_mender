@@ -4,6 +4,7 @@ import {
   ProjectTeam,
   ProjectTickets,
 } from "../features/Project";
+
 const Project = () => {
   return (
     <div>
@@ -11,7 +12,7 @@ const Project = () => {
         <div className="mt-3">
           <Breadcrumbs />
         </div>
-        <section className="w-[90%] mx-auto grid grid-cols-2 pt-12  gap-12 grid grid-cols-[30fr_70fr] ">
+        <section className="w-[90%] mx-auto pt-12 gap-12 grid grid-cols-[30fr_70fr] ">
           <div>
             <ProjectDetails />
             <ProjectTeam />

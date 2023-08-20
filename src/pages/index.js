@@ -5,6 +5,7 @@ export { default as NotificationInbox } from "./NotificationInbox";
 export { default as Projects } from "./Projects";
 export { default as Tickets } from "./Tickets";
 export { default as Admin } from "./Admin";
+export { default as AdminProjectRoles } from "./AdminProjectRoles";
 export { default as CreateProject } from "./CreateProject";
 export { default as CreateTicket } from "./CreateTicket";
 export { default as Account } from "./Account";
