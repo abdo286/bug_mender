@@ -2,12 +2,16 @@ import { RiNotificationLine } from "react-icons/ri";
 import { CgSearch } from "react-icons/cg";
 import userImage from "../../../assets/images/userImage.avif";
 import ToggleMode from "./ToggleMode";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import MenuSettings from "./MenuSettings";
 
 const Header = () => {
   const [scrolling, setScrolling] = useState(false);
+  const [showMenuOptions, setShowMenuOptions] = useState(false);
+  const userImageRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +22,26 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        userImageRef.current &&
+        !userImageRef.current.contains(event.target)
+      ) {
+        setShowMenuOptions(false);
+      }
+      console.log(menuRef, userImageRef);
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <header
@@ -64,12 +88,20 @@ const Header = () => {
           }`}
         />
         <ToggleMode scrolling={scrolling} />
-        <div className="w-12 h-12">
-          <img
-            src={userImage}
-            alt="user"
-            className="w-full h-full rounded-full object-cover cursor-pointer"
-          />
+        <div className="relative" ref={userImageRef}>
+          <div
+            className="w-12 h-12"
+            onClick={() => {
+              setShowMenuOptions((menuOptions) => !menuOptions);
+            }}
+          >
+            <img
+              src={userImage}
+              alt="user"
+              className="w-full h-full rounded-full object-cover cursor-pointer"
+            />
+          </div>
+          {showMenuOptions ? <MenuSettings menuRef={menuRef} /> : null}
         </div>
       </section>
     </header>
