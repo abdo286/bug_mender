@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import {
   AppLayout,
-  HomePage,
+  Dashboard,
   NotificationInbox,
   Projects,
   Tickets,
@@ -22,7 +22,7 @@ import {
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />}>
-      <Route index element={<HomePage />} />
+      <Route index element={<Dashboard />} />
       <Route path="notification-inbox" element={<NotificationInbox />} />
       <Route path="projects" element={<Projects />} />
       <Route path="projects/:id" element={<Project />} />

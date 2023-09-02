@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <header
       className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0 z-50 ${
-        scrolling ? "bg-[#212529]" : ""
+        scrolling ? "bg-[#ced4da]" : ""
       }`}
       onScroll={(e) => {
         console.log(e);
@@ -56,10 +56,14 @@ const Header = () => {
         <section className="flex items-center gap-3 text-2xl px-6">
           <button className="hover:scale-110">
             <AiOutlineMenu
-              className={`cursor-pointer ${scrolling && "text-white"} `}
+              className={`cursor-pointer ${scrolling && "text-black"} `}
             />
           </button>
-          <Link className="text-red-500 font-semibold " to="/">
+          <Link
+            className={` ${
+              scrolling ? "#003366" : "text-red-500"
+            }  font-semibold " to="/`}  
+          >
             BugMender
           </Link>
         </section>
@@ -84,7 +88,7 @@ const Header = () => {
         </button>
         <RiNotificationLine
           className={`text-2xl text-blue-500 cursor-pointer ${
-            scrolling && "!text-gray-300"
+            scrolling && "!text-gray-800"
           }`}
         />
         <ToggleMode scrolling={scrolling} />
