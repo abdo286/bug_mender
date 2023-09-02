@@ -1,7 +1,9 @@
 import { BsGrid } from "react-icons/bs";
 import { BsTable } from "react-icons/bs";
 import { Tooltip } from ".";
-const MainHeader = ({ view, setView, text }) => {
+import { useNavigate } from "react-router-dom";
+const MainHeader = ({ view, setView, text, path }) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white flex items-center justify-between py-5 px-8 mt-12">
       <section>
@@ -36,7 +38,9 @@ const MainHeader = ({ view, setView, text }) => {
         </div>
       </section>
       <section className="flex justify-end w-full">
-        <button className="text-sm font-medium bg-gray-600 hover:bg-gray-700 transition-all duration-150 ease-in-out text-white px-4 py-3 rounded-xl ">
+        <button className="text-sm font-medium bg-gray-600 hover:bg-gray-700 transition-all duration-150 ease-in-out text-white px-4 py-3 rounded-xl " onClick={()=>{
+          navigate(path)
+        }}>
           Create {text}
         </button>
       </section>

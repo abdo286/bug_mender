@@ -26,7 +26,7 @@ const TableRow = () => {
         <p className="flex text-start badge badge-ghost">Developer</p>
       </td>
       <th>
-        <button className="btn btn-active btn-secondary capitalize">
+        <button className="btn btn-active btn-secondary capitalize pt-1 pb-1 py-1 ">
           Remove
         </button>
       </th>

@@ -7,6 +7,11 @@ import { nanoid } from "nanoid";
 const options = [
   {
     key: nanoid(),
+    text: "tickets",
+    to: "/tickets",
+  },
+  {
+    key: nanoid(),
     text: "create-ticket",
     to: "/create-ticket",
   },
@@ -19,7 +24,7 @@ const CreateTicket = () => {
       <div className="mt-3">
         <Breadcrumbs optionsData={options} />
       </div>
-      <section className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-sm ">
+      <section className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md ">
         <form className="flex flex-col gap-5">
           <FormInput label="Title" />
           <section className="flex flex-col gap-2 my-3">

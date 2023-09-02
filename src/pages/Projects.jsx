@@ -22,7 +22,7 @@ const Projects = () => {
         <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto">
-        <MainHeader view={view} setView={setView} text="Project" />
+        <MainHeader view={view} setView={setView} text="Project" path="/create-project" />
 
         <section className="bg-white px-10 py-6 mt-16 shadow-md">
           {view === "grid" ? (

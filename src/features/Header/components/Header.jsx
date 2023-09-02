@@ -4,14 +4,20 @@ import userImage from "../../../assets/images/userImage.avif";
 import ToggleMode from "./ToggleMode";
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MenuSettings from "./MenuSettings";
+import Notifications from "./Notifications";
 
 const Header = ({ setShouldHideSidebar }) => {
   const [scrolling, setScrolling] = useState(false);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   const userImageRef = useRef(null);
   const menuRef = useRef(null);
+  const notificationRef = useRef(null);
+  const notificationsRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,14 +94,32 @@ const Header = ({ setShouldHideSidebar }) => {
       </form>
 
       <section className="flex items-center justify-center gap-8 px-6">
-        <button className="bg-blue-500 text-white px-3 py-2 text-sm rounded-md cursor-pointer font-medium hover:brightness-95 transition-all duration-150">
+        <button
+          className="bg-blue-500 text-white px-3 py-2 text-sm rounded-md cursor-pointer font-medium hover:brightness-95 transition-all duration-150"
+          onClick={() => {
+            navigate("/create-ticket");
+          }}
+        >
           Create Ticket
         </button>
-        <RiNotificationLine
-          className={`text-2xl text-blue-500 cursor-pointer ${
-            scrolling && "!text-gray-800"
-          }`}
-        />
+        <div className="relative" ref={notificationRef}>
+          <RiNotificationLine
+            className={`text-2xl text-blue-500 cursor-pointer ${
+              scrolling && "!text-gray-800"
+            }`}
+            notificationsRef={notificationsRef}
+            onClick={() => {
+              setShowNotifications((showNotifications) => !showNotifications);
+            }}
+          />
+          {showNotifications === false ? (
+            <Notifications
+              menuRef={menuRef}
+              setShowNotifications={setShowNotifications}
+            />
+          ) : null}
+        </div>
+
         <ToggleMode scrolling={scrolling} />
         <div className="relative" ref={userImageRef}>
           <div
@@ -110,7 +134,12 @@ const Header = ({ setShouldHideSidebar }) => {
               className="w-full h-full rounded-full object-cover cursor-pointer"
             />
           </div>
-          {showMenuOptions ? <MenuSettings menuRef={menuRef} /> : null}
+          {showMenuOptions ? (
+            <MenuSettings
+              menuRef={menuRef}
+              setShowMenuOptions={setShowMenuOptions}
+            />
+          ) : null}
         </div>
       </section>
     </header>

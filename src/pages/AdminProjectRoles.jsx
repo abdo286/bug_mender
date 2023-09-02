@@ -6,8 +6,13 @@ const AdminProjectRoles = () => {
   const options = [
     {
       key: nanoid(),
-      text: `admin/project/${5}`,
-      to: "/",
+      text: `admin`,
+      to: "/admin",
+    },
+    {
+      key: nanoid(),
+      text: `5`,
+      to: ".",
     },
   ];
 
