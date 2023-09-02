@@ -2,13 +2,22 @@ import { Breadcrumbs, MainHeader, Table } from "../components";
 import { TicketsStats } from "../features/Tickets";
 import { useState } from "react";
 import { data, state } from "../features/Tickets/constants/TicketsData";
+import { nanoid } from "nanoid";
+
+const options = [
+  {
+    key: nanoid(),
+    text: "tickets",
+    to: "/tickets",
+  },
+];  
 
 const Tickets = () => {
   const [view, setView] = useState("table");
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto">
         <section>

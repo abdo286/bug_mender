@@ -4,13 +4,22 @@ import { Table } from "../components";
 import { Breadcrumbs } from "../components";
 import { useState } from "react";
 import { data, state } from "../features/Projects/constants/ProjectsData";
+import { nanoid } from "nanoid";
+
+const options = [
+  {
+    key: nanoid(),
+    text: "projects",
+    to: "/projects",
+  },
+];
 
 const Projects = () => {
   const [view, setView] = useState("grid");
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto">
         <MainHeader view={view} setView={setView} text="Project" />

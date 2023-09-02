@@ -1,12 +1,21 @@
+import { nanoid } from "nanoid";
 import { Breadcrumbs } from "../components";
 import { ProjectCard } from "../features/Admin";
+
+const options = [
+  {
+    key: nanoid(),
+    text: "admin",
+    to: "/admin",
+  },
+];
 
 const Project = () => {
   return (
     <div>
       <div>
         <div className="mt-3">
-          <Breadcrumbs />
+          <Breadcrumbs optionsData={options} />
         </div>
         <section>
           <h2 className="text-2xl font-medium py-8">Projects</h2>
@@ -25,4 +34,4 @@ const Project = () => {
   );
 };
 export default Project;
-// 
+//

@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Breadcrumbs } from "../components";
 import {
   Comments,
@@ -7,11 +8,19 @@ import {
   TicketHistory,
 } from "../features/Ticket";
 
+const options = [
+  {
+    key: nanoid(),
+    text: "Project",
+    to: "/",
+  },
+];
+
 const Ticket = () => {
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto grid grid-cols-2 pt-12 gap-12 ">
         <TicketDetails />

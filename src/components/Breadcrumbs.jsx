@@ -1,27 +1,25 @@
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 
-const options = [
-  {
-    key: nanoid(),
-    text: "Home",
-    to: "/",
-  },
-  {
-    key: nanoid(),
-    text: "Projects",
-    to: "/projects",
-  },
-];
+const Breadcrumbs = ({ optionsData }) => {
+  const options = [
+    {
+      key: nanoid(),
+      text: "Home",
+      to: "/",
+    },
+    ...optionsData,
+  ];
 
-const Breadcrumbs = () => {
   return (
     <div className="text-sm breadcrumbs text-gray-800">
       <ul>
         {options.map((options) => {
           return (
             <li key={options.key}>
-              <Link to={options.to}>{options.text}</Link>
+              <Link to={options.to} className="capitalize">
+                {options.text}
+              </Link>
             </li>
           );
         })}

@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Breadcrumbs, RcTable, Table } from "../components";
 import {
   CompanyData,
@@ -8,11 +9,19 @@ import {
 } from "../features/Dashboard";
 import { data, state } from "../features/Projects/constants/ProjectsData";
 
+const options = [
+  {
+    key: nanoid(),
+    text: "Dashboard",
+    to: "/",
+  },
+];
+
 const Dashboard = () => {
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto mt-12 grid ">
         <TicketsStats />

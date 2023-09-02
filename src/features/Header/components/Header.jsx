@@ -7,7 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import MenuSettings from "./MenuSettings";
 
-const Header = () => {
+const Header = ({ setShouldHideSidebar }) => {
   const [scrolling, setScrolling] = useState(false);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
   const userImageRef = useRef(null);
@@ -54,7 +54,12 @@ const Header = () => {
     >
       <header>
         <section className="flex items-center gap-3 text-2xl px-6">
-          <button className="hover:scale-110">
+          <button
+            className="hover:scale-110"
+            onClick={() =>
+              setShouldHideSidebar((shouldHideSidebar) => !shouldHideSidebar)
+            }
+          >
             <AiOutlineMenu
               className={`cursor-pointer ${scrolling && "text-black"} `}
             />
@@ -62,7 +67,7 @@ const Header = () => {
           <Link
             className={` ${
               scrolling ? "#003366" : "text-red-500"
-            }  font-semibold " to="/`}  
+            }  font-semibold " to="/`}
           >
             BugMender
           </Link>

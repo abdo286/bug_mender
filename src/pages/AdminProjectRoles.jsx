@@ -1,10 +1,20 @@
+import { nanoid } from "nanoid";
 import { Breadcrumbs, FormSelect } from "../components";
 import { Table } from "../features/Admin";
+
 const AdminProjectRoles = () => {
+  const options = [
+    {
+      key: nanoid(),
+      text: `admin/project/${5}`,
+      to: "/",
+    },
+  ];
+
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[90%] mx-auto mt-12 grid grid-cols-[40fr_60fr] gap-12">
         <div>

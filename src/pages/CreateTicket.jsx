@@ -2,12 +2,22 @@ import { useState } from "react";
 import { Breadcrumbs } from "../components";
 import { FormInput, FormSelect } from "../components";
 import ReactQuill from "react-quill";
+import { nanoid } from "nanoid";
+
+const options = [
+  {
+    key: nanoid(),
+    text: "create-ticket",
+    to: "/create-ticket",
+  },
+];
+
 const CreateTicket = () => {
   const [value, setValue] = useState("");
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <section className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-sm ">
         <form className="flex flex-col gap-5">
@@ -22,7 +32,9 @@ const CreateTicket = () => {
           <FormSelect label="Project" />
           <FormSelect label="Status" />
           <div className="flex justify-between my-8">
-            <button className="btn" type="button">Cancel</button>
+            <button className="btn" type="button">
+              Cancel
+            </button>
             <button className="btn btn-neutral">Submit</button>
           </div>
         </form>

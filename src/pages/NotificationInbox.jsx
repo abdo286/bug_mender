@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../components";
+import { nanoid } from "nanoid";
+
+const options = [
+  {
+    key: nanoid(),
+    text: "Notifications ",
+    to: "/notification-inbox",
+  },
+];
 
 const NotificationInbox = () => {
   return (
     <section>
       <div className="mt-3">
-        <Breadcrumbs />
+        <Breadcrumbs optionsData={options} />
       </div>
       <div className="w-[90%] mx-auto mt-12 ">
         <h2 className="text-xl mb-10">Notifications</h2>
