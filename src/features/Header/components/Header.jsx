@@ -112,7 +112,7 @@ const Header = ({ setShouldHideSidebar }) => {
               setShowNotifications((showNotifications) => !showNotifications);
             }}
           />
-          {showNotifications === false ? (
+          {showNotifications ? (
             <Notifications
               menuRef={menuRef}
               setShowNotifications={setShowNotifications}

@@ -20,6 +20,7 @@ const TicketAttachments = () => {
               <div>
                 <input
                   type="file"
+                  multiple
                   className="file-input file-input-bordered file-input-info w-full max-w-xs "
                 />
               </div>

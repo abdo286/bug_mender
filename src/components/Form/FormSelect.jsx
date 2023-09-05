@@ -1,18 +1,18 @@
-const Select = ({ label, placeholder }) => {
+const Select = ({ label, placeholder, register, values, text }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold">{label}</span>
+        <span className="label-text font-semibold">{text || label}</span>
       </label>
-      <select className="select select-bordered font-normal text-gray-800">
-        <option disabled selected>
-          Pick one
-        </option>
-        <option>Star Wars</option>
-        <option>Harry Potter</option>
-        <option>Lord of the Rings</option>
-        <option>Planet of the Apes</option>
-        <option>Star Trek</option>
+      <select
+        className="select select-bordered font-normal text-gray-800"
+        {...register(label.toLowerCase())}
+      >
+        {values.map((option) => (
+          <option key={option} value={option.toLowerCase()}>
+            {option}
+          </option>
+        ))}
       </select>
     </div>
   );

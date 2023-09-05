@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const ProjectCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl ">
       <figure>
@@ -30,7 +33,12 @@ const ProjectCard = () => {
           </p>
         </section>
         <div className="card-actions justify-end mt-6">
-          <button className=" btn bg-[#339af0] text-gray-100 hover:bg-[#228be6]  ">
+          <button
+            className=" btn bg-[#339af0] text-gray-100 hover:bg-[#228be6]"
+            onClick={() => {
+              navigate("/projects/5");
+            }}
+          >
             View
           </button>
         </div>

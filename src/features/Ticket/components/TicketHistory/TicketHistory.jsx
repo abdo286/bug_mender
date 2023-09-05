@@ -1,5 +1,5 @@
-import BaseTable from "react-base-table";
-import columns from "../../constants/TicketHistoryColumns";
+// import BaseTable from "react-base-table";
+// import columns from "../../constants/TicketHistoryColumns";
 import "./TicketHistory.css";
 import { Table } from "../../../../components";
 
