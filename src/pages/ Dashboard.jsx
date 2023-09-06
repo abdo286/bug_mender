@@ -6,8 +6,15 @@ import {
   UserStats,
   PriorityProjects,
   RolesByProjects,
+  membersData,
+  membersState,
+  MembersTable,
 } from "../features/Dashboard";
 import { data, state } from "../features/Projects/constants/ProjectsData";
+import {
+  data as TicketsData,
+  state as TicketsState,
+} from "../features/Tickets/constants/TicketsData";
 
 const options = [
   {
@@ -33,13 +40,13 @@ const Dashboard = () => {
         </section>
         <section className="grid grid-cols-[40fr_60fr] gap-8 w-full">
           <section className="bg-white px-10 py-6 mt-8">
-            <Table
-              data={data}
-              state={state}
-              title={"Projects"}
+            {/* <Table
+              data={membersData}
+              state={membersState}
+              title={"Members"}
               sortByColor="bg-white"
-              className="mt-3"
-            />
+            /> */}
+            <MembersTable/>
           </section>
           <section className="bg-white px-10 py-6 mt-8">
             <Table
@@ -47,27 +54,11 @@ const Dashboard = () => {
               state={state}
               title={"Projects"}
               sortByColor="bg-white"
-              className="mt-3"
             />
           </section>
         </section>{" "}
-        <section className="bg-white px-10 py-6 mt-8">
-          <Table
-            data={data}
-            state={state}
-            title={"Projects"}
-            sortByColor="bg-white"
-            className="mt-3"
-          />
-        </section>
-        <section className="bg-white px-10 py-6 mt-8">
-          <RcTable
-            data={data}
-            state={state}
-            title={"Projects"}
-            sortByColor="bg-white"
-            className="mt-3"
-          />
+        <section className="bg-white px-10 py-6 mt-16">
+          <Table data={TicketsData} state={TicketsState} title={"Tickets"} />
         </section>
       </section>
     </div>
