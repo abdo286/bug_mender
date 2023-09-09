@@ -15,7 +15,7 @@ const options = [
 ];
 
 const query = async () => {
-  return supabase.from("tickets").select("*");
+  return supabase.from("tickets _duplicate").select();
 };
 
 const Tickets = () => {

@@ -8,6 +8,7 @@ const useFetch = (query) => {
     async function getData() {
       setError(null);
       setLoading(true);
+      console.log('war', query)
       const { data, error } = await query();
 
       if (error) setError(error);

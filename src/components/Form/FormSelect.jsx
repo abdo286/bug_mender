@@ -1,4 +1,4 @@
-const Select = ({ label, placeholder, register, values, text }) => {
+const Select = ({ label, placeholder, register, values, text, name }) => {
   return (
     <div className="form-control">
       <label className="label">
@@ -6,7 +6,7 @@ const Select = ({ label, placeholder, register, values, text }) => {
       </label>
       <select
         className="select select-bordered font-normal text-gray-800"
-        {...register(label.toLowerCase())}
+        {...register(name || label.toLowerCase())}
       >
         {values.map((option) => (
           <option key={option} value={option.toLowerCase()}>

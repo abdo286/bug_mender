@@ -17,7 +17,7 @@ const options = [
 ];
 
 const query = async () => {
-  return supabase.from("projects").select("*");
+  return supabase.from("projects").select();
 };
 
 const Projects = () => {

@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { Breadcrumbs } from "../components";
 import { FormInput, FormSelect } from "../components";
 // import ReactQuill from "react-quill";
 import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
+import { supabase } from "../libs/supabaseClient";
 
 const options = [
   {
@@ -32,7 +32,17 @@ const CreateTicket = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (formData) => {
+    const data = {
+      ...formData,
+      createdAt: new Date(),
+      projectId: "1",
+      description: "war",
+      assignedTo: null,
+    };
+    delete data.project;
+    const { error } = await supabase.from("tickets _duplicate").insert(data);
+    console.warn(error);
     reset();
   };
 
@@ -46,7 +56,7 @@ const CreateTicket = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <form className="flex flex-col gap-5">
-          <FormInput label="Title" register={register} errors={errors} />
+          <FormInput label="name" register={register} errors={errors} />
           <section className="flex flex-col gap-2 my-3">
             <p className="font-semibold">Description</p>
             {/* <Controller
@@ -91,7 +101,8 @@ const CreateTicket = () => {
             text="Assigned Developer"
             label="assignedDeveloper"
             register={register}
-            values={["user30", "user11", "user33"]}
+            values={[]}
+            name="assignedTo"
           />
           <section className="mt-3">
             <p className="label-text font-semibold">Attach File: </p>

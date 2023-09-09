@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import { supabase } from "../libs/supabaseClient";
 
 const options = [
   {
@@ -45,7 +46,18 @@ const CreateProject = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (formData) => {
+    const data = {
+      ...formData,
+      startDate: new Date(),
+      endDate: new Date(),
+      createdAt: new Date(),
+      projectManager: formData.projectmanager || null,
+    };
+    delete data.developers;
+    delete data.projectmanager;
+    const { error } = await supabase.from("projects").insert(data);
+    if (error) console.warn(error);
     reset();
   };
 
@@ -56,7 +68,7 @@ const CreateProject = () => {
       </div>
       <section className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md ">
         <form className="flex flex-col gap-5">
-          <FormInput label="Title" register={register} errors={errors} />
+          <FormInput label="name" register={register} errors={errors} />
           <section className="flex flex-col gap-2 my-3">
             <p className="font-semibold">Description</p>
             {/* <Controller
@@ -86,7 +98,7 @@ const CreateProject = () => {
             text="Project Manager"
             label="projectManager"
             register={register}
-            values={["user30", "user33", "user3"]}
+            values={[]}
           />
           <section>
             <p className="label-text font-semibold">Assigned Developers</p>
@@ -94,7 +106,6 @@ const CreateProject = () => {
             <Controller
               name="developers"
               control={control}
-              rules={{ required: true }}
               render={({ field }) => (
                 <Select
                   {...field}
@@ -107,7 +118,7 @@ const CreateProject = () => {
           </section>
 
           <Controller
-            name="startDate"
+            name="deadline"
             control={control}
             rules={{ required: true }}
             render={({ field }) => <DatePicket field={field} />}
