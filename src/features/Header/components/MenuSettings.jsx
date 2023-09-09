@@ -3,17 +3,24 @@ import { BiLogOut } from "react-icons/bi";
 import { BsPersonFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../../../libs/supabaseClient";
 
-const MenuSettings = forwardRef(function MenuSettings({
-  menuRef,
-  setShowMenuOptions,
-}) {
+const MenuSettings = forwardRef(function MenuSettings(
+  { setShowMenuOptions },
+  ref
+) {
   const navigate = useNavigate();
+
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+    console.warn(error);
+  };
+
   return (
     <motion.div>
       <motion.div
         className="absolute translate-y-1 -left-48 shadow-md rounded-md"
-        ref={menuRef}
+        ref={ref}
       >
         <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center">
           <div className="w-9 h-9">
@@ -40,7 +47,10 @@ const MenuSettings = forwardRef(function MenuSettings({
               <BsPersonFill className="text-xl text-[#3B82F6]" />
               My Profile
             </li>
-            <li className="cursor-pointer text-sm text-gray-600 font-medium flex items-center gap-2  hover:bg-[#f1f3f5] pt-5 pb-3 pl-5 transition-all ease-in-out duration-100 active:bg-[#66D9E8]">
+            <li
+              className="cursor-pointer text-sm text-gray-600 font-medium flex items-center gap-2  hover:bg-[#f1f3f5] pt-5 pb-3 pl-5 transition-all ease-in-out duration-100 active:bg-[#66D9E8]"
+              onClick={logout}
+            >
               <BiLogOut className="text-xl text-[#fa5252]" />
               Log Out
             </li>

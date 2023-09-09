@@ -1,20 +1,20 @@
-const FormInput = ({ label, register, errors }) => {
+const FormInput = ({ label, register, errors, type }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold">{label}</span>
+        <span className="label-text font-semibold capitalize">{label}</span>
       </label>
       <input
-        type="text"
+        type={type || "text"}
         placeholder="Type here"
         className="input input-bordered"
-        {...register("title", { required: true, minLength: 3 })}
-        aria-invalid={errors.title ? "true" : "false"}
+        {...register(label, { required: true, minLength: 3 })}
+        aria-invalid={errors[label] ? "true" : "false"}
       />
 
-      {errors.title?.type === "required" && (
+      {errors[label]?.type === "required" && (
         <p role="alert" className="text-sm text-red-600 mt-1">
-          Title is required
+          <span className="capitalize"> {label} </span>is required
         </p>
       )}
     </div>

@@ -38,7 +38,7 @@ const ProjectTickets = () => {
   return (
     <div className="bg-white rounded-lg h-fit">
       <div className="px-8 py-6">
-        <Table title="Tickets" data={data} state={state} />
+        <Table title="Tickets" data={data} state={state}  />
       </div>
     </div>
   );

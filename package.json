@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/auth-ui-react": "^0.4.4",
+    "@supabase/auth-ui-shared": "^0.1.6",
+    "@supabase/supabase-js": "^2.33.1",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.16.1",
     "nanoid": "^4.0.2",
     "rc-animate": "^3.1.1",
@@ -20,9 +24,11 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.1",
     "react-icons": "^4.10.1",
+    "react-modal": "^3.16.1",
     "react-popper-tooltip": "^4.4.2",
-    "react-quill": "^2.0.0",
+    "react-quill": "^0.0.2",
     "react-resizable": "^3.0.5",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.15.0",
     "react-select": "^5.7.4",
     "react-virtualized": "^9.22.5",

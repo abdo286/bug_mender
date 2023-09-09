@@ -3,6 +3,8 @@ import { TicketsCards, TicketsStats } from "../features/Tickets";
 import { useState } from "react";
 import { data, state } from "../features/Tickets/constants/TicketsData";
 import { nanoid } from "nanoid";
+import useFetch from "../components/hooks/useFetch";
+import { supabase } from "../libs/supabaseClient";
 
 const options = [
   {
@@ -12,7 +14,13 @@ const options = [
   },
 ];
 
+const query = async () => {
+  return supabase.from("tickets").select("*");
+};
+
 const Tickets = () => {
+  const { data: tickets, error, loading } = useFetch(query);
+
   const [view, setView] = useState("grid");
   return (
     <div>
@@ -32,19 +40,27 @@ const Tickets = () => {
           <div className="px-10 pt-16">
             <TicketsStats />
           </div>
-          {view === "table" ? (
-            <section className="mt-16 px-10 py-3 bg-white shadow-md rounded-md">
-              <Table
-                data={data}
-                state={state}
-                title={"Tickets"}
-                className="mt-12"
-              />
-            </section>
+          {loading ? (
+            <section>loading...</section>
+          ) : error ? (
+            <section>There was an error</section>
           ) : (
-            <div className="mt-16 px-10  bg-[#dee2e6] shadow-md rounded-md py-6">
-              <TicketsCards />
-            </div>
+            <section className="bg-white px-10 py-6 mt-16 shadow-md">
+              {view === "table" ? (
+                <section className="mt-16 px-10 py-3 bg-white shadow-md rounded-md">
+                  <Table
+                    data={data}
+                    state={state}
+                    title={"Tickets"}
+                    className="mt-12"
+                  />
+                </section>
+              ) : (
+                <div className="mt-16 px-10  bg-[#dee2e6] shadow-md rounded-md py-6">
+                  <TicketsCards tickets={tickets} />
+                </div>
+              )}
+            </section>
           )}
         </div>
       </section>

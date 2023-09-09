@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
 const TicketComments = () => {
   const [value, setValue] = useState("");
   return (
@@ -12,7 +12,7 @@ const TicketComments = () => {
           </h3>
         </header>
         <section className="bg-white px-6 pt-5 pb-10 flex flex-col gap-2 mt-3">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
           <div className="flex justify-end mt-8">
             <button className="btn btn-neutral">Comment</button>;
           </div>

@@ -58,7 +58,6 @@ class Demo extends React.Component {
   };
 
   onDelete = (key, e) => {
-    console.log("Delete", key);
     e.preventDefault();
     this.setState(({ data }) => ({
       data: data.filter((item) => item.key !== key),

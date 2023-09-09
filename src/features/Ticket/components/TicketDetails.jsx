@@ -43,7 +43,7 @@ const TicketDetails = () => {
           <span className="text-gray-600">low</span>
         </p>
         <p>
-          <span className="font-medium"> Ticket Type: </span>
+          <span className="font-medium"> Type: </span>
           <span className="text-gray-600">UI Request</span>
         </p>
       </section>

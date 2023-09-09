@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { parseISO, format } from "date-fns";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
+
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl ">
       <figure>
@@ -11,21 +13,18 @@ const ProjectCard = () => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Bug Tracker</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-          itaque consectetur qui rem nemo molestias ducimus. Porro, numquam
-          praesentium quae doloribus eaque illum? Inventore dolores, doloremque
-          fuga perferendis adipisci suscipit?
-        </p>
+        <h2 className="card-title">{project.name}</h2>
+        <p>{project.description}</p>
         <section className="flex flex-col gap-3 mt-6">
           <p>
             <span className="font-medium mr-1">Priority:</span>
-            <span className="text-gray-800"> High</span>
+            <span className="text-gray-800"> {project.priority}</span>
           </p>
           <p>
             <span className="font-medium mr-1">Created:</span>
-            <span className="text-gray-800">Mar 20 2022</span>
+            <span className="text-gray-800">
+              {format(parseISO(project.createdAt), "MMM dd yyyy")}
+            </span>
           </p>
           <p>
             <span className="font-medium mr-1"> Timeline:</span>

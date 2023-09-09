@@ -39,7 +39,6 @@ const Header = ({ setShouldHideSidebar }) => {
       ) {
         setShowMenuOptions(false);
       }
-      console.log(menuRef, userImageRef);
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -55,7 +54,6 @@ const Header = ({ setShouldHideSidebar }) => {
         scrolling ? "bg-[#ced4da]" : ""
       }`}
       onScroll={(e) => {
-        console.log(e);
       }}
     >
       <header>
@@ -114,7 +112,7 @@ const Header = ({ setShouldHideSidebar }) => {
           />
           {showNotifications ? (
             <Notifications
-              menuRef={menuRef}
+              ref={ref}
               setShowNotifications={setShowNotifications}
             />
           ) : null}
@@ -136,7 +134,7 @@ const Header = ({ setShouldHideSidebar }) => {
           </div>
           {showMenuOptions ? (
             <MenuSettings
-              menuRef={menuRef}
+              ref={menuRef}
               setShowMenuOptions={setShowMenuOptions}
             />
           ) : null}

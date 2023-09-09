@@ -108,7 +108,7 @@ const ProjectTable = ({
         components={components}
         columns={columns}
         data={data}
-        className={`${tableClassName} w-full overflow-auto max-h-[25rem] shadow-sm`}
+        className={`${tableClassName} w-full overflow-auto max-h-[25rem] shadow-sm `}
       />
     </div>
   );

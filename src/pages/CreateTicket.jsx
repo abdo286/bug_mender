@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Breadcrumbs } from "../components";
 import { FormInput, FormSelect } from "../components";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
 
@@ -33,7 +33,6 @@ const CreateTicket = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     reset();
   };
 
@@ -50,12 +49,12 @@ const CreateTicket = () => {
           <FormInput label="Title" register={register} errors={errors} />
           <section className="flex flex-col gap-2 my-3">
             <p className="font-semibold">Description</p>
-            <Controller
+            {/* <Controller
               name="description"
               control={control}
               rules={{ required: true }}
               render={({ field }) => <ReactQuill theme="snow" {...field} />}
-            />
+            /> */}
             {errors.description?.type === "required" && (
               <p role="alert" className="text-sm text-red-600 mt-1">
                 Description is required

@@ -25,7 +25,6 @@ const AdminProjectRoles = () => {
   } = useForm({ mode: "onTouched" });
 
   const onSubmit = (data) => {
-    console.log(data);
   };
 
   return (

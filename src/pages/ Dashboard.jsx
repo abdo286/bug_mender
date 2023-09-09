@@ -40,13 +40,12 @@ const Dashboard = () => {
         </section>
         <section className="grid grid-cols-[40fr_60fr] gap-8 w-full">
           <section className="bg-white px-10 py-6 mt-8">
-            {/* <Table
+            <Table
               data={membersData}
               state={membersState}
               title={"Members"}
               sortByColor="bg-white"
-            /> */}
-            <MembersTable/>
+            />
           </section>
           <section className="bg-white px-10 py-6 mt-8">
             <Table

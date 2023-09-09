@@ -1,12 +1,11 @@
 import TicketCard from "./card/TicketCard";
 
-const TicketsCards = () => {
+const TicketsCards = ({ tickets }) => {
   return (
     <div className="grid grid-cols-3 gap-x-6 gap-y-8 ">
-      <TicketCard />
-      <TicketCard />
-      <TicketCard />
-      <TicketCard />
+      {tickets.map((ticket) => {
+        <TicketCard key={ticket.id} ticket={ticket} />;
+      })}
     </div>
   );
 };

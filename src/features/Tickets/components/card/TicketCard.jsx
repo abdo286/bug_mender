@@ -28,29 +28,17 @@ const getStatusClass = (status) => {
   return statusClass;
 };
 
-const TicketCard = () => {
+const TicketCard = ({ ticket }) => {
   const navigate = useNavigate();
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl ">
       <div className="card-body">
-        <h2 className="card-title lines-3">
-          {" "}
-          Modal doesn&apos;t close when I press the modal iconModal doesn&apos;t
-          close when I press the modal iconCard title!
-        </h2>
-        <p className="lines-5 text-sm mb-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          quibusdam sequi adipisci velit totam aliquid illum, harum culpa
-          voluptatum molestias. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Tenetur quibusdam sequi adipisci velit totam aliquid
-          illum, harum culpa voluptatum molestias. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Tenetur quibusdam sequi adipisci velit
-          totam aliquid illum, harum culpa voluptatum molestias.
-        </p>
+        <h2 className="card-title lines-3">{ticket.name}</h2>
+        <p className="lines-5 text-sm mb-3">{ticket.description}</p>
         <section className="flex flex-col gap-1">
           <p className="text-sm">
-            <span className="font-medium ">Type: </span> defect
+            <span className="font-medium ">Type: </span> {ticket.type}
           </p>
           <p className="text-sm">
             <span className="font-medium ">Project Title: </span> Bug Tracker
@@ -64,7 +52,9 @@ const TicketCard = () => {
           <div className="flex justify-start items-center">
             <span className="font-medium mr-1">Priority: </span>{" "}
             <span
-              className={`${getPriorityClass("low")} font-semibold capitalize `}
+              className={`${getPriorityClass(
+                ticket.priority
+              )} font-semibold capitalize `}
             >
               {"low"}
             </span>
@@ -72,7 +62,9 @@ const TicketCard = () => {
           <div className="flex justify-start items-center text-sm">
             <span className="font-medium mr-1">Status: </span>
             <span
-              className={` ${getStatusClass("new")} font-semibold capitalize `}
+              className={` ${getStatusClass(
+                ticket.status
+              )} font-semibold capitalize `}
             >
               {"New"}
             </span>
