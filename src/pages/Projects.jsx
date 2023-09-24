@@ -7,6 +7,7 @@ import { data, state } from "../features/Projects/constants/ProjectsData";
 import { nanoid } from "nanoid";
 import { supabase } from "../libs/supabaseClient";
 import useFetch from "../components/hooks/useFetch";
+import "react-quill/dist/quill.snow.css";
 
 const options = [
   {

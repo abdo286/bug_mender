@@ -1,9 +1,12 @@
 import { Breadcrumbs } from "../components";
 import { FormInput, FormSelect } from "../components";
-// import ReactQuill from "react-quill";
 import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
 import { supabase } from "../libs/supabaseClient";
+import Select from "react-select";
+import { toast } from "react-toastify";
+import useUsersContext from "../context/UsersContext";
+import { useMemo } from "react";
 
 const options = [
   {
@@ -31,6 +34,15 @@ const CreateTicket = () => {
       description: "",
     },
   });
+  const { users } = useUsersContext();
+
+  const developers = useMemo(() => {
+    return users
+      .filter((user) => user.role === "developer")
+      .map((user) => {
+        return { value: user.id, label: user.name };
+      });
+  }, [users]);
 
   const onSubmit = async (formData) => {
     const data = {
@@ -42,6 +54,10 @@ const CreateTicket = () => {
     };
     delete data.project;
     const { error } = await supabase.from("tickets _duplicate").insert(data);
+    if (error) toast.error(error);
+    else {
+      toast.success("Ticket was created successfully");
+    }
     console.warn(error);
     reset();
   };
@@ -97,13 +113,23 @@ const CreateTicket = () => {
             register={register}
             values={["Bug Tracker"]}
           />
-          <FormSelect
-            text="Assigned Developer"
-            label="assignedDeveloper"
-            register={register}
-            values={[]}
-            name="assignedTo"
-          />
+
+          <section className="mt-1">
+            <p className="label-text font-semibold mb-2">Assigned To</p>
+
+            <Controller
+              name="developers"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  isMulti={true}
+                  isSearchable={true}
+                  options={developers}
+                />
+              )}
+            />
+          </section>
           <section className="mt-3">
             <p className="label-text font-semibold">Attach File: </p>
 

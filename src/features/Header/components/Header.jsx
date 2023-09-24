@@ -7,8 +7,9 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import MenuSettings from "./MenuSettings";
 import Notifications from "./Notifications";
+import PropTypes from "prop-types";
 
-const Header = ({ setShouldHideSidebar }) => {
+const Header = ({ setShouldHideSidebar, user }) => {
   const [scrolling, setScrolling] = useState(false);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -53,8 +54,6 @@ const Header = ({ setShouldHideSidebar }) => {
       className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0 z-50 ${
         scrolling ? "bg-[#ced4da]" : ""
       }`}
-      onScroll={(e) => {
-      }}
     >
       <header>
         <section className="flex items-center gap-3 text-2xl px-6">
@@ -105,14 +104,14 @@ const Header = ({ setShouldHideSidebar }) => {
             className={`text-2xl text-blue-500 cursor-pointer ${
               scrolling && "!text-gray-800"
             }`}
-            notificationsRef={notificationsRef}
+            ref={notificationsRef}
             onClick={() => {
               setShowNotifications((showNotifications) => !showNotifications);
             }}
           />
           {showNotifications ? (
             <Notifications
-              ref={ref}
+              ref={notificationRef}
               setShowNotifications={setShowNotifications}
             />
           ) : null}
@@ -136,6 +135,7 @@ const Header = ({ setShouldHideSidebar }) => {
             <MenuSettings
               ref={menuRef}
               setShowMenuOptions={setShowMenuOptions}
+              user={user}
             />
           ) : null}
         </div>
@@ -143,4 +143,16 @@ const Header = ({ setShouldHideSidebar }) => {
     </header>
   );
 };
+
+Header.propTypes = {
+  setShouldHideSidebar: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    created_at: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    updated_at: PropTypes.string.isRequired,
+    last_sign_in_at: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default Header;

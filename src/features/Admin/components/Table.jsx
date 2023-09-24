@@ -1,6 +1,7 @@
 import TableRow from "./TableRow";
+import PropTypes from "prop-types";
 
-const Table = () => {
+const Table = ({ projectAssignedUsers }) => {
   return (
     <div>
       <div className="overflow-x-auto">
@@ -18,11 +19,18 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            <TableRow />
+            {projectAssignedUsers.map((user) => (
+              <TableRow key={user.id} user={user} />
+            ))}
           </tbody>
         </table>
       </div>
     </div>
   );
 };
+
+Table.propTypes = {
+  projectAssignedUsers: PropTypes.arrayOf(PropTypes),
+};
+
 export default Table;

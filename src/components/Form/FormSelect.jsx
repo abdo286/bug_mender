@@ -2,7 +2,9 @@ const Select = ({ label, placeholder, register, values, text, name }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold">{text || label}</span>
+        <span className="label-text font-semibold capitalize">
+          {text || label}
+        </span>
       </label>
       <select
         className="select select-bordered font-normal text-gray-800"

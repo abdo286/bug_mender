@@ -8,6 +8,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #f1f3f5;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 /* @layer components {
   .hover-link {

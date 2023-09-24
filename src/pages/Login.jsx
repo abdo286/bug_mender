@@ -1,11 +1,9 @@
-import { useState } from "react";
 import FormInput from "../components/Form/FormInput";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../libs/supabaseClient";
 
 const Login = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
   const {
     register,
     handleSubmit,

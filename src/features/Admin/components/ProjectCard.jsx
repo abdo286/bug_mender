@@ -1,25 +1,25 @@
+import { format, parseISO } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
   return (
     <div className="card card-compact w-96 shadow-xl bg-[#4A55A2] text-white">
       <div className="card-body ">
-        <h2 className="card-title">Bug Tracker</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-          itaque consectetur qui rem nemo molestias ducimus. Porro, numquam
-          praesentium quae doloribus eaque illum? Inventore dolores, doloremque
-          fuga perferendis adipisci suscipit?
-        </p>
+        <h2 className="card-title">{project.name}</h2>
+        <p>{project.description}</p>
         <section className="flex flex-col gap-3 mt-6">
           <p>
             <span className="font-medium mr-1">Priority:</span>
-            <span className="text-white"> High</span>
+            <span className="text-white"> {project.priority}</span>
           </p>
           <p>
             <span className="font-medium mr-1">Created:</span>
-            <span className="text-white">Mar 20 2022</span>
+            <span className="text-white">
+              {" "}
+              {format(parseISO(project.createdAt), "MMM dd yyyy")}
+            </span>
           </p>
           <p>
             <span className="font-medium mr-1"> Timeline:</span>
@@ -30,7 +30,7 @@ const ProjectCard = () => {
           <button
             className=" btn bg-[#339af0] text-gray-100 hover:bg-[#228be6]"
             onClick={() => {
-              navigate("/admin/project/30");
+              navigate(`/admin/project/${project.id}`);
             }}
           >
             Manage
@@ -40,4 +40,15 @@ const ProjectCard = () => {
     </div>
   );
 };
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    priority: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    id: PropTypes.string
+  }).isRequired,
+};
+
 export default ProjectCard;

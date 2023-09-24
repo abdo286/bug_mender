@@ -38,9 +38,12 @@ const MainHeader = ({ view, setView, text, path }) => {
         </div>
       </section>
       <section className="flex justify-end w-full">
-        <button className="text-sm font-medium bg-gray-600 hover:bg-gray-700 transition-all duration-150 ease-in-out text-white px-4 py-3 rounded-xl " onClick={()=>{
-          navigate(path)
-        }}>
+        <button
+          className="text-sm font-medium bg-gray-600 hover:bg-gray-700 transition-all duration-150 ease-in-out text-white px-4 py-3 rounded-xl "
+          onClick={() => {
+            navigate(path);
+          }}
+        >
           Create {text}
         </button>
       </section>

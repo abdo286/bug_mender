@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Breadcrumbs, RcTable, Table } from "../components";
+import { Breadcrumbs, RTable, RcTable, Table } from "../components";
 import {
   CompanyData,
   TicketsStats,
@@ -59,7 +59,10 @@ const Dashboard = () => {
         <section className="bg-white px-10 py-6 mt-16">
           <Table data={TicketsData} state={TicketsState} title={"Tickets"} />
         </section>
-      </section>
+        <section className="mt-16">
+          <RTable />
+        </section>
+      </section>{" "}
     </div>
   );
 };

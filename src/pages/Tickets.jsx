@@ -15,7 +15,7 @@ const options = [
 ];
 
 const query = async () => {
-  return supabase.from("tickets _duplicate").select();
+  return supabase.from("tickets").select();
 };
 
 const Tickets = () => {
@@ -45,7 +45,8 @@ const Tickets = () => {
           ) : error ? (
             <section>There was an error</section>
           ) : (
-            <section className="bg-white px-10 py-6 mt-16 shadow-md">
+            <section className=" bg-white shadow-md px-10 py-6 mt-16 ">
+              <h2 className="text-2xl font-medium">Tickets</h2>
               {view === "table" ? (
                 <section className="mt-16 px-10 py-3 bg-white shadow-md rounded-md">
                   <Table
@@ -56,7 +57,7 @@ const Tickets = () => {
                   />
                 </section>
               ) : (
-                <div className="mt-16 px-10  bg-[#dee2e6] shadow-md rounded-md py-6">
+                <div className="mt-16 px-10 rounded-md py-6">
                   <TicketsCards tickets={tickets} />
                 </div>
               )}

@@ -1,7 +1,10 @@
 import { BiShow } from "react-icons/bi";
 import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin7Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 const TicketDetails = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white h-full shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">
@@ -49,7 +52,12 @@ const TicketDetails = () => {
       </section>
       <footer className="px-6 py-6 mb-3">
         <devi className="flex items-center gap-4 justify-end">
-          <LuEdit className="text-xl text-blue-500 cursor-pointer " />
+          <LuEdit
+            className="text-xl text-blue-500 cursor-pointer "
+            onClick={() => {
+              navigate(`/create-ticket`);
+            }}
+          />
           <RiDeleteBin7Line className="text-xl text-red-500 cursor-pointer  " />
         </devi>
       </footer>

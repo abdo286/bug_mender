@@ -1,11 +1,14 @@
 import { useState } from "react";
 import FormInput from "../components/Form/FormInput";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../libs/supabaseClient";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -18,7 +21,28 @@ const Login = () => {
       email: formData.email,
       password: formData.password,
     });
-    if (error) console.warn(error);
+    // createedAt, updated, name, email , role, image, lastname
+    const { error: userError } = await supabase
+      .from("profiles")
+      .insert({ email: formData.email, name: formData.name });
+
+    // if (error) {
+    //   toast.error(error);
+    // }
+    // if (userError) {
+    //   toast.error(userError);
+    if (!error && !userError) {
+      toast.info("A sign-up confirmation was sent to your email.", {
+        onClick: () => {
+          navigate("/login");
+        },
+        autoClose: 5000,
+      });
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 5000);
+    }
   };
 
   return (

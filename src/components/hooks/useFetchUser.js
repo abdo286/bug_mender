@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
-const useFetch = (query) => {
+const useFetchUser = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -15,9 +15,6 @@ const useFetch = (query) => {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    getData(query);
-  }, [query, getData]);
-  return { loading, data, error };
+  return { loading, data, error, getData };
 };
-export default useFetch;
+export default useFetchUser;

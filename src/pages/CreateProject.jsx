@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import { Breadcrumbs, DatePicket } from "../components";
 import { FormInput, FormSelect } from "../components";
-// import ReactQuill from "react-quill";
+import ReactQuill from "react-quill";
 import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import { supabase } from "../libs/supabaseClient";
+import { toast } from "react-toastify";
+import useUsersContext from "../context/UsersContext";
 
 const options = [
   {
@@ -21,14 +23,24 @@ const options = [
   },
 ];
 
-const developers = [
-  { value: "user30", label: "user30" },
-  { value: "user33", label: "user33" },
-  { value: "user3", label: "user3" },
-];
-
 const CreateProject = () => {
-  const [value, setValue] = useState("");
+  const { users } = useUsersContext();
+  const developers = useMemo(() => {
+    return users
+      .filter((user) => user.role === "developer")
+      .map((user) => {
+        return { value: user.id, label: user.name };
+      });
+  }, [users]);
+
+  const projectManagers = useMemo(() => {
+    return users
+      .filter((user) => user.role === "projectManager")
+      .map((user) => {
+        return { value: user.id, label: user.name };
+      });
+  }, [users]);
+
   const navigate = useNavigate();
 
   const {
@@ -57,7 +69,10 @@ const CreateProject = () => {
     delete data.developers;
     delete data.projectmanager;
     const { error } = await supabase.from("projects").insert(data);
-    if (error) console.warn(error);
+    if (error) toast.error(error);
+    else {
+      toast.success("Ticket was created successfully");
+    }
     reset();
   };
 
@@ -71,12 +86,12 @@ const CreateProject = () => {
           <FormInput label="name" register={register} errors={errors} />
           <section className="flex flex-col gap-2 my-3">
             <p className="font-semibold">Description</p>
-            {/* <Controller
+            <Controller
               name="description"
               control={control}
               rules={{ required: true }}
               render={({ field }) => <ReactQuill theme="snow" {...field} />}
-            /> */}
+            />
             {errors.description?.type === "required" && (
               <p role="alert" className="text-sm text-red-600 mt-1">
                 Description is required
@@ -94,14 +109,24 @@ const CreateProject = () => {
             register={register}
             values={["new", "development", "resolved"]}
           />
-          <FormSelect
-            text="Project Manager"
-            label="projectManager"
-            register={register}
-            values={[]}
-          />
-          <section>
-            <p className="label-text font-semibold">Assigned Developers</p>
+
+          <div className="mt-1">
+            <p className="label-text font-semibold mb-2">Project Manager</p>
+
+            <Controller
+              name="Project Manager"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  isSearchable={true}
+                  options={projectManagers}
+                />
+              )}
+            />
+          </div>
+          <section className="mt-1">
+            <p className="label-text font-semibold mb-2">Assigned Developers</p>
 
             <Controller
               name="developers"
