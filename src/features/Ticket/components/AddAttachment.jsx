@@ -49,7 +49,7 @@ const AddAttachment = ({ ticketId }) => {
     }
 
     const { error } = await supabase.from("attachments").insert({
-      userId: userProfile.data[0].id,
+      userId: userProfile.data.id,
       ticketId,
       url: imagePath.current,
       description: description,

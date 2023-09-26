@@ -7,7 +7,7 @@ const TicketDetails = ({ ticket }) => {
   const navigate = useNavigate();
   console.log("ticket300", ticket);
   return (
-    <div className="bg-white h-full shadow-md">
+    <div className="bg-white h-fit shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">
         <h3 className=" text-white lines-1 ">
           {ticket.description} <span>Details</span>

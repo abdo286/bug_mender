@@ -3,7 +3,12 @@ import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-const TicketComments = () => {
+import useAuthContext from "../../../context/AuthContext";
+import PropTypes from "prop-types";
+
+const TicketComments = ({ ticketId }) => {
+  const { userProfile } = useAuthContext();
+
   const {
     handleSubmit,
     formState: { errors },
@@ -21,13 +26,17 @@ const TicketComments = () => {
   const onSubmit = async (formData) => {
     const { comment } = formData;
 
-    // we still need to add the userId and ticketId
-    const { error } = await supabase.from("comments").insert({ comment });
-    if (error) toast.error(error);
-    else {
+    const { error } = await supabase
+      .from("comments")
+      .insert({ comment, userId: userProfile.data.id, ticketId });
+
+    if (error) {
+      toast.error("There was an error adding the comment");
+      console.log(error);
+    } else {
       toast.success("Comment was added successfully");
+      reset();
     }
-    reset();
   };
 
   return (
@@ -60,5 +69,9 @@ const TicketComments = () => {
       </div>
     </div>
   );
+};
+
+TicketComments.propTypes = {
+  ticketId: PropTypes.string.isRequired,
 };
 export default TicketComments;

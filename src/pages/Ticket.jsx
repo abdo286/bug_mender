@@ -4,7 +4,6 @@ import { Breadcrumbs, RTable } from "../components";
 import {
   TicketAttachments,
   TicketDetails,
-  TicketHistory,
   TicketsDetailsLoader,
   TicketComments,
 } from "../features/Ticket";
@@ -36,6 +35,13 @@ const Ticket = () => {
           .eq("id", ticketId),
       attachmentsQuery: () =>
         supabase.from("attachments").select().eq("ticketId", ticketId),
+      commentsQuery: () =>
+        supabase
+          .from("comments")
+          .select(
+            `id, createdAt, ticketId, comment, profiles (id, name, email, role, image, lastName, country )`
+          )
+          .eq("ticketId", ticketId),
     };
   }, [ticketId]);
 
@@ -49,6 +55,12 @@ const Ticket = () => {
     error: attachmentsError,
     loading: attachmentsLoading,
   } = useFetch(queries.attachmentsQuery);
+
+  const {
+    data: comments,
+    error: commentsError,
+    loading: commentsLoading,
+  } = useFetch(queries.commentsQuery);
 
   if (ticketsError) console.log(ticketsError);
 
@@ -79,7 +91,14 @@ const Ticket = () => {
           }}
         />
 
-        <TicketComments />
+        <TicketComments
+          ticketId={ticketId}
+          comments={{
+            data: comments,
+            error: commentsError,
+            loading: commentsLoading,
+          }}
+        />
       </section>
     </div>
   );

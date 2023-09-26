@@ -54,16 +54,9 @@ const Tickets = () => {
             <section className=" bg-white shadow-md px-10 py-6 mt-16 ">
               <h2 className="text-2xl font-medium">Tickets</h2>
               {view === "table" ? (
-                <section className="mt-16 px-10 py-3 bg-white shadow-md rounded-md">
-                  <Table
-                    data={data}
-                    state={state}
-                    title={"Tickets"}
-                    className="mt-12"
-                  />
-                </section>
+                <Table data={data} state={state} className="mt-12" />
               ) : (
-                <div className="mt-16 px-10 rounded-md py-6">
+                <div className="mt-8 px-10 rounded-md py-6">
                   <TicketsCards tickets={tickets} />
                 </div>
               )}

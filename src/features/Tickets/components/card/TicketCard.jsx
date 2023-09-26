@@ -37,7 +37,7 @@ const TicketCard = ({ ticket }) => {
       <div className="card-body">
         <h2 className="card-title lines-3">{ticket.name}</h2>
         <p className="lines-5 text-sm mb-3">{ticket.description}</p>
-        <section className="flex flex-col gap-1">
+        <section className="flex flex-col gap-3">
           <p className="text-sm">
             <span className="font-medium ">Type: </span> {ticket.type}
           </p>
