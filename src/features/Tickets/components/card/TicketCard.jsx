@@ -5,11 +5,11 @@ const getPriorityClass = (priority) => {
   let priorityClass = "";
 
   if (priority.toLowerCase() === "low") {
-    priorityClass = "text-green-600";
+    priorityClass = "text-[#FFFF00]";
   } else if (priority.toLowerCase() === "medium") {
-    priorityClass = "text-yellow-600";
+    priorityClass = "text-[#00FFFF]";
   } else if (priority.toLowerCase() === "high") {
-    priorityClass = "text-red-600";
+    priorityClass = "text-[(#FF99CC]";
   }
 
   return priorityClass;
@@ -19,11 +19,11 @@ const getStatusClass = (status) => {
   let statusClass = "";
 
   if (status.toLowerCase() === "new") {
-    statusClass = "text-blue-600";
+    statusClass = "text-[#FFFFFF]";
   } else if (status.toLowerCase() === "development") {
-    statusClass = "text-yellow-600";
+    statusClass = "text-[(#CCCCCC]";
   } else if (status.toLowerCase() === "resolved") {
-    statusClass = "text-green-600";
+    statusClass = "text-[#00FF00]";
   }
 
   return statusClass;
@@ -42,13 +42,16 @@ const TicketCard = ({ ticket }) => {
             <span className="font-medium ">Type: </span> {ticket.type}
           </p>
           <p className="text-sm">
-            <span className="font-medium ">Project Title: </span> Bug Tracker
+            <span className="font-medium ">Project Title: </span>{" "}
+            {ticket.projects.name}
           </p>
           <p className="text-sm">
-            <span className="font-medium ">Assigned To: </span> fighter
+            <span className="font-medium ">Assigned To: </span>{" "}
+            {ticket.assignedTo}
           </p>
           <p className="text-sm">
-            <span className="font-medium ">Submitted By: </span> user36
+            <span className="font-medium ">Submitted By: </span>{" "}
+            {ticket.createdBy}
           </p>
           <div className="flex justify-start items-center">
             <span className="font-medium mr-1">Priority: </span>{" "}
@@ -75,7 +78,7 @@ const TicketCard = ({ ticket }) => {
           <button
             className="btn bg-[#CCCCCC] "
             onClick={() => {
-              navigate("/tickets/5");
+              navigate(`/tickets/${ticket.id}`);
             }}
           >
             View
@@ -93,6 +96,12 @@ TicketCard.propTypes = {
     type: PropTypes.string.isRequired,
     priority: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    assignedTo: PropTypes.string.isRequired,
+    createdBy: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    projects: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 

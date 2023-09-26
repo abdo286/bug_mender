@@ -1,4 +1,5 @@
 import TicketCard from "./card/TicketCard";
+import PropTypes from "prop-types";
 
 const TicketsCards = ({ tickets }) => {
   return (
@@ -9,4 +10,9 @@ const TicketsCards = ({ tickets }) => {
     </div>
   );
 };
+
+TicketsCards.propTypes = {
+  tickets: PropTypes.array,
+};
+
 export default TicketsCards;

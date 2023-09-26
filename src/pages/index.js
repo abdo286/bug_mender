@@ -13,7 +13,6 @@ export { default as SearchResults } from "./SearchResults";
 export { default as Project } from "./Project";
 export { default as Ticket } from "./Ticket";
 export { default as NotFound } from "./NotFound";
-export { default as Register } from "./Register";
 export { default as Error } from "./Error";
 export { default as Login } from "./Login";
 export { default as SignUp } from "./SignUp";

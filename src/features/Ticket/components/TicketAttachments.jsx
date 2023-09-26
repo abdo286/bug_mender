@@ -1,37 +1,46 @@
-const TicketAttachments = () => {
+import PropTypes from "prop-types";
+import TicketAttachment from "./TicketAttachment";
+import AddAttachment from "./AddAttachment";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Your
+
+const TicketAttachments = ({ ticketId, attachments }) => {
   return (
     <div>
-      <div className="bg-white h-fit shadow-md">
-        <header className="bg-[#22b8cf] px-6 py-3">
-          <h3 className=" text-white">
-            Attach File <span>(1)</span>
-          </h3>
-        </header>
-        <section className="bg-white px-6 py-5 flex flex-col gap-2 mt-3">
-          <form action="">
-            <div className="flex col gap-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Add Description"
-                  className="input input-bordered w-full max-w-xs"
-                />
-              </div>
-              <div>
-                <input
-                  type="file"
-                  multiple
-                  className="file-input file-input-bordered file-input-info w-full max-w-xs "
-                />
-              </div>
-            </div>
-            <div className="flex justify-end mt-16">
-              <button className="btn btn-neutral">Upload</button>;
-            </div>
-          </form>
+      <AddAttachment ticketId={ticketId} />
+
+      {attachments.loading ? (
+        <p>Loading...</p>
+      ) : attachments.error ? (
+        <div>
+          <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
+            There was an Error Loading the Ticket Attachments
+          </p>
+        </div>
+      ) : (
+        <section className="pt-12 pb-3 bg-white shadow-md">
+          <Carousel showArrows={true} infiniteLoop={true}>
+            {attachments.data.map((attachment) => (
+              <TicketAttachment key={attachment.key} attachment={attachment} />
+            ))}
+          </Carousel>
         </section>
-      </div>
+      )}
     </div>
   );
 };
+
+TicketAttachments.propTypes = {
+  ticketId: PropTypes.string.isRequired,
+  attachments: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.bool.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+};
+
 export default TicketAttachments;

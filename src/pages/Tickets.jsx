@@ -15,13 +15,19 @@ const options = [
 ];
 
 const query = async () => {
-  return supabase.from("tickets").select();
+  return supabase
+    .from("tickets")
+    .select(
+      `createdAt, id, name, description, type, priority, status, assignedTo, createdBy, projects (id, name, description, description, status)`
+    );
 };
 
 const Tickets = () => {
   const { data: tickets, error, loading } = useFetch(query);
 
   const [view, setView] = useState("grid");
+
+  if (error) console.log(error);
   return (
     <div>
       <div className="mt-3">

@@ -8,10 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AppLayout = () => {
   const [shouldShowSidebar, setShouldHideSidebar] = useState(true);
-  const { session } = useAuthContext();
+  // const { session } = useAuthContext();
 
   // useEffect(() => {
-  //   console.log("session", session);
   //   if (session) toast.success(`Welcome Back`);
   // }, [session]);
 

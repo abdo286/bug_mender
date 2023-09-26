@@ -75,6 +75,14 @@ body {
   text-overflow: ellipsis;
 }
 
+.lines-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .lines-5 {
   display: -webkit-box;
   -webkit-line-clamp: 5;

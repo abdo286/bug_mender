@@ -1,0 +1,64 @@
+import { useForm, Controller } from "react-hook-form";
+import { supabase } from "../../../libs/supabaseClient";
+import { toast } from "react-toastify";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+const TicketComments = () => {
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+    reset,
+  } = useForm({
+    mode: "onTouched",
+    defaultValues: {
+      description: "",
+      startDate: new Date(),
+      developers: [],
+    },
+  });
+
+  const onSubmit = async (formData) => {
+    const { comment } = formData;
+
+    // we still need to add the userId and ticketId
+    const { error } = await supabase.from("comments").insert({ comment });
+    if (error) toast.error(error);
+    else {
+      toast.success("Comment was added successfully");
+    }
+    reset();
+  };
+
+  return (
+    <div>
+      <div className="bg-white h-full shadow-md">
+        <header className="bg-[#22b8cf] px-6 py-3">
+          <h3 className=" text-white">
+            Comments <span>(1)</span>
+          </h3>
+        </header>
+        <form
+          className="bg-white px-6 pt-5 pb-10 flex flex-col gap-2 mt-3"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <Controller
+            name="comment"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <ReactQuill theme="snow" {...field} />}
+          />
+          {errors.comment?.type === "required" && (
+            <p role="alert" className="text-sm text-red-600 mt-1">
+              Comment is required
+            </p>
+          )}{" "}
+          <div className="flex justify-end mt-8">
+            <button className="btn btn-neutral">Comment</button>;
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+export default TicketComments;

@@ -15,6 +15,7 @@ import {
   data as TicketsData,
   state as TicketsState,
 } from "../features/Tickets/constants/TicketsData";
+import RTableColumns from "../features/Dashboard/data/RTableColumns";
 
 const options = [
   {
@@ -60,7 +61,7 @@ const Dashboard = () => {
           <Table data={TicketsData} state={TicketsState} title={"Tickets"} />
         </section>
         <section className="mt-16">
-          <RTable />
+          <RTable columns={RTableColumns} />
         </section>
       </section>{" "}
     </div>
