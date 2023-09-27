@@ -91,16 +91,16 @@ const TicketCard = ({ ticket }) => {
 
 TicketCard.propTypes = {
   ticket: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    priority: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    assignedTo: PropTypes.string.isRequired,
-    createdBy: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    type: PropTypes.string,
+    priority: PropTypes.string,
+    status: PropTypes.string,
+    assignedTo: PropTypes.string,
+    createdBy: PropTypes.string,
+    id: PropTypes.string,
     projects: PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      name: PropTypes.string,
     }),
   }).isRequired,
 };

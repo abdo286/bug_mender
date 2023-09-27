@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Breadcrumbs, RTable, RcTable, Table } from "../components";
+import { Breadcrumbs, RTable, Table } from "../components";
 import {
   CompanyData,
   TicketsStats,
@@ -8,9 +8,8 @@ import {
   RolesByProjects,
   membersData,
   membersState,
-  MembersTable,
 } from "../features/Dashboard";
-import { data, state } from "../features/Projects/constants/ProjectsData";
+import { data, state } from "../features/Projects/data/ProjectsData";
 import {
   data as TicketsData,
   state as TicketsState,

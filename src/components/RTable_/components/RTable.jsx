@@ -44,18 +44,6 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
 
   const { globalFilter, pageIndex } = state;
 
-  // const handleView = () => {
-  //   // Handle view action here
-  // };
-
-  // const handleDelete = () => {
-  //   // Handle delete action here
-  // };
-
-  // const handleEdit = () => {
-  //   // Handle edit action here
-  // };
-
   const handleSortingChange = (sorting) => {
     setSorting(sorting);
   };
@@ -119,5 +107,6 @@ Table.propTypes = {
       date: PropTypes.string.isRequired,
     })
   ),
+  tableContainerClassName: PropTypes.string.isRequired,
 };
 export default Table;

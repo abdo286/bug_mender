@@ -53,9 +53,11 @@ const UserAssignmentForm = ({ developers, projectId }) => {
         )}
       </div>
       <FormSelect
+        errors={errors}
         label="Role"
+        name="role"
         register={register}
-        values={["user", "project manager"]}
+        options={["user", "project manager"]}
       />
       <div className="flex justify-end mt-3 mb-2 ">
         <button

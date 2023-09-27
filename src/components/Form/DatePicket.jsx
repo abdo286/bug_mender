@@ -1,11 +1,10 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DatePicket = ({ field }) => {
   return (
     <div className="w-full">
-      <p className="font-medium">Deadline</p>
+      <p className="font-medium">{field.name}</p>
       <DatePicker
         selected={field.value || new Date()}
         {...field}

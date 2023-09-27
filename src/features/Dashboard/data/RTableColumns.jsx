@@ -4,14 +4,9 @@ export default [
   {
     Header: "Title",
     accessor: "title",
-    // Add the following line to enable sorting for this column
     canSort: true,
   },
-  {
-    Header: "Developer",
-    accessor: "developer",
-    canSort: true, // Enable sorting for this column
-  },
+
   {
     Header: "Status",
     accessor: "status",
@@ -43,7 +38,7 @@ export default [
   {
     Header: "Date",
     accessor: "date",
-    canSort: true, // Enable sorting for this column
+    canSort: true,
     Cell: ({ row }) => {
       return (
         <p key={row.original.id} className="flex justify-center">
@@ -53,23 +48,20 @@ export default [
     },
   },
   {
+    Header: "Developer",
+    accessor: "developer",
+    canSort: true,
+  },
+
+  {
     Header: "Action",
     accessor: "id",
     Cell: ({ row }) => (
       <div className="flex justify-center space-x-2">
-        <FaEye
-          onClick={() => handleView(row.original.id)}
-          className="cursor-pointer text-blue-600 text-lg"
-        />
-        <FaTrash
-          onClick={() => handleDelete(row.original.id)}
-          className="cursor-pointer text-red-600 text-lg"
-        />
+        <FaEye className="cursor-pointer text-blue-600 text-lg" />
+        <FaTrash className="cursor-pointer text-red-600 text-lg" />
 
-        <FaEdit
-          onClick={() => handleEdit(row.original.id)}
-          className="cursor-pointer text-green-600 text-lg"
-        />
+        <FaEdit className="cursor-pointer text-green-600 text-lg" />
       </div>
     ),
   },

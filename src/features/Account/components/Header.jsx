@@ -40,10 +40,11 @@ const Header = () => {
         />
 
         <FormSelect
-          label="role"
-          register={register}
-          values={["Admin", "User"]}
+          errors={errors}
+          label="Role"
           name="role"
+          register={register}
+          options={["Admin", "User"]}
         />
 
         <div className="form-control">

@@ -1,13 +1,10 @@
 import { ProjectsGrid } from "../features/Projects";
-import { MainHeader } from "../components";
-import { Table } from "../components";
+import { MainHeader, RTable } from "../components";
 import { Breadcrumbs } from "../components";
 import { useState } from "react";
-import { data, state } from "../features/Projects/constants/ProjectsData";
 import { nanoid } from "nanoid";
-import { supabase } from "../libs/supabaseClient";
-import useFetch from "../components/hooks/useFetch";
-import "react-quill/dist/quill.snow.css";
+import useProjectsContext from "../context/ProjectsContext";
+import RTableColumns from "../features/Projects/data/RTableColumns";
 
 const options = [
   {
@@ -17,13 +14,9 @@ const options = [
   },
 ];
 
-const query = async () => {
-  return supabase.from("projects").select();
-};
-
 const Projects = () => {
   const [view, setView] = useState("grid");
-  const { data: projects, error, loading } = useFetch(query);
+  const { projects, error, loading } = useProjectsContext();
 
   return (
     <div>
@@ -43,17 +36,15 @@ const Projects = () => {
         ) : error ? (
           <section>There was an error</section>
         ) : (
-          <section className="bg-white px-10 py-6 mt-16 shadow-md">
+          <section className="mt-16">
             {view === "grid" ? (
-              <ProjectsGrid data={projects} />
+              <div className="bg-white shadow-md px-10 py-6">
+                <ProjectsGrid data={projects} />
+              </div>
             ) : (
-              <Table
-                data={projects}
-                state={state}
-                title={"Projects"}
-                sortByColor="bg-white"
-                className="mt-12"
-              />
+              <div className="mt-12">
+                <RTable columns={RTableColumns} data={projects} />
+              </div>
             )}
           </section>
         )}

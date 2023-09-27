@@ -37,3 +37,22 @@ If they would be able to do so then I should create the profile when the user si
 it seems using the Supabase client would not work. If the user would not be able to login then using then we could check during the login for some parameters and create the profile at that time or again use the manually approach for creating the profile.
 
 هيجي منين عنصر الابداع و عمل حاجة جديدة بدون انك تشوف الجزئية دي في موقع او تقر مقالات او تسال تشات عن مييزات
+
+You supposed to make sure the form data is formatted well before allowing the user to submit the form
+"new " !== "new"
+
+Include all css files of libraries in the App.jsx instead of repeating writing them.
+
+When Writing components: Try to make them Interactive with the user. If the user deleted something, show them a message. If they were searching for something, show them a loader and so on
+
+Always assume that fetching the data will fail and secure your components against that
+
+Try to make the component as reusable as possible
+
+Always follow divide and conquer before the project go bigger
+Responsive per component or page
+PropTypes
+Validation against if the data not present
+Interactivity
+
+always look at the Console Panel and see if there are an errors or warnings - divide and conquer 

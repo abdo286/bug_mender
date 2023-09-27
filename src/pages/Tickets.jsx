@@ -1,10 +1,9 @@
-import { Breadcrumbs, MainHeader, Table } from "../components";
+import { Breadcrumbs, MainHeader, RTable } from "../components";
 import { TicketsCards, TicketsStats } from "../features/Tickets";
 import { useState } from "react";
-import { data, state } from "../features/Tickets/constants/TicketsData";
 import { nanoid } from "nanoid";
-import useFetch from "../components/hooks/useFetch";
-import { supabase } from "../libs/supabaseClient";
+import RTableColumns from "../features/Tickets/data/RTableColumns";
+import useTicketsContext from "../context/TicketsContext";
 
 const options = [
   {
@@ -14,16 +13,10 @@ const options = [
   },
 ];
 
-const query = async () => {
-  return supabase
-    .from("tickets")
-    .select(
-      `createdAt, id, name, description, type, priority, status, assignedTo, createdBy, projects (id, name, description, description, status)`
-    );
-};
+
 
 const Tickets = () => {
-  const { data: tickets, error, loading } = useFetch(query);
+  const { tickets, error, loading } = useTicketsContext();
 
   const [view, setView] = useState("grid");
 
@@ -51,12 +44,14 @@ const Tickets = () => {
           ) : error ? (
             <section>There was an error</section>
           ) : (
-            <section className=" bg-white shadow-md px-10 py-6 mt-16 ">
+            <section className="px-10 py-6 mt-16">
               <h2 className="text-2xl font-medium">Tickets</h2>
               {view === "table" ? (
-                <Table data={data} state={state} className="mt-12" />
+                <div className="mt-12">
+                  <RTable columns={RTableColumns} data={tickets} />
+                </div>
               ) : (
-                <div className="mt-8 px-10 rounded-md py-6">
+                <div className="mt-8 px-10 rounded-md py-6 bg-white shadow-md">
                   <TicketsCards tickets={tickets} />
                 </div>
               )}

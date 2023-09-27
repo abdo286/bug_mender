@@ -2,7 +2,6 @@ import { useForm, Controller } from "react-hook-form";
 import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import useAuthContext from "../../../context/AuthContext";
 import PropTypes from "prop-types";
 

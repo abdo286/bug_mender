@@ -98,18 +98,20 @@ const CreateProject = () => {
               </p>
             )}
           </section>
-
           <FormSelect
+            errors={errors}
             label="Priority"
+            name="priority"
             register={register}
-            values={["low", "medium", "high"]}
+            options={["low", "medium", "high"]}
           />
           <FormSelect
+            errors={errors}
             label="Status"
+            name="status"
             register={register}
-            values={["new", "development", "resolved"]}
+            options={["new", "development", "resolved"]}
           />
-
           <div className="mt-1">
             <p className="label-text font-semibold mb-2">Project Manager</p>
 
@@ -141,14 +143,12 @@ const CreateProject = () => {
               )}
             />
           </section>
-
           <Controller
             name="deadline"
             control={control}
             rules={{ required: true }}
             render={({ field }) => <DatePicket field={field} />}
           />
-
           <div className="flex justify-between my-8">
             <button
               className="btn"
