@@ -7,7 +7,8 @@ const getSession = () => {
 };
 export default function useAuth() {
   const [session, setSession] = useState(getSession());
-
+  
+  
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       localStorage.setItem("session", JSON.stringify(session));
@@ -26,4 +27,3 @@ export default function useAuth() {
 
   return { session, setSession };
 }
-

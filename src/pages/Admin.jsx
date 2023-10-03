@@ -18,6 +18,7 @@ const query = async () => {
 
 const Project = () => {
   const { data: projects, error, loading } = useFetch(query);
+  
 
   return (
     <div>

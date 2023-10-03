@@ -30,7 +30,7 @@ const Table = ({ projectAssignedUsers }) => {
 };
 
 Table.propTypes = {
-  projectAssignedUsers: PropTypes.arrayOf(PropTypes),
+  projectAssignedUsers: PropTypes.array,
 };
 
 export default Table;

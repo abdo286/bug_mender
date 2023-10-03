@@ -66,4 +66,3 @@ export default Tickets;
 
 // Status: New, Development, Resolved
 // Priority: Hight, Medium, Low
-// className="bg-white mx-16   "

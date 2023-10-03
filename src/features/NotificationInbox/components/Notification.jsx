@@ -1,6 +1,10 @@
+import { format, formatDistanceToNow, parseISO } from "date-fns";
 import { Link } from "react-router-dom";
 
-const Notification = ({ shouldShowImage = true }) => {
+const Notification = ({ shouldShowImage = true, notification }) => {
+  const projectId = notification.message.match(/Id (\d+)/)[1];
+  const [notificationPrefix, projectHeader] = notification.message.split(" - ");
+
   return (
     <section className="flex items-center gap-5 bg-white px-6 py-2 shadow-sm rounded-md">
       {shouldShowImage ? (
@@ -14,26 +18,35 @@ const Notification = ({ shouldShowImage = true }) => {
       ) : null}
       <div className="text-gray-600 text-sm">
         <h3>
-          You have been assigned to ticket{" "}
-          <Link
-            to="tickets"
-            className="text-blue-500 font-medium underline cursor-pointer"
-          >
-            Id 33
-          </Link>{" "}
-          by
-          <span> John Michael</span>
+          {notificationPrefix}
           <span> - </span>
           <Link
-            to="/projects/5"
+            to={`/projects/${projectId}`}
             className="text-blue-500 font-medium underline cursor-pointer"
           >
-            BugTracker{" "}
-          </Link>
+            {projectHeader}{" "}
+          </Link>{" "}
+          {/* {notification.message} */}
         </h3>
-        <p className="text-xs">5 hours ago</p>
+        <p className="text-xs">
+          {formatDistanceToNow(parseISO(notification.createdAt), {
+            addSuffix: true,
+          })}
+        </p>
       </div>
     </section>
   );
 };
 export default Notification;
+
+// {
+//   /* <Link
+//         to="tickets"
+//         className="text-blue-500 font-medium underline cursor-pointer"
+//       >
+//         Id 33
+//       </Link>{" "}
+//       by
+//       <span> John Michael</span>
+//        */
+// }

@@ -32,32 +32,33 @@ const getStatusClass = (status) => {
 const TicketCard = ({ ticket }) => {
   const navigate = useNavigate();
 
+
   return (
     <div className="card w-96 shadow-xl bg-[#1c7ed6] text-white">
       <div className="card-body">
-        <h2 className="card-title lines-3">{ticket.name}</h2>
-        <p className="lines-5 text-sm mb-3">{ticket.description}</p>
+        <h2 className="card-title lines-3">{ticket?.name}</h2>
+        <p className="lines-5 text-sm mb-3">{ticket?.description}</p>
         <section className="flex flex-col gap-3">
           <p className="text-sm">
-            <span className="font-medium ">Type: </span> {ticket.type}
+            <span className="font-medium ">Type: </span> {ticket?.type}
           </p>
           <p className="text-sm">
             <span className="font-medium ">Project Title: </span>{" "}
-            {ticket.projects.name}
+            {ticket?.projects?.name}
           </p>
           <p className="text-sm">
             <span className="font-medium ">Assigned To: </span>{" "}
-            {ticket.assignedTo}
+            {ticket?.assignedTo}
           </p>
           <p className="text-sm">
             <span className="font-medium ">Submitted By: </span>{" "}
-            {ticket.createdBy}
+            {ticket?.createdBy}
           </p>
           <div className="flex justify-start items-center">
             <span className="font-medium mr-1">Priority: </span>{" "}
             <span
               className={`${getPriorityClass(
-                ticket.priority
+                ticket?.priority
               )} font-semibold capitalize `}
             >
               {"low"}
@@ -67,7 +68,7 @@ const TicketCard = ({ ticket }) => {
             <span className="font-medium mr-1">Status: </span>
             <span
               className={` ${getStatusClass(
-                ticket.status
+                ticket?.status
               )} font-semibold capitalize `}
             >
               {"New"}

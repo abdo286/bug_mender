@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import useTicketsContext from "../context/TicketsContext";
 import useProjectsContext from "../context/ProjectsContext";
 import useAuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
 
@@ -46,7 +47,18 @@ const getProjects = (projectsData) => {
 };
 
 const CreateTicket = () => {
+  const navigate = useNavigate();
+
   const { users } = useUsersContext();
+
+  const developers = useMemo(() => {
+    return users
+      .filter((user) => user.role === "developer")
+      .map((user) => {
+        return { value: user.id, label: user.name };
+      });
+  }, [users]);
+
   const { ticketId } = useParams();
 
   const mode = useMemo(() => {
@@ -58,21 +70,15 @@ const CreateTicket = () => {
     error: ticketsError,
     loading: ticketsLoading,
   } = useTicketsContext();
-  const { projects: projectsData } = useProjectsContext();
-  const projects = useMemo(() => getProjects(projectsData), [projectsData]);
+
   const ticket = useMemo(() => {
     return getTicket(tickets, ticketId, users);
   }, [tickets, ticketId, users]);
 
-  const { userProfile } = useAuthContext();
+  const { projects: projectsData } = useProjectsContext();
+  const projects = useMemo(() => getProjects(projectsData), [projectsData]);
 
-  const developers = useMemo(() => {
-    return users
-      .filter((user) => user.role === "developer")
-      .map((user) => {
-        return { value: user.id, label: user.name };
-      });
-  }, [users]);
+  const { userProfile } = useAuthContext();
 
   const {
     register,
@@ -103,8 +109,8 @@ const CreateTicket = () => {
       createdBy: userProfile?.data?.id,
     };
 
-    for (let value of Object.values(data)) {
-      if (!value) {
+    for (let key of Object.keys(data)) {
+      if (!data[key] && key !== "assignedTo") {
         toast.error("Fill all the fields");
         return;
       }
@@ -235,7 +241,13 @@ const CreateTicket = () => {
           />
 
           <div className="flex justify-between my-8">
-            <button className="btn" type="button" onClick={reset}>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               Cancel
             </button>
             <button className="btn btn-neutral">Submit</button>

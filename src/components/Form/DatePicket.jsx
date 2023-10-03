@@ -2,6 +2,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DatePicket = ({ field }) => {
+  
   return (
     <div className="w-full">
       <p className="font-medium">{field.name}</p>

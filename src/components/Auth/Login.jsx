@@ -25,6 +25,7 @@ const LoginModal = () => {
 
   function openModal() {
     setIsOpen(true);
+    
   }
 
   function closeModal() {

@@ -123,7 +123,7 @@ export default [
           <Link to={`/tickets/${row.original.id}`}>
             <FaEye className="cursor-pointer text-blue-600 text-lg" />
           </Link>
-          <Link to={`/tickets/${row.original.id}`}>
+          <Link to={`/create-ticket/${row.original.id}`}>
             <FaEdit className="cursor-pointer text-green-600 text-lg" />
           </Link>
           <DeleteTableRowDialog

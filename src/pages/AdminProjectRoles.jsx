@@ -13,7 +13,7 @@ const query = async (projectId) => {
   return supabase
     .from("UsersProjects")
     .select(
-      `id, created_at, userId, projectId, role, profiles (id, name, email, lastName, image, role)`
+      `id, createdAt, userId, projectId, role, profiles (id, name, email, lastName, image, role)`
     )
     .eq("projectId", projectId);
 };
