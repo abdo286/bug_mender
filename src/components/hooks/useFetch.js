@@ -9,8 +9,10 @@ const useFetch = (query) => {
     setError(null);
     setLoading(true);
     const { data, error } = await query();
-    if (error) setError(error);
-    else if (data) setData(data);
+    if (error) {
+      console.log("Error: ", error);
+      setError(error);
+    } else if (data) setData(data);
 
     setLoading(false);
   }, []);

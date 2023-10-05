@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Header } from "../features/Header";
 import { Sidebar } from "../features/Sidebar";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useAuthContext from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppLayout = () => {
   const [shouldShowSidebar, setShouldHideSidebar] = useState(true);
+  const { pathname } = useLocation();
+
   // const { session } = useAuthContext();
 
   // useEffect(() => {
@@ -17,6 +19,10 @@ const AppLayout = () => {
   // if (!session) {
   //   return <Navigate to="/login" />;
   // }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>

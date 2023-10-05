@@ -1,4 +1,6 @@
-import { Breadcrumbs, Loading, Error } from "../components";
+import { Breadcrumbs } from "../components";
+import Loading from "./Loading";
+import Error from "./Error";
 import { Notification } from "../features/NotificationInbox";
 import useAuthContext from "../context/AuthContext";
 import { useCallback, useMemo, useState } from "react";
@@ -28,7 +30,7 @@ const NotificationInbox = () => {
   const [selectedType, setSelectedType] = useState("");
 
   const types = useMemo(() => {
-    if (!notifications) return null;
+    if (!notifications) return [];
     const allTypes = notifications.map((notification) => notification.type);
     return [...new Set(allTypes)];
   }, [notifications]);

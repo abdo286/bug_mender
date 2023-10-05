@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import ReactImageZoom from "react-image-zoom";
 import { Link } from "react-router-dom";
 
 const TicketAttachment = ({ attachment }) => {
@@ -11,10 +12,14 @@ const TicketAttachment = ({ attachment }) => {
 
       <Link to={url}>
         <div className="w-full max-h-[20rem] cursor-pointer">
-          <img
-            src={url}
-            alt={description}
-            className="w-full h-full object-cover"
+          <ReactImageZoom
+            {...{
+              width: "100%",
+              height: "100%",
+              zoomWidth: 400,
+              img: url,
+              alt: description,
+            }}
           />
         </div>
       </Link>

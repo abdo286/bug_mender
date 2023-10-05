@@ -37,6 +37,10 @@ export const router = createBrowserRouter(
         <Route path="create-project/:projectId" element={<CreateProject />} />
         <Route path="create-ticket" element={<CreateTicket />} />
         <Route path="create-ticket/:ticketId" element={<CreateTicket />} />
+        <Route
+          path="create-ticket/history/:historyId"
+          element={<CreateTicket />}
+        />
         <Route path="admin" element={<Admin />} />
         <Route path="admin/project/:id" element={<AdminProjectRoles />} />
         <Route path="account" element={<Account />} errorElement={<Error />} />

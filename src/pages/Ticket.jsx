@@ -1,16 +1,15 @@
 import { useMemo } from "react";
-import { Breadcrumbs, RTable } from "../components";
+import { Breadcrumbs } from "../components";
 import {
   TicketAttachments,
   TicketDetails,
   TicketsDetailsLoader,
   TicketComments,
 } from "../features/Ticket";
-import RTableColumns from "../features/Ticket/data/RTableColumns";
-import RTableDummyData from "../features/Ticket/data/RTableDummyData";
 import { useParams } from "react-router-dom";
 import useFetch from "../components/hooks/useFetch";
 import { supabase } from "../libs/supabaseClient";
+import TicketsHistory from "../features/Ticket/components/TicketsHistory";
 
 const options = [
   {
@@ -32,6 +31,13 @@ const Ticket = () => {
             `createdAt, updated, id, name, description, type, priority, status, assignedTo, createdBy, projects (id, name, description, description, status)`
           )
           .eq("id", ticketId),
+      ticketHistoryQuery: () =>
+        supabase
+          .from("ticketHistory")
+          .select(
+            `id, projectId,ticketId, description, name, priority, status,type, assignedTo, updated`
+          )
+          .eq("ticketId", ticketId),
       attachmentsQuery: () =>
         supabase.from("attachments").select().eq("ticketId", ticketId),
       commentsQuery: () =>
@@ -49,6 +55,13 @@ const Ticket = () => {
     error: ticketsError,
     loading: ticketsLoading,
   } = useFetch(queries.ticketQuery);
+
+  const {
+    data: ticketHistory,
+    error: ticketHistoryError,
+    loading: ticketHistoryLoading,
+  } = useFetch(queries.ticketHistoryQuery);
+
   const {
     data: attachments,
     error: attachmentsError,
@@ -69,18 +82,12 @@ const Ticket = () => {
         <Breadcrumbs optionsData={options} />
       </nav>
       <section className="w-[90%] mx-auto grid grid-cols-2 pt-12 gap-12 ">
-        {ticketsLoading ? (
-          <TicketsDetailsLoader />
-        ) : ticketsError ? (
-          <div>
-            <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
-              There was an Error Loading the Ticket Details
-            </p>
-          </div>
-        ) : (
-          <TicketDetails ticket={tickets[0]} />
-        )}
-        <RTable columns={RTableColumns} data={RTableDummyData} />
+        <TicketDetails
+          ticket={!!tickets && tickets[0]}
+          ticketsLoading={ticketsLoading}
+          ticketsError={ticketsError}
+        />
+
         <TicketAttachments
           ticketId={ticketId}
           attachments={{
@@ -96,6 +103,16 @@ const Ticket = () => {
             data: comments,
             error: commentsError,
             loading: commentsLoading,
+          }}
+        />
+      </section>
+
+      <section className="w-[90%] mx-auto pt-12 gap-12 ">
+        <TicketsHistory
+          ticketHistoryData={{
+            data: ticketHistory,
+            error: ticketHistoryError,
+            loading: ticketHistoryLoading,
           }}
         />
       </section>

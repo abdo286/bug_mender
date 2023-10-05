@@ -63,6 +63,27 @@ const getDevelopersToRemove = (
   return developers.filter((cur) => !set.has(cur));
 };
 
+const addNotificationToUser = async ({
+  projectId,
+  developerId,
+  userFirstName,
+  projectName,
+  message,
+  type,
+}) => {
+  const { error } = await supabase.from("notifications").insert({
+    userId: developerId,
+    projectId: projectId,
+    message,
+    type,
+  });
+  if (error) {
+    console.log(projectId, developerId, userFirstName, projectName);
+    console.log("notification error");
+    console.log(error);
+  }
+};
+
 const addDevelopersToProject = async (
   developers,
   projectId,
@@ -87,17 +108,14 @@ const addDevelopersToProject = async (
         `There is an error adding developer with id: ${developers[index]}`
       );
     } else {
-      const { error } = await supabase.from("notifications").insert({
-        userId: developers[index],
-        projectId: projectId,
+      addNotificationToUser({
+        projectId,
+        developerId: developers[index],
+        userFirstName,
+        projectName,
         message: `You have been add to project Id ${projectId} by ${userFirstName} - ${projectName}`,
         type: "project added",
       });
-      if (error) {
-        console.log(projectId, cur, userFirstName, projectName);
-        console.log("notification error");
-        console.log(error);
-      }
     }
   });
 };
@@ -124,16 +142,14 @@ const removeDevelopersFromProject = async (
         `There is an error removing developer with id: ${developers[index]}`
       );
     } else {
-      const { error } = await supabase.from("notifications").insert({
-        userId: developers[index],
-        projectId: projectId,
+      addNotificationToUser({
+        projectId,
+        developerId: developers[index],
+        userFirstName,
+        projectName,
         message: `You were removed from project Id ${projectId} by ${userFirstName} - ${projectName}`,
         type: "project removed",
       });
-      if (error) {
-        console.log("notification error");
-        console.log(error);
-      }
     }
   });
 };
@@ -230,6 +246,7 @@ const CreateProject = () => {
     };
     delete data["Project Manager"];
 
+    console.log("data", data);
     const developers = data.developers;
     delete data.developers;
     let error;
@@ -256,7 +273,7 @@ const CreateProject = () => {
             developersToAdd,
             data.id,
             data.name,
-            userProfile.data.name
+            userProfile?.data?.name
           );
         }
 
@@ -265,7 +282,7 @@ const CreateProject = () => {
             developersToRemove,
             data.id,
             data.name,
-            userProfile?.data.name
+            userProfile?.data?.name
           );
         }
       }
@@ -281,7 +298,7 @@ const CreateProject = () => {
           developers,
           data.id,
           data.name,
-          userProfile?.data.name
+          userProfile?.data?.name
         );
       }
 

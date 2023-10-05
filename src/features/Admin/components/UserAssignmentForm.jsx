@@ -5,6 +5,44 @@ import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 
+// const addNotificationToUser = async ({
+//   projectId,
+//   developerId,
+//   userFirstName,
+//   projectName,
+// }) => {
+//   const { error } = await supabase.from("notifications").insert({
+//     userId: developerId,
+//     projectId: projectId,
+//     message: `You have been add to project Id ${projectId} by ${userFirstName} - ${projectName}`,
+//     type: "project added",
+//   });
+//   if (error) {
+//     console.log(projectId, developerId, userFirstName, projectName);
+//     console.log("notification error");
+//     console.log(error);
+//   }
+// };
+
+const addDeveloperToProject = async ({ userId, projectId, role, reset }) => {
+  const { error: insertError } = await supabase.from("UsersProjects").insert({
+    userId,
+    projectId: projectId,
+    role,
+    createdAt: new Date(),
+    id: userId + projectId,
+  });
+
+  if (insertError) {
+    console.log(insertError);
+    toast.error(`There is an error adding developer with id: ${developerId}`);
+  } else {
+    // addNotificationToUser()
+    toast.success("User assigned to the Project");
+    reset();
+  }
+};
+
 const UserAssignmentForm = ({ developers, projectId }) => {
   const {
     register,
@@ -17,18 +55,12 @@ const UserAssignmentForm = ({ developers, projectId }) => {
   const onSubmit = async (formData) => {
     const { role, user } = formData;
 
-    const { error } = await supabase
-      .from("UsersProjects")
-      .insert({ projectId, userId: user.value, role });
-
-    if (error) {
-      console.log(error);
-      toast.error(error);
-      return;
-    }
-
-    toast.success("User assigned to the Project");
-    reset();
+    addDeveloperToProject({
+      userId: user.value,
+      projectId,
+      role,
+      reset,
+    });
   };
 
   return (

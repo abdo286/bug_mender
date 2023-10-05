@@ -2,10 +2,34 @@ import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import TicketsDetailsLoader from "./TicketsDetailsLoader";
 
-const TicketDetails = ({ ticket }) => {
+const TicketDetails = ({ ticket, ticketsLoading, ticketsError }) => {
   const navigate = useNavigate();
   console.log("ticket300", ticket);
+
+  if (ticketsLoading) {
+    return <TicketsDetailsLoader />;
+  }
+  if (ticketsError) {
+    return (
+      <div>
+        <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
+          There was an Error Loading the Ticket Details
+        </p>
+      </div>
+    );
+  }
+if (ticket === undefined) {
+    return (
+      <div>
+        <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
+          There was an Error Loading the Ticket Details
+        </p>
+      </div>
+    );
+  }
+  
   return (
     <div className="bg-white h-fit shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">
@@ -48,11 +72,11 @@ const TicketDetails = ({ ticket }) => {
         </p>
       </section>
       <footer className="px-6 py-6 mb-3">
-        <devi className="flex items-center gap-4 justify-end">
+        <devi className="flex items-centesRequirer gap-4 justify-end">
           <LuEdit
             className="text-xl text-blue-500 cursor-pointer "
             onClick={() => {
-              navigate(`/create-ticket`);
+              navigate(`/create-ticket/${ticket.id}`);
             }}
           />
           <RiDeleteBin7Line className="text-xl text-red-500 cursor-pointer  " />
@@ -65,7 +89,7 @@ const TicketDetails = ({ ticket }) => {
 TicketDetails.propTypes = {
   ticket: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string.id,
     description: PropTypes.string.isRequired,
     updated: PropTypes.string.isRequired,
     assignedTo: PropTypes.string.isRequired,
@@ -75,6 +99,8 @@ TicketDetails.propTypes = {
     priority: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
   }).isRequired,
+  ticketsLoading: PropTypes.string,
+  ticketsError: PropTypes.string,
 };
 
 export default TicketDetails;
