@@ -1,19 +1,16 @@
 import { Breadcrumbs, MainHeader, RTable } from "../components";
 import { TicketsCards, TicketsStats } from "../features/Tickets";
 import { useState } from "react";
-import { nanoid } from "nanoid";
 import RTableColumns from "../features/Tickets/data/RTableColumns";
 import useTicketsContext from "../context/TicketsContext";
 
 const options = [
   {
-    key: nanoid(),
+    key: "tickets",
     text: "tickets",
     to: "/tickets",
   },
 ];
-
-
 
 const Tickets = () => {
   const { tickets, error, loading } = useTicketsContext();
@@ -22,10 +19,10 @@ const Tickets = () => {
 
   if (error) console.log(error);
   return (
-    <div>
-      <div className="mt-3">
+    <main>
+      <nav className="mt-3">
         <Breadcrumbs optionsData={options} />
-      </div>
+      </nav>
       <section className="w-[90%] mx-auto">
         <section>
           <MainHeader
@@ -59,10 +56,7 @@ const Tickets = () => {
           )}
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 export default Tickets;
-
-// Status: New, Development, Resolved
-// Priority: Hight, Medium, Low

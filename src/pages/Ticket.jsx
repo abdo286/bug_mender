@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { nanoid } from "nanoid";
 import { Breadcrumbs, RTable } from "../components";
 import {
   TicketAttachments,
@@ -15,7 +14,7 @@ import { supabase } from "../libs/supabaseClient";
 
 const options = [
   {
-    key: nanoid(),
+    key: "Project",
     text: "Project",
     to: "/",
   },
@@ -65,10 +64,10 @@ const Ticket = () => {
   if (ticketsError) console.log(ticketsError);
 
   return (
-    <div>
-      <div className="mt-3">
+    <main>
+      <nav className="mt-3">
         <Breadcrumbs optionsData={options} />
-      </div>
+      </nav>
       <section className="w-[90%] mx-auto grid grid-cols-2 pt-12 gap-12 ">
         {ticketsLoading ? (
           <TicketsDetailsLoader />
@@ -100,20 +99,7 @@ const Ticket = () => {
           }}
         />
       </section>
-    </div>
+    </main>
   );
 };
 export default Ticket;
-
-{
-  /* <TicketHistory /> */
-}
-
-{
-  /* <div className="bg-white mt-16 px-10 py-12">
-  <TicketsStats />
-  <section>
-    <Table data={data} state={state} title={"Tickets"} />;
-  </section>
-</div>; */
-}

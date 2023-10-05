@@ -1,25 +1,46 @@
+import PropTypes from "prop-types";
 import Select from "react-select";
 import { Controller } from "react-hook-form";
 
 const SelectSection = ({ label, name, control, options, errors }) => {
   return (
-    <section className="mt-1">
-      <p className="label-text font-semibold mb-2">{label}</p>
+    <div className="form-control">
+      <label className="label">
+        <span className="label-text font-semibold capitalize">{label}</span>
+      </label>
       <Controller
         name={name}
         control={control}
         rules={{ required: true }}
         render={({ field }) => (
-          <Select {...field} isSearchable={true} options={options} />
+          <Select
+            {...field}
+            isSearchable={true}
+            options={options}
+            className="select select-bordered font-normal text-gray-800 rounded-lg w-full outline-none focus:border-blue-500"
+          />
         )}
       />
       {options.length > 0 && errors[name]?.type === "required" && (
         <p role="alert" className="text-sm text-red-600 mt-1">
-          <span className="capitalize"> {label} </span>is required
+          <span className="capitalize">{label}</span> is required
         </p>
       )}
-    </section>
+    </div>
   );
+};
+
+SelectSection.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  control: PropTypes.object.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
 export default SelectSection;

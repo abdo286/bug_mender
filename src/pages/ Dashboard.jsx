@@ -1,69 +1,83 @@
-import { nanoid } from "nanoid";
-import { Breadcrumbs, RTable, Table } from "../components";
+import { Breadcrumbs } from "../components";
 import {
   CompanyData,
   TicketsStats,
   UserStats,
   PriorityProjects,
   RolesByProjects,
-  membersData,
-  membersState,
+  DashboardSection,
 } from "../features/Dashboard";
-import { data, state } from "../features/Projects/data/ProjectsData";
-import {
-  data as TicketsData,
-  state as TicketsState,
-} from "../features/Tickets/constants/TicketsData";
-import RTableColumns from "../features/Dashboard/data/RTableColumns";
+
+import ProjectsRTableColumns from "../features/Projects/data/RTableColumns";
+import TicketsRTableColumns from "../features/Tickets/data/RTableColumns";
+import useTicketsContext from "../context/TicketsContext";
+import useProjectsContext from "../context/ProjectsContext";
+import useUsersContext from "../context/UsersContext";
+import AccountRTableColumns from "../features/Account/data/RTableColumns";
 
 const options = [
   {
-    key: nanoid(),
+    key: "Dashboard",
     text: "Dashboard",
     to: "/",
   },
 ];
 
 const Dashboard = () => {
+  const {
+    tickets,
+    error: ticketsError,
+    loading: ticketsLoading,
+  } = useTicketsContext();
+  const {
+    projects,
+    error: projectsError,
+    loading: projectsLoading,
+  } = useProjectsContext();
+
+  const { users, usersError, usersLoading } = useUsersContext();
   return (
-    <div>
-      <div className="mt-3">
+    <main>
+      <nav className="mt-3">
         <Breadcrumbs optionsData={options} />
-      </div>
+      </nav>
+
       <section className="w-[90%] mx-auto mt-12 grid ">
         <TicketsStats />
-        <section className="grid grid-cols-4 mt-12 mb-8  gap-9">
+
+        <section className="grid grid-cols-4 mt-12 mb-8 gap-9">
           <UserStats />
           <CompanyData />
           <PriorityProjects />
           <RolesByProjects />
         </section>
-        <section className="grid grid-cols-[40fr_60fr] gap-8 w-full">
-          <section className="bg-white px-10 py-6 mt-8">
-            <Table
-              data={membersData}
-              state={membersState}
-              title={"Members"}
-              sortByColor="bg-white"
-            />
-          </section>
-          <section className="bg-white px-10 py-6 mt-8">
-            <Table
-              data={data}
-              state={state}
-              title={"Projects"}
-              sortByColor="bg-white"
-            />
-          </section>
-        </section>{" "}
-        <section className="bg-white px-10 py-6 mt-16">
-          <Table data={TicketsData} state={TicketsState} title={"Tickets"} />
-        </section>
-        <section className="mt-16">
-          <RTable columns={RTableColumns} />
-        </section>
-      </section>{" "}
-    </div>
+
+        <DashboardSection
+          title="Projects"
+          columns={ProjectsRTableColumns}
+          data={projects}
+          loading={projectsLoading}
+          error={projectsError}
+        />
+
+        <DashboardSection
+          title="Tickets"
+          columns={TicketsRTableColumns}
+          data={tickets}
+          loading={ticketsLoading}
+          error={ticketsError}
+        />
+
+        <DashboardSection
+          title="Users"
+          columns={AccountRTableColumns}
+          data={users}
+          loading={usersLoading}
+          error={usersError}
+        />
+      </section>
+    </main>
   );
 };
+
 export default Dashboard;

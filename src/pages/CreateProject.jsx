@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo } from "react";
 import { Breadcrumbs, DatePicket } from "../components";
 import { FormInput, FormSelect } from "../components";
 import ReactQuill from "react-quill";
-import { nanoid } from "nanoid";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import Select from "react-select";
@@ -17,12 +16,12 @@ import { useFetch } from "../components/hooks";
 
 const options = [
   {
-    key: nanoid(),
+    key: "projects",
     text: "projects",
     to: "/projects",
   },
   {
-    key: nanoid(),
+    key: "create-project",
     text: "create-project",
     to: "/create-project",
   },

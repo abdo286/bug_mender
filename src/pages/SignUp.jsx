@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FormInput from "../components/Form/FormInput";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +5,6 @@ import { supabase } from "../libs/supabaseClient";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -17,20 +15,23 @@ const Login = () => {
   } = useForm({ mode: "onTouched" });
 
   const onSubmit = async (formData) => {
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: formData.email,
       password: formData.password,
     });
-    // createedAt, updated, name, email , role, image, lastname
     const { error: userError } = await supabase
       .from("profiles")
       .insert({ email: formData.email, name: formData.name });
 
-    // if (error) {
-    //   toast.error(error);
-    // }
-    // if (userError) {
-    //   toast.error(userError);
+    if (error) {
+      toast.error(error);
+      console.log(error);
+    }
+    if (userError) {
+      toast.error(userError);
+      console.log(userError);
+    }
+
     if (!error && !userError) {
       toast.info("A sign-up confirmation was sent to your email.", {
         onClick: () => {
@@ -41,12 +42,13 @@ const Login = () => {
 
       setTimeout(() => {
         navigate("/login");
+        reset();
       }, 5000);
     }
   };
 
   return (
-    <div className="h-full w-full bg-white px-12 py-44">
+    <main className="h-full w-full bg-white px-12 py-44">
       <div className="mb-6">
         <h2 className="text-3xl font-semibold text-[#333] mb-2 text-center">
           Create Your Bug Tracker Account
@@ -76,7 +78,7 @@ const Login = () => {
       <div className="flex justify-center mt-8 text-[#339af0] font-medium">
         <Link to="/login">Have an Account Login Instead</Link>
       </div>
-    </div>
+    </main>
   );
 };
 export default Login;

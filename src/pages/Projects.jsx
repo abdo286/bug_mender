@@ -19,10 +19,10 @@ const Projects = () => {
   const { projects, error, loading } = useProjectsContext();
 
   return (
-    <div>
-      <div className="mt-3">
+    <main>
+      <nav className="mt-3">
         <Breadcrumbs optionsData={options} />
-      </div>
+      </nav>
       <section className="w-[90%] mx-auto">
         <MainHeader
           view={view}
@@ -32,9 +32,9 @@ const Projects = () => {
         />
 
         {loading ? (
-          <section>loading...</section>
+          <div className="text-center mt-8">loading...</div>
         ) : error ? (
-          <section>There was an error</section>
+          <div className="text-center mt-8">There was an error</div>
         ) : (
           <section className="mt-16">
             {view === "grid" ? (
@@ -49,7 +49,7 @@ const Projects = () => {
           </section>
         )}
       </section>
-    </div>
+    </main>
   );
 };
 

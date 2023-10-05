@@ -1,5 +1,6 @@
-import { format, formatDistanceToNow, parseISO } from "date-fns";
+import { formatDistanceToNow, parseISO } from "date-fns";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Notification = ({ shouldShowImage = true, notification }) => {
   const projectId = notification.message.match(/Id (\d+)/)[1];
@@ -37,16 +38,10 @@ const Notification = ({ shouldShowImage = true, notification }) => {
     </section>
   );
 };
-export default Notification;
 
-// {
-//   /* <Link
-//         to="tickets"
-//         className="text-blue-500 font-medium underline cursor-pointer"
-//       >
-//         Id 33
-//       </Link>{" "}
-//       by
-//       <span> John Michael</span>
-//        */
-// }
+Notification.propTypes = {
+  shouldShowImage: PropTypes.bool,
+  notification: PropTypes.object,
+};
+
+export default Notification;

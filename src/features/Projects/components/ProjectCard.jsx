@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
           <button
             className=" btn bg-[#339af0] text-gray-100 hover:bg-[#228be6]"
             onClick={() => {
-              navigate("/projects/5");
+              navigate(`/projects/${project.id}`);
             }}
           >
             View

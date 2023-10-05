@@ -50,13 +50,13 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
 
   return (
     <div
-      className={`bg-white p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName}`}
+      className={`bg-white  p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName}`}
     >
       <div className="mb-4 flex justify-between items-center ">
         <div className="flex items-center">
           <span>Show&nbsp;</span>
           <input
-            className="border-green-500 text-green-500 w-16 text-center"
+            className="border-green-500 text-green-500 w-16 text-center border-2 outline-none transition-[border] ease-in-out duration-300 rounded-md mx-1"
             type="text"
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}

@@ -1,24 +1,17 @@
-import { nanoid } from "nanoid";
 import { Breadcrumbs } from "../components";
 import { ProjectCard } from "../features/Admin";
-import { useFetch } from "../components/hooks";
-import { supabase } from "../libs/supabaseClient";
+import useProjectsContext from "../context/ProjectsContext";
 
 const options = [
   {
-    key: nanoid(),
+    key: "admin",
     text: "admin",
     to: "/admin",
   },
 ];
 
-const query = async () => {
-  return supabase.from("projects").select();
-};
-
 const Project = () => {
-  const { data: projects, error, loading } = useFetch(query);
-  
+  const { projects, error, loading } = useProjectsContext();
 
   return (
     <div>

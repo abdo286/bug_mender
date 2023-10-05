@@ -1,6 +1,5 @@
 import { Breadcrumbs, SelectSection } from "../components";
 import { FormInput, FormSelect } from "../components";
-import { nanoid } from "nanoid";
 import ReactQuill from "react-quill";
 import { useForm, Controller } from "react-hook-form";
 import { supabase } from "../libs/supabaseClient";
@@ -17,12 +16,12 @@ import Error from "./Error";
 
 const options = [
   {
-    key: nanoid(),
+    key: "tickets",
     text: "tickets",
     to: "/tickets",
   },
   {
-    key: nanoid(),
+    key: "create-ticket",
     text: "create-ticket",
     to: "/create-ticket",
   },
@@ -258,32 +257,3 @@ const CreateTicket = () => {
   );
 };
 export default CreateTicket;
-
-// upload file logic should be in components global
-// add created when uploading the data
-// submitter
-// assigned should be shown based on if the user is admin or project manager and assigned to assign project or not
-// admins can only add projects - assigned project managers and add developers
-// project managers can assign or remove developers only and they can do that only to the projects they were assigned to
-// add the functionality of adding a project manager and a list of developers using react select to during adding the project
-// add the functionality of adding attachments to the ticket during creating the ticket
-//  <section className="mt-3">
-//    <p className="label-text font-semibold">Attach File: </p>
-
-//    <div className="flex col gap-6 mt-3">
-//      <div>
-//        <input
-//          type="text"
-//          placeholder="Add Description"
-//          className="input input-bordered w-full max-w-xs"
-//        />
-//      </div>
-//      <div>
-//        <input
-//          type="file"
-//          multiple
-//          className="file-input file-input-bordered file-input-info w-full max-w-xs"
-//        />
-//      </div>
-//    </div>
-//  </section>;

@@ -55,4 +55,44 @@ PropTypes
 Validation against if the data not present
 Interactivity
 
-always look at the Console Panel and see if there are an errors or warnings - divide and conquer 
+always look at the Console Panel and see if there are an errors or warnings - divide and conquer
+
+In this code, we use semantic HTML elements to improve accessibility. We replace the `div` elements with `main`, `nav`, `section`, `article`, and `aside` elements to provide more meaning to the content.
+
+The `main` element is used to indicate the main content of the page. The `nav` element is used to indicate a navigation section. The `section` element is used to group related content. The `article` element is used to indicate an independent, self-contained piece of content. The `aside` element is used to indicate content that is related to the main content but not part of it.
+
+By using semantic HTML, we can improve the accessibility and SEO of the page.
+
+
+// upload file logic should be in components global
+// add created when uploading the data
+// submitter
+// assigned should be shown based on if the user is admin or project manager and assigned to assign project or not
+// admins can only add projects - assigned project managers and add developers
+// project managers can assign or remove developers only and they can do that only to the projects they were assigned to
+// add the functionality of adding a project manager and a list of developers using react select to during adding the project
+// add the functionality of adding attachments to the ticket during creating the ticket
+// <section className="mt-3">
+// <p className="label-text font-semibold">Attach File: </p>
+
+// <div className="flex col gap-6 mt-3">
+// <div>
+// <input
+// type="text"
+// placeholder="Add Description"
+// className="input input-bordered w-full max-w-xs"
+// />
+// </div>
+// <div>
+// <input
+// type="file"
+// multiple
+// className="file-input file-input-bordered file-input-info w-full max-w-xs"
+// />
+// </div>
+// </div>
+// </section>;
+
+
+// Status: New, Development, Resolved
+// Priority: Hight, Medium, Low

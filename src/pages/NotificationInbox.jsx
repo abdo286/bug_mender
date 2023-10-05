@@ -1,23 +1,17 @@
-import { Breadcrumbs } from "../components";
-import { nanoid } from "nanoid";
+import { Breadcrumbs, Loading, Error } from "../components";
 import { Notification } from "../features/NotificationInbox";
 import useAuthContext from "../context/AuthContext";
 import { useCallback, useMemo, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
 import { useFetch } from "../components/hooks";
-import Error from "./Error";
-import Loading from "./Loading";
 
 const options = [
   {
-    key: nanoid(),
-    text: "Notifications ",
+    key: "Notifications",
+    text: "Notifications",
     to: "/notification-inbox",
   },
 ];
-
-// sending null as a userId to supabase will trigger an error
-// so we have to choose a number that cannot be used as an id but it's valid to send to firebase.
 
 const NotificationInbox = () => {
   const { userProfile } = useAuthContext();
@@ -53,21 +47,12 @@ const NotificationInbox = () => {
     }
   }, [notifications, selectedType]);
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    console.log(error);
-    return <Error />;
-  }
-
   return (
-    <section>
+    <main>
       <div className="mt-3">
         <Breadcrumbs optionsData={options} />
       </div>
-      <div className="w-[90%] mx-auto mt-12 ">
+      <section className="w-[90%] mx-auto mt-12">
         <h2 className="text-xl mb-10">Notifications</h2>
         <div className="flex flex-col gap-8">
           <div className="flex items-center gap-4">
@@ -86,12 +71,20 @@ const NotificationInbox = () => {
               ))}
             </select>
           </div>
-          {sortedNotifications.map((notification) => (
-            <Notification key={notification.id} notification={notification} />
-          ))}
+          {loading && <Loading />}
+          {error && <Error />}
+          {!loading && !error && (
+            <ul className="list-none">
+              {sortedNotifications.map((notification) => (
+                <li key={notification.id}>
+                  <Notification notification={notification} />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

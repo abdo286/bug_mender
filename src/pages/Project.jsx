@@ -5,31 +5,41 @@ import {
   ProjectTeam,
   ProjectTickets,
 } from "../features/Project";
+import { useParams } from "react-router-dom";
+
+const options = [
+  {
+    key: "projects",
+    text: `projects`,
+    to: "/projects",
+  },
+];
 
 const Project = () => {
-  const options = [
-    {
-      key: nanoid(),
-      text: `projects/${30}`,
-      to: "/",
-    },
-  ];
+  const { id } = useParams();
 
   return (
-    <div>
-      <div>
-        <div className="mt-3">
-          <Breadcrumbs optionsData={options} />
+    <main>
+      <nav className="mt-3">
+        <Breadcrumbs
+          optionsData={[
+            ...options,
+            {
+              key: nanoid(),
+              text: id,
+              to: `.`,
+            },
+          ]}
+        />
+      </nav>
+      <section className="w-[90%] mx-auto pt-12 gap-12 grid grid-cols-[30fr_70fr] ">
+        <div>
+          <ProjectDetails />
+          <ProjectTeam />
         </div>
-        <section className="w-[90%] mx-auto pt-12 gap-12 grid grid-cols-[30fr_70fr] ">
-          <div>
-            <ProjectDetails />
-            <ProjectTeam />
-          </div>
-          <ProjectTickets />
-        </section>
-      </div>
-    </div>
+        <ProjectTickets />
+      </section>
+    </main>
   );
 };
 export default Project;
