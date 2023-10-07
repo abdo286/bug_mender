@@ -1,3 +1,5 @@
+import Error from "../../../components/Error";
+import Loading from "../../../components/Loading";
 import AddComment from "./AddComment";
 import Comments from "./Comments/Comments";
 import PropTypes from "prop-types";
@@ -7,13 +9,9 @@ const TicketComments = ({ ticketId, comments }) => {
     <div>
       <AddComment ticketId={ticketId} />
       {comments.loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : comments.error ? (
-        <div>
-          <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
-            There was an Error Loading the Ticket Comments
-          </p>
-        </div>
+        <Error />
       ) : (
         <Comments comments={comments.data} />
       )}

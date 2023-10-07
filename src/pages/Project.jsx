@@ -2,12 +2,11 @@ import { nanoid } from "nanoid";
 import { Breadcrumbs, TableSection } from "../components";
 import { ProjectDetails, ProjectTeam } from "../features/Project";
 import { useParams } from "react-router-dom";
-import { useMemo } from "react";
-import { supabase } from "../libs/supabaseClient";
-import useFetch from "../components/hooks/useFetch";
+
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import RTableColumns from "../features/Tickets/data/RTableColumns";
+import useProjectData from "../features/Project/hooks/useProjectDat";
 
 const options = [
   {
@@ -18,45 +17,19 @@ const options = [
 ];
 
 const Project = () => {
-  const { id } = useParams();
-
-  const queries = useMemo(() => {
-    return {
-      projectQuery: () => supabase.from("projects").select().eq("id", id),
-      projectTeamQuery: () =>
-        supabase
-          .from("UsersProjects")
-          .select(
-            `userId, role, profiles (id, name, email, role, image, lastName, country )`
-          )
-          .eq("projectId", id),
-      projectTicketsQuery: () =>
-        supabase
-          .from("tickets")
-          .select(
-            `createdAt, updated, id, name, description, type, priority, status, assignedTo, createdBy`
-          )
-          .eq("projectId", id),
-    };
-  }, [id]);
+  const { id: projectId } = useParams();
 
   const {
-    data: project,
-    error: projectError,
-    loading: projectLoading,
-  } = useFetch(queries.projectQuery);
-
-  const {
-    data: projectTeam,
-    error: projectTeamError,
-    loading: projectTeamLoading,
-  } = useFetch(queries.projectTeamQuery);
-
-  const {
-    data: projectTickets,
-    error: projectTicketsError,
-    loading: projectTicketsLoading,
-  } = useFetch(queries.projectTicketsQuery);
+    project,
+    projectError,
+    projectLoading,
+    projectTeam,
+    projectTeamError,
+    projectTeamLoading,
+    projectTickets,
+    projectTicketsError,
+    projectTicketsLoading,
+  } = useProjectData(projectId);
 
   if (projectLoading || projectTeamLoading || projectTicketsLoading)
     return <Loading />;

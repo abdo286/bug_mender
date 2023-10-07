@@ -2,14 +2,19 @@ import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
 
 const Breadcrumbs = ({ optionsData }) => {
-  const options = [
+  let options = [
     {
       key: nanoid(),
       text: "Home",
       to: "/",
     },
-    ...optionsData,
   ];
+
+  if (Array.isArray(optionsData)) {
+    options = [...options, ...optionsData];
+  } else {
+    options = [...options, optionsData];
+  }
 
   return (
     <div className="text-sm breadcrumbs text-gray-800">

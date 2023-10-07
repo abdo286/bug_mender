@@ -1,21 +1,16 @@
 import PropTypes from "prop-types";
-import { RTable } from "../../../components";
+import { TableSection } from "../../../components";
 import RTableColumns from "../data/RTableColumns";
 
 const TicketsHistory = ({ ticketHistoryData }) => {
   return (
     <div>
-      {ticketHistoryData.loading ? (
-        <p>Loading...</p>
-      ) : ticketHistoryData.error ? (
-        <div>
-          <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
-            There was an Error Loading the Ticket History
-          </p>
-        </div>
-      ) : (
-        <RTable columns={RTableColumns} data={ticketHistoryData.data} />
-      )}
+      <TableSection
+        columns={RTableColumns}
+        data={ticketHistoryData.data}
+        loading={ticketHistoryData.loading}
+        error={ticketHistoryData.error}
+      />
     </div>
   );
 };

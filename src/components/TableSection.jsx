@@ -1,24 +1,9 @@
 import PropTypes from "prop-types";
 import { RTable } from "./RTable_";
 import classNames from "classnames";
-import { FaSpinner } from "react-icons/fa";
-import { AiOutlineWarning } from "react-icons/ai";
+import Loading from "./Loading";
+import Error from "./Error";
 
-const Loading = () => (
-  <section className="flex flex-col items-center justify-center h-full">
-    <FaSpinner className="animate-spin text-4xl text-gray-600" />
-    <p className="mt-4 text-gray-600 font-medium text-lg">Loading...</p>
-  </section>
-);
-
-const Error = () => (
-  <section className="flex flex-col items-center justify-center h-full">
-    <p className="mt-4 text-red-500 font-medium text-lg">There was an error</p>
-  </section>
-);
-
-
-export { Loading, Error };
 const TableSection = ({
   title,
   columns,
