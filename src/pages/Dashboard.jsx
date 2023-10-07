@@ -14,14 +14,6 @@ import useProjectsContext from "../context/ProjectsContext";
 import useUsersContext from "../context/UsersContext";
 import AccountRTableColumns from "../features/Account/data/RTableColumns";
 
-const options = [
-  {
-    key: "Dashboard",
-    text: "Dashboard",
-    to: "/",
-  },
-];
-
 const Dashboard = () => {
   const {
     tickets,
@@ -38,7 +30,13 @@ const Dashboard = () => {
   return (
     <main>
       <nav className="mt-3">
-        <Breadcrumbs optionsData={options} />
+        <Breadcrumbs
+          optionsData={{
+            key: "Dashboard",
+            text: "Dashboard",
+            to: "/",
+          }}
+        />
       </nav>
 
       <section className="w-[90%] mx-auto mt-12 grid ">

@@ -1,30 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import authImage from "../features/Auth/assets/auth.svg";
 import FeatureCard from "../features/Auth/components/FeatureCard";
-
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import features from "../features/Auth/constants/features";
 
-const features = [
-  {
-    name: `Bug Reporting And Attaching Files`,
-    description: `Easily report bugs by providing detailed descriptions, steps to
-              reproduce, and attaching files or screenshots.`,
-  },
 
-  {
-    name: `User Roles and Permissions`,
-    description: `Assign different roles and permissions to users, allowing you to control
-    who can access, modify, or delete data within the bug tracking system.`,
-  },
-  {
-    name: `Customizable Dashboard`,
-    description: `Create a personalized dashboard with widgets and panels that matter
-    most to you, making it easy to monitor project progress and track bugs.`,
-  },
-];
 const Auth = () => {
   return (
     <main>

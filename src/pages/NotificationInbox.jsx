@@ -3,58 +3,32 @@ import Loading from "./Loading";
 import Error from "./Error";
 import { Notification } from "../features/NotificationInbox";
 import useAuthContext from "../context/AuthContext";
-import { useCallback, useMemo, useState } from "react";
-import { supabase } from "../libs/supabaseClient";
-import { useFetch } from "../components/hooks";
-
-const options = [
-  {
-    key: "Notifications",
-    text: "Notifications",
-    to: "/notification-inbox",
-  },
-];
+import useNotificationsData from "../features/NotificationInbox/hooks/useNotificationsData";
 
 const NotificationInbox = () => {
   const { userProfile } = useAuthContext();
 
-  const query = useCallback(async () => {
-    return supabase
-      .from("notifications")
-      .select()
-      .eq("userId", userProfile?.data?.id || 0);
-  }, [userProfile?.data?.id]);
-
-  const { data: notifications, error, loading } = useFetch(query);
-
-  const [selectedType, setSelectedType] = useState("");
-
-  const types = useMemo(() => {
-    if (!notifications) return [];
-    const allTypes = notifications.map((notification) => notification.type);
-    return [...new Set(allTypes)];
-  }, [notifications]);
-
-  const sortedNotifications = useMemo(() => {
-    if (selectedType) {
-      const matchingNotifications = notifications.filter(
-        (notification) => notification.type === selectedType
-      );
-      const otherNotifications = notifications.filter(
-        (notification) => notification.type !== selectedType
-      );
-      return [...matchingNotifications, ...otherNotifications];
-    } else {
-      return notifications;
-    }
-  }, [notifications, selectedType]);
+  const {
+    notifications,
+    error,
+    loading,
+    selectedType,
+    setSelectedType,
+    types,
+  } = useNotificationsData(userProfile?.data?.id);
 
   return (
     <main>
-      <div className="mt-3">
-        <Breadcrumbs optionsData={options} />
-      </div>
-      <section className="w-[90%] mx-auto mt-12">
+      <nav className="mt-3">
+        <Breadcrumbs
+          optionsData={{
+            key: "Notifications",
+            text: "Notifications",
+            to: "/notification-inbox",
+          }}
+        />
+      </nav>
+      <section className="w-[90%] mx-auto pt-12">
         <h2 className="text-xl mb-10">Notifications</h2>
         <div className="flex flex-col gap-8">
           <div className="flex items-center gap-4">
@@ -77,7 +51,7 @@ const NotificationInbox = () => {
           {error && <Error />}
           {!loading && !error && (
             <ul className="list-none">
-              {sortedNotifications.map((notification) => (
+              {notifications.map((notification) => (
                 <li key={notification.id}>
                   <Notification notification={notification} />
                 </li>

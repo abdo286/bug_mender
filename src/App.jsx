@@ -5,6 +5,10 @@ import { UsersContextProvider } from "./context/UsersContext";
 import { TicketsContextProvider } from "./context/TicketsContext";
 import { ProjectsContextProvider } from "./context/ProjectsContext";
 import "react-quill/dist/quill.snow.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { Suspense } from "react";
+import { Loading } from "./pages";
 
 const App = () => {
   return (
@@ -13,7 +17,9 @@ const App = () => {
         <UsersContextProvider>
           <TicketsContextProvider>
             <ProjectsContextProvider>
-              <RouterProvider router={router} />
+              <Suspense fallback={<Loading />}>
+                <RouterProvider router={router} />
+              </Suspense>
             </ProjectsContextProvider>
           </TicketsContextProvider>
         </UsersContextProvider>

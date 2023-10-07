@@ -27,7 +27,7 @@ const AppLayout = () => {
   return (
     <>
       <ToastContainer position="top-center" />
-      <section className="relative grid grid-rows-[auto,1fr] border-box pb-16">
+      <section className="relative grid grid-rows-[auto,1fr] border-box">
         {/* <Header
           setShouldHideSidebar={setShouldHideSidebar}
           user={{
@@ -40,9 +40,7 @@ const AppLayout = () => {
         /> */}
 
         {shouldShowSidebar ? (
-          <section
-            className={`grid grid-cols-[17fr_83fr] items-start !w-full !ml-0 `}
-          >
+          <section className={`grid grid-cols-[17fr_83fr]  !w-full !ml-0 `}>
             <Sidebar />
             <Outlet />
           </section>

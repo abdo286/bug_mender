@@ -1,5 +1,5 @@
 export { default as AppLayout } from "./AppLayout";
-export { default as Dashboard } from "./ Dashboard";
+export { default as Dashboard } from "./Dashboard";
 export { default as NotificationInbox } from "./NotificationInbox";
 export { default as Projects } from "./Projects";
 export { default as Tickets } from "./Tickets";
@@ -14,5 +14,6 @@ export { default as Ticket } from "./Ticket";
 export { default as NotFound } from "./NotFound";
 export { default as Error } from "./Error";
 export { default as Login } from "./Login";
+export { default as Loading } from "./Loading";
 export { default as SignUp } from "./SignUp";
 export { default as Auth } from "./Auth";

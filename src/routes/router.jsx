@@ -1,27 +1,25 @@
+import { lazy } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import {
-  AppLayout,
-  Dashboard,
-  NotificationInbox,
-  Projects,
-  Tickets,
-  Admin,
-  CreateProject,
-  CreateTicket,
-  Account,
-  Project,
-  Ticket,
-  NotFound,
-  AdminProjectRoles,
-  Error,
-  Auth,
-  Login,
-  SignUp,
-} from "../pages";
+import { AppLayout, Error, NotFound } from "../pages";
+
+const Dashboard = lazy(() => import("../pages/Dashboard"));
+const NotificationInbox = lazy(() => import("../pages/NotificationInbox"));
+const Projects = lazy(() => import("../pages/Projects"));
+const Project = lazy(() => import("../pages/Project"));
+const Tickets = lazy(() => import("../pages/Tickets"));
+const Ticket = lazy(() => import("../pages/Ticket"));
+const CreateProject = lazy(() => import("../pages/CreateProject"));
+const CreateTicket = lazy(() => import("../pages/CreateTicket"));
+const Admin = lazy(() => import("../pages/Admin"));
+const AdminProjectRoles = lazy(() => import("../pages/AdminProjectRoles"));
+const Account = lazy(() => import("../pages/Account"));
+const Auth = lazy(() => import("../pages/Auth"));
+const Login = lazy(() => import("../pages/Login"));
+const SignUp = lazy(() => import("../pages/SignUp"));
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
