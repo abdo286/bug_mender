@@ -1,11 +1,10 @@
-import { Breadcrumbs } from "../components";
+import { Breadcrumbs, TableSection } from "../components";
 import {
   CompanyData,
   TicketsStats,
   UserStats,
   PriorityProjects,
   RolesByProjects,
-  DashboardSection,
 } from "../features/Dashboard";
 
 import ProjectsRTableColumns from "../features/Projects/data/RTableColumns";
@@ -52,7 +51,7 @@ const Dashboard = () => {
           <RolesByProjects />
         </section>
 
-        <DashboardSection
+        <TableSection
           title="Projects"
           columns={ProjectsRTableColumns}
           data={projects}
@@ -60,7 +59,7 @@ const Dashboard = () => {
           error={projectsError}
         />
 
-        <DashboardSection
+        <TableSection
           title="Tickets"
           columns={TicketsRTableColumns}
           data={tickets}
@@ -68,7 +67,7 @@ const Dashboard = () => {
           error={ticketsError}
         />
 
-        <DashboardSection
+        <TableSection
           title="Users"
           columns={AccountRTableColumns}
           data={users}

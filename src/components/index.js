@@ -9,6 +9,6 @@ export { default as DatePicket } from "./Form/DatePicket";
 export { default as UploadFile } from "./Form/UploadFile";
 export { default as SelectSection } from "./Form/SelectSection";
 export { default as DeleteTableRowDialog } from "./DeleteTableRowDialog";
-// export { default as RTable } from "./RTable";
+export { default as TableSection } from "./TableSection";
 import { RTable } from "./RTable_";
 export { RTable };

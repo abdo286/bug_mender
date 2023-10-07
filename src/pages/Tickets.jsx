@@ -1,4 +1,4 @@
-import { Breadcrumbs, MainHeader, RTable } from "../components";
+import { Breadcrumbs, MainHeader, RTable, TableSection } from "../components";
 import { TicketsCards, TicketsStats } from "../features/Tickets";
 import { useState } from "react";
 import RTableColumns from "../features/Tickets/data/RTableColumns";
@@ -36,22 +36,25 @@ const Tickets = () => {
           <div className="px-10 pt-16">
             <TicketsStats />
           </div>
-          {loading ? (
+
+          {view === "table" ? (
+            <TableSection
+              title="Tickets"
+              columns={RTableColumns}
+              data={tickets}
+              loading={loading}
+              error={error}
+            />
+          ) : loading ? (
             <section>loading...</section>
           ) : error ? (
             <section>There was an error</section>
           ) : (
             <section className="px-10 py-6 mt-16">
               <h2 className="text-2xl font-medium">Tickets</h2>
-              {view === "table" ? (
-                <div className="mt-12">
-                  <RTable columns={RTableColumns} data={tickets} />
-                </div>
-              ) : (
-                <div className="mt-8 px-10 rounded-md py-6 bg-white shadow-md">
-                  <TicketsCards tickets={tickets} />
-                </div>
-              )}
+              <div className="mt-8 px-10 rounded-md py-6 bg-white shadow-md">
+                <TicketsCards tickets={tickets} />
+              </div>
             </section>
           )}
         </div>

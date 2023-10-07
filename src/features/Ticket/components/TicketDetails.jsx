@@ -2,34 +2,10 @@ import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import TicketsDetailsLoader from "./TicketsDetailsLoader";
 
-const TicketDetails = ({ ticket, ticketsLoading, ticketsError }) => {
+const TicketDetails = ({ ticket }) => {
   const navigate = useNavigate();
-  console.log("ticket300", ticket);
 
-  if (ticketsLoading) {
-    return <TicketsDetailsLoader />;
-  }
-  if (ticketsError) {
-    return (
-      <div>
-        <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
-          There was an Error Loading the Ticket Details
-        </p>
-      </div>
-    );
-  }
-if (ticket === undefined) {
-    return (
-      <div>
-        <p className="text-red-500 font-medium relative top-[25%] left-[15%]">
-          There was an Error Loading the Ticket Details
-        </p>
-      </div>
-    );
-  }
-  
   return (
     <div className="bg-white h-fit shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">

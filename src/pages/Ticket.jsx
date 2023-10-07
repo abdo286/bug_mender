@@ -3,13 +3,15 @@ import { Breadcrumbs } from "../components";
 import {
   TicketAttachments,
   TicketDetails,
-  TicketsDetailsLoader,
   TicketComments,
 } from "../features/Ticket";
 import { useParams } from "react-router-dom";
 import useFetch from "../components/hooks/useFetch";
 import { supabase } from "../libs/supabaseClient";
 import TicketsHistory from "../features/Ticket/components/TicketsHistory";
+import Loading from "./Loading";
+import NotFound from "./NotFound";
+
 
 const options = [
   {
@@ -74,7 +76,11 @@ const Ticket = () => {
     loading: commentsLoading,
   } = useFetch(queries.commentsQuery);
 
-  if (ticketsError) console.log(ticketsError);
+  if (ticketsLoading) return <Loading />;
+  if (ticketsError || (!ticketsLoading && !tickets[0])) {
+    console.log(ticketsError);
+    return <NotFound />;
+  }
 
   return (
     <main>
