@@ -19,6 +19,7 @@ export const TicketsContextProvider = ({ children }) => {
     error,
     loading,
   } = useFetch({ query, tableName: "tickets" });
+  
   const value = useMemo(() => {
     return { tickets, error, loading };
   }, [tickets, error, loading]);

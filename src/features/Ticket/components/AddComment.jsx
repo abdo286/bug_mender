@@ -33,7 +33,6 @@ const TicketComments = ({ ticketId }) => {
       toast.error("There was an error adding the comment");
       console.log(error);
     } else {
-      toast.success("Comment was added successfully");
       reset();
     }
   };

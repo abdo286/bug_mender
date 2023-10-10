@@ -19,9 +19,9 @@ const App = () => {
           <TicketsContextProvider>
             <ProjectsContextProvider>
               <NotificationsProvider>
-                <Suspense fallback={<Loading />}>
-                  <RouterProvider router={router} />
-                </Suspense>
+                  <Suspense fallback={<Loading />}>
+                    <RouterProvider router={router} />
+                  </Suspense>
               </NotificationsProvider>
             </ProjectsContextProvider>
           </TicketsContextProvider>

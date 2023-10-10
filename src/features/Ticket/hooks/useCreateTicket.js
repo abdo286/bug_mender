@@ -41,7 +41,7 @@ const useCreateTicket = ({ ticketId, historyId }) => {
     data: ticketHistoryEntry,
     loading: ticketHistoryEntryLoading,
     error: ticketHistoryEntryError,
-  } = useFetch({ query, table: "ticketHistory" });
+  } = useFetch({ query, tableName: "ticketHistory" });
 
   const mode = useMemo(() => {
     return ticketId ? "editing" : historyId ? "restoring" : "creating";
@@ -84,7 +84,8 @@ const useCreateTicket = ({ ticketId, historyId }) => {
       data.createdAt = new Date();
       // data.createdBy = userProfile.id;
       // I could log in but I had to hardcode the value of createdBy
-      data.createdBy = 21;
+      console.log("war", userProfile);
+      data.createdBy = userProfile.data.id;
     }
 
     for (let key of Object.keys(data)) {

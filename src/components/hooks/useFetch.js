@@ -14,6 +14,7 @@ const useFetch = ({ query, tableName }) => {
 
     if (enableLoading) setLoading(true);
     const { data, error } = await query();
+    console.log("query 500", query);
     if (error) {
       console.log("Error: ", error);
       setError(error);
@@ -32,13 +33,14 @@ const useFetch = ({ query, tableName }) => {
 
         // eslint-disable-next-line
         (payload) => {
+          console.log("unique500000dsadas", payload);
           getData(query, false);
         }
       )
       .subscribe();
 
-    return () => channel.unsubscribe();
-  }, [query, data, tableName, getData]);
+    // return () => channel.unsubscribe();
+  }, [query, tableName, getData]);
 
   useEffect(() => {
     getData(query);

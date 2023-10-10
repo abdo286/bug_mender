@@ -19,7 +19,12 @@ const changes = supabase
       schema: "public", // Subscribes to the "public" schema in Postgres
       event: "*", // Listen to all changes
     },
-    (payload) => console.log("payload10000000000000000000", payload)
+    (payload) => {
+      console.log("payload10000000000000000000", payload);
+      const channels = supabase.getChannels();
+
+      console.log("channels", channels);
+    }
   )
   .subscribe();
 

@@ -31,11 +31,18 @@ const useTicketData = (ticketId) => {
     };
   }, [ticketId]);
 
+  // tableName: `tickets`, -> this table name will cause the tickets page to not get updated
+
+  //  tableName: `tickets/${ticketId}` -> this will not
+
   const {
     data: tickets,
     error: ticketsError,
     loading: ticketsLoading,
-  } = useFetch({ query: queries.ticketQuery, tableName: "tickets" });
+  } = useFetch({
+    query: queries.ticketQuery,
+    tableName: `tickets/${ticketId}`,
+  });
 
   const {
     data: ticketHistory,
