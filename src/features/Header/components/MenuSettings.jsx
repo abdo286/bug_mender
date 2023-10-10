@@ -25,19 +25,21 @@ const MenuSettings = forwardRef(function MenuSettings(
         ref={ref}
       >
         <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center w-[16rem] overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            alt="user profile"
-            className="w-full h-full rounded-full"
-          />
-
+          <div className="w-12 h-12 relative ">
+            <img
+              src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              alt="user profile"
+              className="w-full h-full rounded-full object-cover"
+            />
+            <div className="absolute inset-0 rounded-full shadow-md"></div>
+          </div>
           <div>
             <h3 className="overflow-hidden max-w-[80%]">Demo Admin</h3>
             <p className="overflow-hidden max-w-[80%]"> {user?.email}</p>
           </div>
         </header>
         <section className="bg-white w-full">
-          <ul className="flex flex-col  ">
+          <ul className="flex flex-col">
             <li
               className="cursor-pointer text-sm text-gray-600 font-medium  flex items-center gap-2 hover:bg-[#f1f3f5] pt-5 pb-3 pl-5 transition-all ease-in-out duration-100 active:bg-[#66D9E8]"
               onClick={() => {

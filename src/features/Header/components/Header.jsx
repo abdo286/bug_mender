@@ -1,5 +1,5 @@
 import { RiNotificationLine } from "react-icons/ri";
-import { CgSearch } from "react-icons/cg";
+// import { CgSearch } from "react-icons/cg";
 import userImage from "../../../assets/images/userImage.avif";
 import ToggleMode from "./ToggleMode";
 import { useEffect, useRef, useState } from "react";
@@ -76,7 +76,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
           </Link>
         </section>
       </header>
-
+      {/* 
       <form
         className="w-72 flex items-center gap-3 rounded-full bg-white border-gray-200 focus-within:border-gray-300 transition-all duration-100 ease-in-out px-6 py-2 border-2 focus-within:w-[30rem] ${
 
@@ -88,7 +88,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
           className="bg-none focus:outline-none w-[90%]"
         />
         <CgSearch className="cursor-pointer text-xl placeholder:text-stone-400 text-gray-500 " />
-      </form>
+      </form> */}
 
       <section className="flex items-center justify-center gap-8 px-6">
         <button

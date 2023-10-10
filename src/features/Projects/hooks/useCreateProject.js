@@ -1,11 +1,11 @@
-import useUsersContext from "../context/UsersContext";
-import useProjectsContext from "../context/ProjectsContext";
-import useAuthContext from "../context/AuthContext";
-import { useFetch } from "../components/hooks";
+import useUsersContext from "../../../context/UsersContext";
+import useProjectsContext from "../../../context/ProjectsContext";
+import useAuthContext from "../../../context/AuthContext";
+import { useFetch } from "../../../components/hooks";
 import { useCallback, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { supabase } from "../libs/supabaseClient";
+import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 
 const getProject = (projects, projectId) => {
@@ -331,7 +331,7 @@ const useCreateProjects = () => {
     projectDevelopersError,
     projectDevelopersLoading,
     control,
-    mode
+    mode,
   };
 };
 

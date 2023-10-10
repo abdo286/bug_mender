@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import { PureComponent } from "react";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const data = [
   { name: "Group A", value: 400 },
@@ -46,7 +46,7 @@ export default class Example extends PureComponent {
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
           <Pie
-            data={data}
+            data={this.props.data}
             cx="50%"
             cy="50%"
             labelLine={false}
@@ -57,6 +57,7 @@ export default class Example extends PureComponent {
           >
             {data.map((entry, index) => (
               <Cell
+                entry={entry}
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
               />

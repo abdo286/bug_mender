@@ -48,7 +48,7 @@ const NotificationInbox = () => {
             </select>
           </div>
           {loading && <Loading />}
-          {error && <Error />}
+          {(error || !notifications) && <Error />}
           {!loading && !error && (
             <ul className="list-none">
               {notifications.map((notification) => (

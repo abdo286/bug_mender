@@ -9,6 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { Suspense } from "react";
 import { Loading } from "./pages";
+import { NotificationsProvider } from "./context/NotificationsContext";
 
 const App = () => {
   return (
@@ -17,9 +18,11 @@ const App = () => {
         <UsersContextProvider>
           <TicketsContextProvider>
             <ProjectsContextProvider>
-              <Suspense fallback={<Loading />}>
-                <RouterProvider router={router} />
-              </Suspense>
+              <NotificationsProvider>
+                <Suspense fallback={<Loading />}>
+                  <RouterProvider router={router} />
+                </Suspense>
+              </NotificationsProvider>
             </ProjectsContextProvider>
           </TicketsContextProvider>
         </UsersContextProvider>
