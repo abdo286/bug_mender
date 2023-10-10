@@ -41,7 +41,7 @@ const useCreateTicket = ({ ticketId, historyId }) => {
     data: ticketHistoryEntry,
     loading: ticketHistoryEntryLoading,
     error: ticketHistoryEntryError,
-  } = useFetch(query);
+  } = useFetch({ query, table: "ticketHistory" });
 
   const mode = useMemo(() => {
     return ticketId ? "editing" : historyId ? "restoring" : "creating";
@@ -83,7 +83,7 @@ const useCreateTicket = ({ ticketId, historyId }) => {
     if (mode === "creating") {
       data.createdAt = new Date();
       // data.createdBy = userProfile.id;
-      // I could log in but I had to hardcode the value of createdBy 
+      // I could log in but I had to hardcode the value of createdBy
       data.createdBy = 21;
     }
 
@@ -107,7 +107,7 @@ const useCreateTicket = ({ ticketId, historyId }) => {
         .from("tickets")
         .update(dataWithoutProjects)
         .eq("id", mode == "editing" ? data.id : data.ticketId);
-        console.log("data.ticketId", data.ticketId);
+      console.log("data.ticketId", data.ticketId);
 
       const { error: addingToHistoryError } = await supabase
         .from("ticketHistory")

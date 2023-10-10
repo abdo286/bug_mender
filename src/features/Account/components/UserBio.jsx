@@ -32,16 +32,7 @@ const UserBio = () => {
             <li>UI/UX Design</li>
           </ul>
         </div>
-        <div className="mt-4">
-          <h3 className="text-xl font-semibold">About Me</h3>
-          <p>
-            John is passionate about creating user-friendly and visually
-            stunning web experiences. He believes in continuous learning and
-            staying up to date with the latest web technologies. When he&lsquo;s
-            not coding, you can find John hiking in the mountains or enjoying a
-            good book.
-          </p>
-        </div>
+
         <div className="mt-4">
           <h3 className="text-xl font-semibold">Joined Company</h3>
           <p className="text-gray-500">July 2015</p>

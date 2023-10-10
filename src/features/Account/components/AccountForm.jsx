@@ -1,9 +1,8 @@
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { FormInput, FormSelect, UploadFile } from "../../../components";
 
-const Header = () => {
+const AccountForm = () => {
   const {
     register,
     handleSubmit,
@@ -100,4 +99,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AccountForm;

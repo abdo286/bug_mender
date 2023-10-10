@@ -8,14 +8,6 @@ import NotFound from "./NotFound";
 import RTableColumns from "../features/Tickets/data/RTableColumns";
 import useProjectData from "../features/Project/hooks/useProjectDat";
 
-const options = [
-  {
-    key: "projects",
-    text: `projects`,
-    to: "/projects",
-  },
-];
-
 const Project = () => {
   const { id: projectId } = useParams();
 
@@ -48,7 +40,11 @@ const Project = () => {
       <nav className="mt-3">
         <Breadcrumbs
           optionsData={[
-            ...options,
+            {
+              key: "projects",
+              text: `projects`,
+              to: "/projects",
+            },
             {
               key: nanoid(),
               text: project.name,

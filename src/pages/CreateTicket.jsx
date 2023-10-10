@@ -8,19 +8,6 @@ import Loading from "./Loading";
 import Error from "./Error";
 import { Controller } from "react-hook-form";
 
-const options = [
-  {
-    key: "tickets",
-    text: "tickets",
-    to: "/tickets",
-  },
-  {
-    key: "create-ticket",
-    text: "create-ticket",
-    to: "/create-ticket",
-  },
-];
-
 const CreateTicket = () => {
   const navigate = useNavigate();
   const { ticketId } = useParams();
@@ -55,7 +42,20 @@ const CreateTicket = () => {
   return (
     <div>
       <div className="mt-3">
-        <Breadcrumbs optionsData={options} />
+        <Breadcrumbs
+          optionsData={
+            ({
+              key: "tickets",
+              text: "tickets",
+              to: "/tickets",
+            },
+            {
+              key: "create-ticket",
+              text: "create-ticket",
+              to: "/create-ticket",
+            })
+          }
+        />
       </div>
       <section
         className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md "

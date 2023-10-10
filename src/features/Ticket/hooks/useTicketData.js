@@ -35,25 +35,28 @@ const useTicketData = (ticketId) => {
     data: tickets,
     error: ticketsError,
     loading: ticketsLoading,
-  } = useFetch(queries.ticketQuery);
+  } = useFetch({ query: queries.ticketQuery, tableName: "tickets" });
 
   const {
     data: ticketHistory,
     error: ticketHistoryError,
     loading: ticketHistoryLoading,
-  } = useFetch(queries.ticketHistoryQuery);
+  } = useFetch({
+    query: queries.ticketHistoryQuery,
+    tableName: "ticketHistory",
+  });
 
   const {
     data: attachments,
     error: attachmentsError,
     loading: attachmentsLoading,
-  } = useFetch(queries.attachmentsQuery);
+  } = useFetch({ query: queries.attachmentsQuery, tableName: "attachments" });
 
   const {
     data: comments,
     error: commentsError,
     loading: commentsLoading,
-  } = useFetch(queries.commentsQuery);
+  } = useFetch({ query: queries.commentsQuery, tableName: "comments" });
 
   return {
     tickets,

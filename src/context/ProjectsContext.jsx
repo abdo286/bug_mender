@@ -10,7 +10,11 @@ const query = async () => {
 };
 
 export const ProjectsContextProvider = ({ children }) => {
-  const { data: projects, error, loading } = useFetch(query);
+  const {
+    data: projects,
+    error,
+    loading,
+  } = useFetch({ query, tableName: "projects" });
   const value = useMemo(() => {
     return { projects, error, loading };
   }, [projects, error, loading]);

@@ -10,7 +10,7 @@ const query = async () => {
 };
 
 export const UsersContextProvider = ({ children }) => {
-  const { data, error, loading } = useFetch(query);
+  const { data, error, loading } = useFetch({ query, tableName: "profiles" });
 
   const value = useMemo(() => {
     return { users: data || [], usersError: error, usersLoading: loading };

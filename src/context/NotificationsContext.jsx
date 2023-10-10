@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useCallback,
+  useState,
+} from "react";
 import { useFetchUser } from "../components/hooks";
 import { supabase } from "../libs/supabaseClient";
 import PropTypes from "prop-types";
@@ -7,19 +14,23 @@ const NotificationsContext = createContext();
 
 export const NotificationsProvider = ({ children }) => {
   const [profileId, setProfileId] = useState(null);
-  const { data: notifications, error, loading, getData } = useFetchUser();
+
+  const query = useCallback(async () => {
+    return supabase.from("notifications").select("*").eq("userId", profileId);
+  }, [profileId]);
+
+  const {
+    data: notifications,
+    error,
+    loading,
+    getData,
+  } = useFetchUser({ tableName: "notifications", query, profileId });
 
   useEffect(() => {
     if (profileId) {
-      const query = async () => {
-        return supabase
-          .from("notifications")
-          .select("*")
-          .eq("userId", profileId);
-      };
       getData(query);
     }
-  }, [profileId, getData]);
+  }, [profileId, getData, query]);
 
   const value = useMemo(() => {
     return { notifications, error, loading, setProfileId };

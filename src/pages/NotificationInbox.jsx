@@ -1,6 +1,5 @@
 import { Breadcrumbs } from "../components";
-import Loading from "./Loading";
-import Error from "./Error";
+import { Error, Loading } from "../components";
 import { Notification } from "../features/NotificationInbox";
 import useAuthContext from "../context/AuthContext";
 import useNotificationsData from "../features/NotificationInbox/hooks/useNotificationsData";
@@ -48,7 +47,7 @@ const NotificationInbox = () => {
             </select>
           </div>
           {loading && <Loading />}
-          {(error || !notifications) && <Error />}
+          {(!userProfile?.data?.id || error) && <Error />}
           {!loading && !error && (
             <ul className="list-none">
               {notifications.map((notification) => (

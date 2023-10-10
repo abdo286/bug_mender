@@ -10,7 +10,7 @@ import Error from "./Error";
 
 const query = async (projectId) => {
   return supabase
-    .from("UsersProjects")
+    .from("UsersProjects")  
     .select(
       `id, createdAt, userId, projectId, role, profiles (id, name, email, lastName, image, role)`
     )
@@ -22,7 +22,11 @@ const AdminProjectRoles = () => {
   const customQuery = useMemo(() => {
     return () => query(projectId);
   }, [projectId]);
-  const { data: projectAssignedUsers, error, loading } = useFetch(customQuery);
+  const {
+    data: projectAssignedUsers,
+    error,
+    loading,
+  } = useFetch({ query: customQuery, tableName: "UsersProjects" });
 
   const { users } = useUsersContext();
 
