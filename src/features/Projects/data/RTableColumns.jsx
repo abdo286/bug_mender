@@ -90,18 +90,19 @@ export default [
     Header: "Action",
     accessor: "id",
     Cell: ({ row }) => {
-      const handleDelete = async () => {
-        const { error } = await supabase
-          .from("projects")
-          .delete()
-          .eq("id", row.original.id);
-        if (error) {
-          console.log(error);
-          toast("There was an error deleting project ");
-          return;
-        }
-        toast("project was deleted successfully");
-      };
+      // const handleDelete = async () => {
+      //   console.log("row.original.id", row.original);
+      //   const { error } = await supabase
+      //     .from("projects")
+      //     .delete()
+      //     .eq("id", row.original.id);
+      //   if (error) {
+      //     console.log(error);
+      //     toast("There was an error deleting project ");
+      //     return;
+      //   }
+      //   toast("project was deleted successfully");
+      // };
 
       return (
         <div className="flex justify-center space-x-2" key={row.id}>
@@ -111,17 +112,17 @@ export default [
           <Link to={`/create-project/${row.original.id}`}>
             <FaEdit className="cursor-pointer text-green-600 text-lg" />
           </Link>
-          <DeleteTableRowDialog
+          {/* <DeleteTableRowDialog
             rowId={row.original.id}
-            rowType="ticket"
+            rowType="project"
             handleDelete={handleDelete}
-          />
-          <FaTrash
+          /> */}
+          {/* <FaTrash
             onClick={() =>
               document.getElementById("deleteRomModal").showModal()
             }
             className="cursor-pointer text-red-600 text-lg"
-          />
+          /> */}
         </div>
       );
     },

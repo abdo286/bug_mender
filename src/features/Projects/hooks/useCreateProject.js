@@ -229,6 +229,8 @@ const useCreateProjects = () => {
     const developers = data.developers;
     delete data.developers;
     let error;
+    if (!data.projectManager) delete data.projectManager;
+
     if (mode === "editing") {
       const { error: updatingError } = await supabase
         .from("projects")
@@ -271,6 +273,7 @@ const useCreateProjects = () => {
       const { error: insertingError } = await supabase
         .from("projects")
         .insert(data);
+      console.log(data);
 
       if (developers.length > 0) {
         addDevelopersToProject(

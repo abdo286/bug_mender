@@ -47,38 +47,3 @@ const useFetch = ({ query, tableName }) => {
 };
 export default useFetch;
 
-// if (Array.isArray(data)) {
-//   setData((prevData) => {
-//     switch (payload.eventType) {
-//       case "INSERT": {
-//         const setData = async () => {
-//           const { data: newData, error } = await query.eq(
-//             "id",
-//             payload.new.id
-//           );
-
-//           if (error) {
-//             console.error(error);
-//             getData(query);
-//           } else {
-//             setData((prevData) => [...prevData, newData[0]]);
-//           }
-//         };
-
-//         setData();
-//         break;
-//       }
-
-//       case "DELETE":
-//         return prevData.filter((item) => item.id !== payload.new.id);
-//       case "UPDATE":
-//         return prevData.map((item) =>
-//           item.id === payload.new.id ? payload.new : item
-//         );
-//       default:
-//         return prevData;
-//     }
-//   });
-// } else if (typeof data === "object") {
-//   setData(payload.new);
-// }

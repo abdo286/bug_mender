@@ -37,6 +37,12 @@ const sidebarData = [
     to: "/admin",
     id: nanoid(),
   },
+  {
+    text: "Invite",
+    icon: MdPersonAdd,
+    to: "/invite",
+    id: nanoid(),
+  },
 ];
 const Sidebar = () => {
   return (
