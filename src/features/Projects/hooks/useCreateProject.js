@@ -1,11 +1,11 @@
-import useUsersContext from "../context/UsersContext";
-import useProjectsContext from "../context/ProjectsContext";
-import useAuthContext from "../context/AuthContext";
-import { useFetch } from "../components/hooks";
+import useUsersContext from "../../../context/UsersContext";
+import useProjectsContext from "../../../context/ProjectsContext";
+import useAuthContext from "../../../context/AuthContext";
+import { useFetch } from "../../../components/hooks";
 import { useCallback, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { supabase } from "../libs/supabaseClient";
+import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 
 const getProject = (projects, projectId) => {
@@ -164,7 +164,7 @@ const useCreateProjects = () => {
     data: projectDevelopers,
     error: projectDevelopersError,
     loading: projectDevelopersLoading,
-  } = useFetch(query);
+  } = useFetch({ query, tableName: `UsersProjects/${projectId}` });
 
   const mode = useMemo(() => {
     return projectId ? "editing" : "creating";
@@ -229,6 +229,8 @@ const useCreateProjects = () => {
     const developers = data.developers;
     delete data.developers;
     let error;
+    if (!data.projectManager) delete data.projectManager;
+
     if (mode === "editing") {
       const { error: updatingError } = await supabase
         .from("projects")
@@ -271,6 +273,7 @@ const useCreateProjects = () => {
       const { error: insertingError } = await supabase
         .from("projects")
         .insert(data);
+      console.log(data);
 
       if (developers.length > 0) {
         addDevelopersToProject(
@@ -331,7 +334,7 @@ const useCreateProjects = () => {
     projectDevelopersError,
     projectDevelopersLoading,
     control,
-    mode
+    mode,
   };
 };
 

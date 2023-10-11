@@ -14,7 +14,11 @@ const query = async () => {
 };
 
 export const TicketsHistoryContextProvider = ({ children }) => {
-  const { data: ticketsHistory, error, loading } = useFetch(query);
+  const {
+    data: ticketsHistory,
+    error,
+    loading,
+  } = useFetch({ query, tableName: "ticketsHistory" });
   const value = useMemo(() => {
     return { ticketsHistory, error, loading };
   }, [ticketsHistory, error, loading]);

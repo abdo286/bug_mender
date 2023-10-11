@@ -7,6 +7,8 @@ export { default as FormInput } from "./Form/FormInput";
 export { default as FormSelect } from "./Form/FormSelect";
 export { default as DatePicket } from "./Form/DatePicket";
 export { default as UploadFile } from "./Form/UploadFile";
+export { default as Error } from "./Error";
+export { default as Loading } from "./Loading";
 export { default as SelectSection } from "./Form/SelectSection";
 export { default as DeleteTableRowDialog } from "./DeleteTableRowDialog";
 export { default as TableSection } from "./TableSection";

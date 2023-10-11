@@ -28,19 +28,28 @@ const useProjectData = (projectId) => {
     data: project,
     error: projectError,
     loading: projectLoading,
-  } = useFetch(queries.projectQuery);
+  } = useFetch({
+    query: queries.projectQuery,
+    tableName: `projects/${projectId}`,
+  });
 
   const {
     data: projectTeam,
     error: projectTeamError,
     loading: projectTeamLoading,
-  } = useFetch(queries.projectTeamQuery);
+  } = useFetch({
+    query: queries.projectTeamQuery,
+    tableName: `UsersProjects/${projectId}`,
+  });
 
   const {
     data: projectTickets,
     error: projectTicketsError,
     loading: projectTicketsLoading,
-  } = useFetch(queries.projectTicketsQuery);
+  } = useFetch({
+    query: queries.projectTicketsQuery,
+    tableName: `tickets/${projectId}`,
+  });
 
   return {
     project,

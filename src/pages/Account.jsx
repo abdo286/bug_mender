@@ -1,7 +1,11 @@
 import { Breadcrumbs } from "../components";
-import { Header, UserBio } from "../features/Account/components";
+// import useAuthContext from "../context/AuthContext";
+import { AccountForm, UserBio } from "../features/Account/components";
+
 
 const Account = () => {
+  // const { userProfile } = useAuthContext();
+
   return (
     <main>
       <nav className="mt-3">
@@ -18,7 +22,7 @@ const Account = () => {
           <UserBio />
         </article>
         <aside>
-          <Header />
+          <AccountForm />
         </aside>
       </section>
     </main>

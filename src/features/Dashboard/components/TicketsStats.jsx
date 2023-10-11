@@ -1,33 +1,59 @@
 import StatCard from "./StatCard";
+import PropTypes from "prop-types";
 
-const TicketsStats = () => {
+const TicketsStats = ({
+  unsignedTickets,
+  totalTickets,
+  inProgressTickets,
+  resolvedTickets,
+  loading,
+  error,
+}) => {
   return (
-    <div className="grid grid-cols-4 gap-12 ">
+    <section className="grid grid-cols-4 gap-12 ">
       <StatCard
-        color="white"
+        color="#fff"
         backgroundColor="#12b886"
-        number="50"
-        label="Tickets assigned"
+        number={inProgressTickets || 0}
+        label="Assigned Tickets"
+        loading={loading}
+        error={error}
       />
       <StatCard
         color="white"
         backgroundColor="#868e96"
-        number="24"
+        number={totalTickets || 0}
         label="Total Tickets"
+        loading={loading}
+        error={error}
       />
       <StatCard
         color="white"
         backgroundColor="#fab005"
-        number="24"
+        number={unsignedTickets || 0}
         label="Unassigned Tickets"
+        loading={loading}
+        error={error}
       />
       <StatCard
         color="white"
         backgroundColor="#495057"
-        number="24"
+        number={resolvedTickets || 0}
         label="Assigned Tickets"
+        loading={loading}
+        error={error}
       />
-    </div>
+    </section>
   );
 };
+
+TicketsStats.propTypes = {
+  unsignedTickets: PropTypes.number,
+  totalTickets: PropTypes.number,
+  inProgressTickets: PropTypes.number,
+  resolvedTickets: PropTypes.number,
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+};
+
 export default TicketsStats;

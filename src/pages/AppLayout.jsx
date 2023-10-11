@@ -10,25 +10,25 @@ const AppLayout = () => {
   const [shouldShowSidebar, setShouldHideSidebar] = useState(true);
   const { pathname } = useLocation();
 
-  // const { session } = useAuthContext();
-
-  // useEffect(() => {
-  //   if (session) toast.success(`Welcome Back`);
-  // }, [session]);
-
-  // if (!session) {
-  //   return <Navigate to="/login" />;
-  // }
+  const { session } = useAuthContext();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    if (session) toast.success(`Welcome Back`);
+  }, [session]);
+
+  if (!session) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <>
       <ToastContainer position="top-center" />
       <section className="relative grid grid-rows-[auto,1fr] border-box">
-        {/* <Header
+        <Header
           setShouldHideSidebar={setShouldHideSidebar}
           user={{
             created_at: session.user.created_at,
@@ -37,7 +37,7 @@ const AppLayout = () => {
             updated_at: session.user,
             last_sign_in_at: session.user.last_sign_in_at,
           }}
-        /> */}
+        />
 
         {shouldShowSidebar ? (
           <section className={`grid grid-cols-[17fr_83fr]  !w-full !ml-0 `}>

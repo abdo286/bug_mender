@@ -1,6 +1,5 @@
 import { Breadcrumbs, TableSection } from "../components";
 import {
-  CompanyData,
   TicketsStats,
   UserStats,
   PriorityProjects,
@@ -13,6 +12,8 @@ import useTicketsContext from "../context/TicketsContext";
 import useProjectsContext from "../context/ProjectsContext";
 import useUsersContext from "../context/UsersContext";
 import AccountRTableColumns from "../features/Account/data/RTableColumns";
+import getTicketStats from "../features/Dashboard/helpers/getTicketStats";
+import getUsersStats from "../features/Dashboard/helpers/getUsersStats";
 
 const Dashboard = () => {
   const {
@@ -27,6 +28,14 @@ const Dashboard = () => {
   } = useProjectsContext();
 
   const { users, usersError, usersLoading } = useUsersContext();
+  const {
+    unassignedTickets,
+    inProgressTickets,
+    resolvedTickets,
+    totalTickets,
+  } = getTicketStats(tickets);
+  const { newUsers, totalUsers, totalDevelopers } = getUsersStats(users);
+
   return (
     <main>
       <nav className="mt-3">
@@ -40,12 +49,30 @@ const Dashboard = () => {
       </nav>
 
       <section className="w-[90%] mx-auto mt-12 grid ">
-        <TicketsStats />
+        <TicketsStats
+          unsignedTickets={unassignedTickets}
+          totalTickets={totalTickets}
+          inProgressTickets={inProgressTickets}
+          resolvedTickets={resolvedTickets}
+          loading={ticketsLoading}
+          error={ticketsError}
+        />
 
-        <section className="grid grid-cols-4 mt-12 mb-8 gap-9">
-          <UserStats />
-          <CompanyData />
-          <PriorityProjects />
+        <section className="grid grid-cols-[30fr_35fr_35fr] mt-12 mb-8 gap-9">
+        <UserStats
+            newUsers={newUsers}
+            totalUsers={totalUsers}
+            developmentTickets={inProgressTickets}
+            totalDevelopers={totalDevelopers}
+            loading={usersLoading}
+            error={usersError}
+          />
+          {/* <CompanyData /> */}
+          <PriorityProjects
+            data={projects}
+            loading={projectsLoading}
+            error={projectsError}
+          />
           <RolesByProjects />
         </section>
 

@@ -1,18 +1,15 @@
-import { useCallback, useMemo, useState } from "react";
-import { supabase } from "../../../libs/supabaseClient";
-import { useFetch } from "../../../components/hooks";
+import { useEffect, useMemo, useState } from "react";
+import useNotificationsContext from "../../../context/NotificationsContext";
 
 const useNotificationsData = (userId) => {
-  const query = useCallback(async () => {
-    return supabase
-      .from("notifications")
-      .select()
-      .eq("userId", userId || 0);
-  }, [userId]);
-
-  const { data: notifications, error, loading } = useFetch(query);
+  const { notifications, error, loading, setProfileId } =
+    useNotificationsContext();
 
   const [selectedType, setSelectedType] = useState("");
+
+  useEffect(() => {
+    if (userId) setProfileId(userId);
+  }, [userId, setProfileId]);
 
   const types = useMemo(() => {
     if (!notifications) return [];

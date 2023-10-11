@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Notification = ({ shouldShowImage = true, notification }) => {
-  const projectId = notification.message.match(/Id (\d+)/)[1];
+  const projectId = notification?.message?.match(/Id (\d+)/)[1];
   const [notificationPrefix, projectHeader] = notification.message.split(" - ");
 
   return (

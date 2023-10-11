@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useCallback } from "react";
 import { useAuth, useFetchUser } from "../components/hooks";
 import { supabase } from "../libs/supabaseClient";
 import PropTypes from "prop-types";
@@ -7,19 +7,25 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const { session } = useAuth();
-  const { data, error, loading, getData } = useFetchUser();
+
+  const query = useCallback(async () => {
+    return supabase
+      .from("profiles")
+      .select("*")
+      .eq("email", session.user.email);
+  }, [session?.user?.email]);
+
+  const { data, error, loading, getData } = useFetchUser({
+    query,
+    tableName: "profiles",
+    profileId: session?.user?.email,
+  });
 
   useEffect(() => {
     if (session) {
-      const query = async () => {
-        return supabase
-          .from("profiles")
-          .select("*")
-          .eq("email", session.user.email);
-      };
       getData(query);
     }
-  }, [session, getData]);
+  }, [session, getData, query]);
 
   return (
     <AuthContext.Provider
