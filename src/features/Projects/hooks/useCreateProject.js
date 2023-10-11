@@ -164,7 +164,7 @@ const useCreateProjects = () => {
     data: projectDevelopers,
     error: projectDevelopersError,
     loading: projectDevelopersLoading,
-  } = useFetch({ query, tableName: "UsersProjects" });
+  } = useFetch({ query, tableName: `UsersProjects/${projectId}` });
 
   const mode = useMemo(() => {
     return projectId ? "editing" : "creating";
