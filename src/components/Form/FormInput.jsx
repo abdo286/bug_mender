@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 
-const FormInput = ({ label, register, errors, type = "text" }) => {
+const FormInput = ({
+  label,
+  register,
+  errors,
+  required = true,
+  type = "text",
+  ...props
+}) => {
   return (
     <div className="form-control">
       <label className="label">
@@ -10,8 +17,9 @@ const FormInput = ({ label, register, errors, type = "text" }) => {
         type={type}
         placeholder="Type here"
         className="input input-bordered px-3 py-2 rounded-lg w-full outline-none focus:border-blue-500"
-        {...register(label, { required: true, minLength: 3 })}
+        {...register(label, { required: required, minLength: 3 })}
         aria-invalid={errors[label] ? "true" : "false"}
+        {...props}
       />
 
       {errors[label]?.type === "required" && (
@@ -26,6 +34,7 @@ const FormInput = ({ label, register, errors, type = "text" }) => {
 FormInput.propTypes = {
   label: PropTypes.string.isRequired,
   register: PropTypes.func.isRequired,
+  required: PropTypes.bool,
   errors: PropTypes.object.isRequired,
   type: PropTypes.string,
 };

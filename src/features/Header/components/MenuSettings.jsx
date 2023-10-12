@@ -7,7 +7,7 @@ import { supabase } from "../../../libs/supabaseClient";
 import PropTypes from "prop-types";
 
 const MenuSettings = forwardRef(function MenuSettings(
-  { setShowMenuOptions, user },
+  { setShowMenuOptions, user, userImage },
   ref
 ) {
   const navigate = useNavigate();
@@ -27,7 +27,10 @@ const MenuSettings = forwardRef(function MenuSettings(
         <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center w-[16rem] overflow-hidden">
           <div className="w-12 h-12 relative ">
             <img
-              src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              src={
+                userImage ||
+                "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+              }
               alt="user profile"
               className="w-full h-full rounded-full object-cover"
             />
