@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MenuSettings from "./MenuSettings";
 import Notifications from "./Notifications";
 import PropTypes from "prop-types";
+import useAuthContext from "../../../context/AuthContext";
 
 const Header = ({ setShouldHideSidebar, user }) => {
   const [scrolling, setScrolling] = useState(false);
@@ -17,6 +18,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
   const menuRef = useRef(null);
   const notificationRef = useRef(null);
   const notificationsRef = useRef(null);
+  const { userProfile } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -126,7 +128,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
             }}
           >
             <img
-              src={userImage}
+              src={userProfile?.data?.image || userImage}
               alt="user"
               className="w-full h-full rounded-full object-cover cursor-pointer"
             />
@@ -136,6 +138,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
               ref={menuRef}
               setShowMenuOptions={setShowMenuOptions}
               user={user}
+              userImage={userProfile?.data?.image}
             />
           ) : null}
         </div>
