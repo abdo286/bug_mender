@@ -12,7 +12,7 @@ const UserStats = ({
   totalDevelopers,
 }) => {
   return (
-    <div className="bg-white py-6 px-5 flex flex-col gap-8 rounded-md shadow-sm hover:shadow-md transition-all duration-150 ease-in-out">
+    <div className="bg-white py-6 sm:px-5 flex flex-col gap-8 rounded-md shadow-sm hover:shadow-md transition-all duration-150 ease-in-out">
       <UserStatCard Icon={FaUser} name="New Users" number={newUsers} />
       <UserStatCard Icon={TbSum} name="Total Users" number={totalUsers} />
       <UserStatCard

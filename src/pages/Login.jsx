@@ -34,7 +34,7 @@ const Login = () => {
         <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-[#333] mb-1 lg:mb-2 text-center">
           Welcome Back!
         </h2>
-        <p className="text-[#666] xl:text-lg text-center">
+        <p className="xl:text-lg text-center text-sm text-gray-500">
           Log in to your account to access the bug tracking system.
         </p>
       </section>
@@ -42,15 +42,21 @@ const Login = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="rounded-md shadow-sm w-[80%] md:w-[70%] mx-auto flex flex-col gap-3 xl:gap-6"
       >
-        <FormInput register={register} errors={errors} label="email" />
+        <FormInput
+          register={register}
+          errors={errors}
+          label="email"
+          placeholder="John Doe"
+        />
         <FormInput
           register={register}
           errors={errors}
           label="password"
           type={"password"}
+          placeholder='Password'
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
-          Submit
+          Log In
         </button>
       </form>{" "}
       <div className="flex justify-center mt-4 text-[#339af0] text-sm xl:text-base xl:font-medium">

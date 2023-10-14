@@ -1,7 +1,7 @@
 const ToggleMode = ({ scrolling }) => {
   return (
     <div>
-      <label className="swap swap-rotate relative top-1">
+      <label className="swap swap-rotate relative top-4 sm:top-1">
         {/* this hidden checkbox controls the state */}
         <input type="checkbox" />
 

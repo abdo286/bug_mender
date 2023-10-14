@@ -56,7 +56,7 @@ const Sidebar = () => {
                 to={cur.to}
               >
                 <cur.icon className="text-green-600" />
-                <h2 className="text-gray-800 ">{cur.text} </h2>
+                <h2 className="text-gray-800 text-[0.9rem] xl:text-base ">{cur.text} </h2>
               </NavLink>
             </li>
           ))}

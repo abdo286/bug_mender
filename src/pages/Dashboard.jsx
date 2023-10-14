@@ -37,7 +37,7 @@ const Dashboard = () => {
   const { newUsers, totalUsers, totalDevelopers } = getUsersStats(users);
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <nav className="mt-3">
         <Breadcrumbs
           optionsData={{
@@ -48,7 +48,7 @@ const Dashboard = () => {
         />
       </nav>
 
-      <section className="w-[90%] mx-auto mt-12 grid ">
+      <section className="sm:w-[95%] md:w-[90%] md:mx-auto mt-12 grid ">
         <TicketsStats
           unsignedTickets={unassignedTickets}
           totalTickets={totalTickets}
@@ -58,8 +58,8 @@ const Dashboard = () => {
           error={ticketsError}
         />
 
-        <section className="grid grid-cols-[30fr_35fr_35fr] mt-12 mb-8 gap-9">
-        <UserStats
+        <section className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-[30fr_35fr_35fr] mt-12 mb-8 gap-9">
+          <UserStats
             newUsers={newUsers}
             totalUsers={totalUsers}
             developmentTickets={inProgressTickets}

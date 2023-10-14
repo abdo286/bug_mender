@@ -24,7 +24,7 @@ const MenuSettings = forwardRef(function MenuSettings(
         className="absolute translate-y-1 -left-48 shadow-md rounded-md"
         ref={ref}
       >
-        <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center w-[16rem] overflow-hidden">
+        <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center w-[16rem] overflow-hidden text-sm md:text-base">
           <div className="w-12 h-12 relative ">
             <img
               src={
@@ -37,8 +37,8 @@ const MenuSettings = forwardRef(function MenuSettings(
             <div className="absolute inset-0 rounded-full shadow-md"></div>
           </div>
           <div>
-            <h3 className="overflow-hidden max-w-[80%]">Demo Admin</h3>
-            <p className="overflow-hidden max-w-[80%]"> {user?.email}</p>
+            <h3 className="overflow-hidden max-w-[80%] ">Demo Admin</h3>
+            <p className="overflow-hidden max-w-[80%] "> {user?.email}</p>
           </div>
         </header>
         <section className="bg-white w-full">
@@ -54,7 +54,7 @@ const MenuSettings = forwardRef(function MenuSettings(
               My Profile
             </li>
             <li
-              className="cursor-pointer text-sm text-gray-600 font-medium flex items-center gap-2  hover:bg-[#f1f3f5] pt-5 pb-3 pl-5 transition-all ease-in-out duration-100 active:bg-[#66D9E8]"
+              className="cursor-pointer  text-sm text-gray-600 font-medium flex items-center gap-2  hover:bg-[#f1f3f5] pt-5 pb-3 pl-5 transition-all ease-in-out duration-100 active:bg-[#66D9E8]"
               onClick={logout}
             >
               <BiLogOut className="text-xl text-[#fa5252]" />

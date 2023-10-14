@@ -50,7 +50,7 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
 
   return (
     <div
-      className={`bg-white  p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName}`}
+      className={`bg-white  p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName} text-xs lg:text-sm xl:text-base`}
     >
       <div className="mb-4 flex justify-between items-center ">
         <div className="flex items-center">
@@ -76,7 +76,7 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
         </div>
       </div>
       <table {...getTableProps()} className="min-w-full shadow-md my-8 ">
-        <TableHeader headerGroups={headerGroups} />
+        <TableHeader headerGroups={headerGroups}  />
         <TableBody
           page={page}
           prepareRow={prepareRow}

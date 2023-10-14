@@ -54,10 +54,12 @@ const Login = () => {
           Create Your Bug Tracker Account
         </h2>
         <div className="flex justify-center">
-          <p className="text-[#666] xl:text-lg text-center max-w-[85%] xl:max-w-[80%] lines-5">
+          <p className="xl:text-lg text-center max-w-[85%] xl:max-w-[80%] lines-5 text-sm text-gray-500">
             Join our bug tracking community and start managing your projects
-            with ease. Sign up now to report, track, and resolve bugs
-            efficiently.{" "}
+            with ease.
+            <span className="sm:block lg:inline">
+              Sign up now to report, track, and resolve bugs efficiently.
+            </span>
           </p>
         </div>
       </div>
@@ -65,13 +67,24 @@ const Login = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="rounded-md shadow-sm w-[80%] md:w-[70%] mx-auto flex flex-col gap-3 xl:gap-6"
       >
-        <FormInput register={register} errors={errors} label="name" />
-        <FormInput register={register} errors={errors} label="email" />
+        <FormInput
+          register={register}
+          errors={errors}
+          label="name"
+          placeholder="John Doe"
+        />
+        <FormInput
+          register={register}
+          errors={errors}
+          label="email"
+          placeholder="Email"
+        />
         <FormInput
           register={register}
           errors={errors}
           label="password"
           type={"password"}
+          placeholder="Password"
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
           Submit

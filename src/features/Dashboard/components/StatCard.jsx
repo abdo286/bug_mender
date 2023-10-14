@@ -1,16 +1,3 @@
-// const StatCard = ({ color, backgroundColor, number, label }) => {
-//   return (
-//     <div
-//       className={`flex flex-col items-center justify-center w-full py-8 rounded-xl`}
-//       style={{ backgroundColor: backgroundColor || "", color: color || "" }}
-//     >
-//       <p className="text-xl mb-2">{number}</p>
-//       <p className="text-xs">{label}</p>
-//     </div>
-//   );
-// };
-// export default StatCard;
-
 import PropTypes from "prop-types";
 import { FaSpinner, FaExclamationCircle } from "react-icons/fa";
 
@@ -24,7 +11,7 @@ const StatCard = ({
 }) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full py-8 rounded-xl`}
+      className={`flex flex-col items-center justify-center w-full py-6 md:py-8 rounded-xl`}
       style={{ backgroundColor: backgroundColor || "", color: color || "" }}
     >
       {" "}
@@ -39,8 +26,8 @@ const StatCard = ({
         </div>
       ) : (
         <>
-          <p className="text-4xl font- mb-2">{number || 0}</p>
-          <p className="text-sm">{label}</p>
+          <p className="md:text-xl lg:text-2xl xl:text-3xl font- mb-2">{number || 0}</p>
+          <p className="text-xs 2xl:text-sm">{label}</p>
         </>
       )}
     </div>

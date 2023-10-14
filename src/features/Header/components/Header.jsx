@@ -57,8 +57,8 @@ const Header = ({ setShouldHideSidebar, user }) => {
         scrolling ? "bg-[#ced4da]" : ""
       }`}
     >
-      <header>
-        <section className="flex items-center gap-3 text-2xl px-6">
+   
+        <section className="flex items-center gap-3 text-xl md:text-2xl px-6">
           <button
             className="hover:scale-110"
             onClick={() =>
@@ -70,35 +70,22 @@ const Header = ({ setShouldHideSidebar, user }) => {
             />
           </button>
           <Link
-            className={` ${
+            className={`  ${
               scrolling ? "#003366" : "text-red-500"
             }  font-semibold " to="/`}
           >
             BugMender
           </Link>
         </section>
-      </header>
-      {/* 
-      <form
-        className="w-72 flex items-center gap-3 rounded-full bg-white border-gray-200 focus-within:border-gray-300 transition-all duration-100 ease-in-out px-6 py-2 border-2 focus-within:w-[30rem] ${
-
-          "
-        tabIndex="0"
-      >
-        <input
-          placeholder="Search"
-          className="bg-none focus:outline-none w-[90%]"
-        />
-        <CgSearch className="cursor-pointer text-xl placeholder:text-stone-400 text-gray-500 " />
-      </form> */}
+    
 
       <section className="flex items-center justify-center gap-8 px-6">
         <button
-          className="bg-blue-500 text-white px-3 py-2 text-sm rounded-md cursor-pointer font-medium hover:brightness-95 transition-all duration-150"
+          className="bg-blue-500 text-white px-3 py-2 text-xs md:text-sm rounded-md cursor-pointer font-medium hover:brightness-95 transition-all duration-150 "
           onClick={() => {
             navigate("/create-ticket");
           }}
-        >
+        > 
           Create Ticket
         </button>
         <div className="relative" ref={notificationRef}>
@@ -159,3 +146,4 @@ Header.propTypes = {
 };
 
 export default Header;
+

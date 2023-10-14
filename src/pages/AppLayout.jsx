@@ -5,10 +5,12 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useAuthContext from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useResponsiveContext from "../context/ResponsiveContext";
 
 const AppLayout = () => {
   const [shouldShowSidebar, setShouldHideSidebar] = useState(true);
   const { pathname } = useLocation();
+  const { isXl } = useResponsiveContext();
 
   const { session } = useAuthContext();
 
@@ -39,13 +41,13 @@ const AppLayout = () => {
           }}
         />
 
-        {shouldShowSidebar ? (
-          <section className={`grid grid-cols-[17fr_83fr]  !w-full !ml-0 `}>
+        {shouldShowSidebar && isXl ? (
+          <section className={`grid grid-cols-[17fr_83fr] !w-full !ml-0 `}>
             <Sidebar />
             <Outlet />
           </section>
         ) : (
-          <div className={`grid shouldShowSidebar w-[95%] ml-auto`}>
+          <div className={`grid shouldShowSidebar w-full sm:w-[95%] ml-auto `}>
             <Outlet />
           </div>
         )}
