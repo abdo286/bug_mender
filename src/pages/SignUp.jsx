@@ -48,13 +48,13 @@ const Login = () => {
   };
 
   return (
-    <main className="h-full w-full bg-white px-12 py-44">
-      <div className="mb-6">
-        <h2 className="text-3xl font-semibold text-[#333] mb-2 text-center">
+    <main className="h-full w-full bg-white xl:px-12 pt-8 lg:py-44">
+      <div className="mb-3 lg:mb-6">
+        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-[#333] mb-1 lg:mb-2 text-center">
           Create Your Bug Tracker Account
         </h2>
         <div className="flex justify-center">
-          <p className="text-[#666] text-lg text-center max-w-[80%] ">
+          <p className="text-[#666] xl:text-lg text-center max-w-[85%] xl:max-w-[80%] lines-5">
             Join our bug tracking community and start managing your projects
             with ease. Sign up now to report, track, and resolve bugs
             efficiently.{" "}
@@ -63,7 +63,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-md shadow-sm w-[70%] mx-auto flex flex-col gap-6"
+        className="rounded-md shadow-sm w-[80%] md:w-[70%] mx-auto flex flex-col gap-3 xl:gap-6"
       >
         <FormInput register={register} errors={errors} label="name" />
         <FormInput register={register} errors={errors} label="email" />
@@ -73,9 +73,11 @@ const Login = () => {
           label="password"
           type={"password"}
         />
-        <button className="btn btn-active btn-neutral">Submit</button>
+        <button className="btn btn-active btn-neutral text-sm xl:text-base">
+          Submit
+        </button>
       </form>
-      <div className="flex justify-center mt-8 text-[#339af0] font-medium">
+      <div className="flex justify-center mt-4 text-[#339af0] text-sm xl:text-base xl:font-medium">
         <Link to="/login">Have an Account Login Instead</Link>
       </div>
     </main>

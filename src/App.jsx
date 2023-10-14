@@ -10,23 +10,26 @@ import "react-toastify/dist/ReactToastify.css";
 import { Suspense } from "react";
 import { Loading } from "./pages";
 import { NotificationsProvider } from "./context/NotificationsContext";
+import { ResponsiveProvider } from "./context/ResponsiveContext";
 
 const App = () => {
   return (
     <div>
-      <AuthProvider>
-        <UsersContextProvider>
-          <TicketsContextProvider>
-            <ProjectsContextProvider>
-              <NotificationsProvider>
+      <ResponsiveProvider>
+        <AuthProvider>
+          <UsersContextProvider>
+            <TicketsContextProvider>
+              <ProjectsContextProvider>
+                <NotificationsProvider>
                   <Suspense fallback={<Loading />}>
                     <RouterProvider router={router} />
                   </Suspense>
-              </NotificationsProvider>
-            </ProjectsContextProvider>
-          </TicketsContextProvider>
-        </UsersContextProvider>
-      </AuthProvider>
+                </NotificationsProvider>
+              </ProjectsContextProvider>
+            </TicketsContextProvider>
+          </UsersContextProvider>
+        </AuthProvider>
+      </ResponsiveProvider>
     </div>
   );
 };

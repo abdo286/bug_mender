@@ -26,20 +26,21 @@ const Login = () => {
     navigate("/");
     reset();
   };
+  // className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8"
 
   return (
-    <main className="h-full w-full bg-white px-12 py-44">
-      <section className="mb-6">
-        <h2 className="text-3xl font-semibold text-[#333] mb-2 text-center">
+    <main className="h-full w-full bg-white xl:px-12 pt-8 lg:py-44">
+      <section className="mb-3 lg:mb-6">
+        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-[#333] mb-1 lg:mb-2 text-center">
           Welcome Back!
         </h2>
-        <p className="text-[#666] text-lg text-center">
+        <p className="text-[#666] xl:text-lg text-center">
           Log in to your account to access the bug tracking system.
         </p>
       </section>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-md shadow-sm w-[70%] mx-auto flex flex-col gap-6"
+        className="rounded-md shadow-sm w-[80%] md:w-[70%] mx-auto flex flex-col gap-3 xl:gap-6"
       >
         <FormInput register={register} errors={errors} label="email" />
         <FormInput
@@ -48,9 +49,11 @@ const Login = () => {
           label="password"
           type={"password"}
         />
-        <button className="btn btn-active btn-neutral">Submit</button>
+        <button className="btn btn-active btn-neutral text-sm xl:text-base">
+          Submit
+        </button>
       </form>{" "}
-      <div className="flex justify-center mt-8 text-[#339af0] font-medium">
+      <div className="flex justify-center mt-4 text-[#339af0] text-sm xl:text-base xl:font-medium">
         <Link to="/sign-up">Don&apos;t Have an Account Sign up Instead</Link>
       </div>
     </main>

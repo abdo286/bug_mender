@@ -109,3 +109,11 @@ body {
 .project-team-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #a0a0a0;
 }
+
+
+
+/* Default styles */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
