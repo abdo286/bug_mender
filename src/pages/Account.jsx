@@ -20,7 +20,7 @@ const Account = () => {
           }}
         />
       </nav>
-      <section className="w-[90%] mx-auto mt-12 grid grid-cols-2 grid-rows-1 gap-12">
+      <section className="w-[90%] mx-auto mt-12 grid lg:grid-cols-2 grid-rows-1 gap-12">
         <article>
           <UserBio userProfile={userProfile} />
         </article>

@@ -48,7 +48,7 @@ const AdminProjectRoles = () => {
   }
 
   return (
-    <main>
+    <main className="bg-[#F1F3F5] h-[100vh]">
       <nav className="mt-3">
         <Breadcrumbs
           optionsData={[
@@ -57,14 +57,14 @@ const AdminProjectRoles = () => {
           ]}
         />
       </nav>
-      <section className="w-[90%] mx-auto mt-12 grid grid-cols-[40fr_60fr] gap-12">
+      <section className="w-[90%] mx-auto mt-12 grid lg:grid-cols-[45fr_55fr] xl:grid-cols-[40fr_60fr] gap-12">
         <article>
-          <h3 className="text-2xl font-medium mb-6">Assign User</h3>
+          <h3 className="text-xl lg:text-2xl font-medium mb-6">Assign User</h3>
           <UserAssignmentForm projectId={projectId} developers={developers} />
         </article>
 
         <aside>
-          <h3 className="text-2xl font-medium mb-6">Assignees</h3>
+          <h3 className="text-xl lg:text-2xl font-medium mb-6">Assignees</h3>
           <Table projectAssignedUsers={projectAssignedUsers} />
         </aside>
       </section>

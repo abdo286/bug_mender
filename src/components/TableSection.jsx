@@ -25,8 +25,10 @@ const TableSection = ({
       ) : error ? (
         <Error />
       ) : (
-        <section className="bg-white md:px-10 py-6 mt-8">
-          <h2 className="text-lg lg:text-xl xl:text-2xl font-medium">{title}</h2>
+        <section className="bg-white px-3 md:px-10 py-6 mt-8">
+          <h2 className="text-lg lg:text-xl xl:text-2xl font-medium">
+            {title}
+          </h2>
           <div>
             <RTable
               columns={columns}

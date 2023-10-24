@@ -17,7 +17,7 @@ const Breadcrumbs = ({ optionsData }) => {
   }
 
   return (
-    <div className="text-[0.8rem] lg:text-sm breadcrumbs text-gray-600 ">
+    <div className="text-[0.8rem] lg:text-sm breadcrumbs text-gray-600 w-[95%] mx-auto">
       <ul className="ml-8 sm:ml-0">
         {options.map((options) => {
           return (

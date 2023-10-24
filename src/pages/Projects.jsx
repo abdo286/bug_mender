@@ -1,10 +1,9 @@
 import { ProjectsGrid } from "../features/Projects";
-import { MainHeader, RTable } from "../components";
+import { Error, Loading, MainHeader, RTable } from "../components";
 import { Breadcrumbs } from "../components";
 import { useState } from "react";
 import useProjectsContext from "../context/ProjectsContext";
 import RTableColumns from "../features/Projects/data/RTableColumns";
-
 
 const Projects = () => {
   const [view, setView] = useState("grid");
@@ -21,7 +20,7 @@ const Projects = () => {
           }}
         />
       </nav>
-      <section className="w-[90%] mx-auto">
+      <section className="lg:w-[99%] mx-auto">
         <MainHeader
           view={view}
           setView={setView}
@@ -30,9 +29,9 @@ const Projects = () => {
         />
 
         {loading ? (
-          <div className="text-center mt-8">loading...</div>
+          <Loading />
         ) : error ? (
-          <div className="text-center mt-8">There was an error</div>
+          <Error />
         ) : (
           <section className="mt-16">
             {view === "grid" ? (

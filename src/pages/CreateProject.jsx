@@ -52,7 +52,7 @@ const CreateProject = () => {
           }
         />
       </div>
-      <section className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md ">
+      <section className="w-[90%] lg:w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md mt-8">
         <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
           <FormInput label="name" register={register} errors={errors} />
           <section className="flex flex-col gap-2 my-3">
@@ -84,7 +84,9 @@ const CreateProject = () => {
             options={["new", "development", "resolved"]}
           />
           <section className="mt-1">
-            <p className="label-text font-semibold mb-2">Project Manager</p>
+            <p className="label-text font-semibold mb-2 text-sm lg:text-base">
+              Project Manager
+            </p>
 
             <Controller // eslint-disable-line
               name="Project Manager"
@@ -99,7 +101,9 @@ const CreateProject = () => {
             />
           </section>{" "}
           <section className="mt-1">
-            <p className="label-text font-semibold mb-2">Assigned Developers</p>
+            <p className="label-text font-semibold mb-2 text-sm lg:text-base">
+              Assigned Developers
+            </p>
 
             <Controller // eslint-disable-line
               name="developers"

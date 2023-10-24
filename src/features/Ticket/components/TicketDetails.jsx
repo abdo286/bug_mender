@@ -39,40 +39,40 @@ const TicketDetails = ({ ticket }) => {
   return (
     <div className="bg-white h-fit shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">
-        <h3 className=" text-white lines-1 ">
+        <h3 className="text-white lines-1 text-base ">
           {ticket.description} <span>Details</span>
         </h3>
       </header>
       <section className="bg-white px-6 py-5 flex flex-col gap-2">
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Id: </span>
           <span className="text-gray-600">{ticket.id}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Name: </span>
           <span className="text-gray-600">{ticket.name}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Description: </span>
           <span className="text-gray-600">{ticket.description}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Updated: </span>
           <span className="text-gray-600">{ticket.updated}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Developer: </span>
           <span className="text-gray-600">{ticket.assignedTo}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Project: </span>
           <span className="text-gray-600">{ticket.projects.name}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Priority: </span>
           <span className="text-gray-600">{ticket.priority}</span>
         </p>
-        <p>
+        <p className="text-sm lg:text-base">
           <span className="font-medium"> Type: </span>
           <span className="text-gray-600">{ticket.type}</span>
         </p>

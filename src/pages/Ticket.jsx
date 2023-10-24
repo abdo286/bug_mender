@@ -45,7 +45,7 @@ const Ticket = () => {
           }}
         />
       </nav>
-      <section className="w-[90%] mx-auto grid grid-cols-2 pt-12 gap-12 ">
+      <section className="w-[90%] mx-auto grid lg:grid-cols-2 pt-12 gap-12 ">
         <TicketDetails
           ticket={!!tickets && tickets[0]}
           ticketsLoading={ticketsLoading}

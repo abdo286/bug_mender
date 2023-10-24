@@ -4,10 +4,10 @@ const FormSelect = ({ label, register, options, name, errors }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold capitalize">{label}</span>
+        <span className="label-text font-semibold capitalize lg:text-base text-sm">{label}</span>
       </label>
       <select
-        className="select select-bordered font-normal text-gray-800 rounded-lg w-full outline-none focus:border-blue-500"
+        className="select select-bordered font-normal text-gray-800 rounded-lg w-full outline-none focus:border-blue-500 lg:text-base text-sm"
         {...register(name)}
       >
         {options.map((option) => (

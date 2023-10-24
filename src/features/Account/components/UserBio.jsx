@@ -14,11 +14,12 @@ const UserBio = ({ userProfile: { data } }) => {
           />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold">{data.name}</h2>
-          <p className="text-gray-500">{data.role}</p>
+          <h2 className="text-lg lg:text-2xl font-semibold">{data.name}</h2>
+          <p className="text-gray-500 text-sm lg:text-base ">{data.role}</p>
         </div>
       </div>
       <div
+        className="text-sm lg:text-base"
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data.about) }}
       />
     </div>

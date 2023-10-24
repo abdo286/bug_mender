@@ -41,7 +41,7 @@ const TicketComments = ({ ticketId }) => {
     <div>
       <div className="bg-white h-full shadow-md">
         <header className="bg-[#22b8cf] px-6 py-3">
-          <h3 className=" text-white">
+          <h3 className="text-white text-sm lg:text-base">
             Comments <span>(1)</span>
           </h3>
         </header>
@@ -61,7 +61,10 @@ const TicketComments = ({ ticketId }) => {
             </p>
           )}{" "}
           <div className="flex justify-end mt-8">
-            <button className="btn btn-neutral">Comment</button>;
+            <button className="btn btn-neutral text-sm lg:text-base">
+              Comment
+            </button>
+            ;
           </div>
         </form>
       </div>

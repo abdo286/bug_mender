@@ -58,7 +58,7 @@ const CreateTicket = () => {
         />
       </div>
       <section
-        className="w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md "
+        className="w-[90%] lg:w-[60%] bg-white mx-auto pt-5 gap-12 px-8 rounded-md shadow-md mt-8"
         onSubmit={handleSubmit(onSubmit)}
       >
         <form className="flex flex-col gap-5">

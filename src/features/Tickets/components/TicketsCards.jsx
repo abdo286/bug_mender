@@ -12,10 +12,10 @@ const TicketsCards = ({ tickets, loading, error }) => {
   }
 
   return (
-    <section className="px-10 py-6 mt-16">
-      <h2 className="text-2xl font-medium">Tickets</h2>
-      <div className="mt-8 px-10 rounded-md py-6 bg-white shadow-md">
-        <div className="grid grid-cols-3 gap-x-6 gap-y-8 ">
+    <section className="mt-24">
+      <h2 className="text-2xl xl:text-3xl font-medium">Tickets</h2>
+      <div className="mt-8 rounded-md py-6 bg-white shadow-md">
+        <div className="grid gap-x-8 gap-y-8 px-8 grid-cols-card justify-around">
           {tickets.map((ticket) => {
             return <TicketCard key={ticket.id} ticket={ticket} />;
           })}

@@ -19,16 +19,18 @@ const Project = () => {
         />
 
         <section>
-          <h2 className="text-2xl font-medium py-8">Assign Roles</h2>
+          <h2 className="text-2xl font-medium py-8 px-8">Assign Roles</h2>
 
           {loading ? (
             <Loading />
           ) : error ? (
             <Error />
           ) : (
-            <div className="w-[90%] mx-auto pt-12 gap-12 grid grid-cols-3  px-8 py-8 border-2 border-gray-200 rounded-2xl shadow-sm bg-gray-50">
+            <div className="xl:w-[99%] xl:mx-auto pt-12 gap-12 grid l:px-8 py-8 border-2 border-gray-200 rounded-2xl shadow-sm bg-gray-50 grid-cols-card px-8 mx-auto">
               {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <div key={project.id} className="flex justify-center">
+                  <ProjectCard project={project} />
+                </div>
               ))}
             </div>
           )}

@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
   return (
-    <div className="card card-compact w-96 shadow-xl bg-[#4A55A2] text-white">
+    <div className="card card-compact max-w-[24rem] shadow-xl bg-[#4A55A2] text-white">
       <div className="card-body ">
         <h2 className="card-title">{project.name}</h2>
-        <p>{project.description}</p>
+        <p className="lines-5">{project.description}</p>
         <section className="flex flex-col gap-3 mt-6">
           <p>
             <span className="font-medium mr-1">Priority:</span>
@@ -47,7 +47,7 @@ ProjectCard.propTypes = {
     description: PropTypes.string.isRequired,
     priority: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
-    id: PropTypes.string
+    id: PropTypes.string,
   }).isRequired,
 };
 

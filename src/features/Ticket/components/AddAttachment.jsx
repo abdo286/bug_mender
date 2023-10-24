@@ -68,7 +68,7 @@ const AddAttachment = ({ ticketId }) => {
     <div>
       <div className="bg-white h-fit shadow-md">
         <header className="bg-[#22b8cf] px-6 py-3">
-          <h3 className=" text-white">
+          <h3 className="text-white text-sm lg:text-base">
             Attach File <span>(1)</span>
           </h3>
         </header>
@@ -80,7 +80,7 @@ const AddAttachment = ({ ticketId }) => {
                   {...register("description", { required: true })}
                   type="text"
                   placeholder="Add Description"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-xs text-sm lg:text-base"
                 />
                 {errors.description?.type === "required" && (
                   <p role="alert" className="text-sm text-red-600 mt-1">
@@ -92,12 +92,15 @@ const AddAttachment = ({ ticketId }) => {
                 <input
                   type="file"
                   onChange={uploadFile}
-                  className="file-input file-input-bordered file-input-info w-full max-w-xs "
+                  className="file-input file-input-bordered file-input-info w-full max-w-xs text-sm lg:text-base"
                 />
               </div>
             </div>
             <div className="flex justify-end mt-16">
-              <button className="btn btn-neutral">Upload</button>;
+              <button className="btn btn-neutral text-sm lg:text-base">
+                Upload
+              </button>
+              ;
             </div>
           </form>
         </section>

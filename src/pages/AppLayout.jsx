@@ -47,7 +47,7 @@ const AppLayout = () => {
             <Outlet />
           </section>
         ) : (
-          <div className={`grid shouldShowSidebar w-full sm:w-[95%] ml-auto `}>
+          <div className={`grid shouldShowSidebar w-full  ml-auto `}>
             <Outlet />
           </div>
         )}

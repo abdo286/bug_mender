@@ -4,12 +4,14 @@ const ProjectsGrid = ({ data }) => {
   return (
     <section>
       <h2 className="text-xl font-medium mb-8">Projects</h2>
-      <div className="py-12 px-5 grid grid-cols-3 gap-y-16">
+      <section className="grid grid-cols-card justify-around gap-x-12 gap-y-12">
         {data?.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </div>
+      </section>
     </section>
   );
 };
+
 export default ProjectsGrid;
+/// md:grid-cols-[minmax(24rem, 1fr)_minmax(24rem, 1fr)] md:gap-x-12 md:gap-y-12 lg:grid-cols-3 lg:gap-y-16 gap-y-8 py-12 lg:px-5

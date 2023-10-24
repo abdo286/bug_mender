@@ -5,7 +5,7 @@ const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl ">
+    <div className="card card-compact bg-base-100 shadow-xl max-w-[24rem]">
       <figure>
         <img
           src="https://cdn.dribbble.com/users/5994307/screenshots/16482764/media/e8642c4b4d8f16ca3db158848e615c47.png"

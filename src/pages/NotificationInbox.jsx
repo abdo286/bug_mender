@@ -49,7 +49,7 @@ const NotificationInbox = () => {
           {loading && <Loading />}
           {(!userProfile?.data?.id || error) && <Error />}
           {!loading && !error && (
-            <ul className="list-none">
+            <ul className="list-none flex flex-col gap-5">
               {notifications.map((notification) => (
                 <li key={notification.id}>
                   <Notification notification={notification} />

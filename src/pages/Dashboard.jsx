@@ -37,7 +37,7 @@ const Dashboard = () => {
   const { newUsers, totalUsers, totalDevelopers } = getUsersStats(users);
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden sm:w-[95%]">
       <nav className="mt-3">
         <Breadcrumbs
           optionsData={{

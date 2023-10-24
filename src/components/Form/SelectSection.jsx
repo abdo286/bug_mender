@@ -6,7 +6,7 @@ const SelectSection = ({ label, name, control, options, errors }) => {
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-semibold capitalize">{label}</span>
+        <span className="label-text font-semibold capitalize text-sm lg:text-base">{label}</span>
       </label>
       <Controller
         name={name}

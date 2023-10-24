@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f1f3f5;
@@ -115,4 +114,13 @@ body {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.ticket-stats {
+  font-size: clamp(1.875rem, 3.5vw + 0.1875rem, 3rem);
+}
+
+.card-compact {
+  width: 100%;
+  height: 100%;
 }

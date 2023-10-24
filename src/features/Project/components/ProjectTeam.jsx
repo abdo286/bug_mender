@@ -10,7 +10,7 @@ const ProjectTeam = ({ projectTeam }) => {
   );
 
   return (
-    <div className="mt-12 bg-white px-5 py-3 rounded-md shadow-sm">
+    <div className="bg-white px-5 py-3 rounded-md shadow-sm">
       <h2 className="font-medium text-xl mb-2">Project Team</h2>
       <p className="text-sm text-gray-600 mb-4">
         {projectTeam.length} team members

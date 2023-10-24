@@ -49,7 +49,7 @@ const AccountForm = ({ userProfile: { data } }) => {
   };
 
   return (
-    <div className="bg-white shadow-md p-6 rounded-md mx-auto max-w-2xl w-full">
+    <div className="bg-white shadow-md p-6 rounded-md mx-auto  w-full ">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
         <FormInput
           label="name"
