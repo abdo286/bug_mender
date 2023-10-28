@@ -35,7 +35,7 @@ const Projects = () => {
         ) : (
           <section className="mt-16">
             {view === "grid" ? (
-              <div className="bg-white shadow-md px-10 py-6">
+              <div className="mx-auto w-[90%] lg:w-[95%] xl:w-[99%] bg-white shadow-md px-10 py-6">
                 <ProjectsGrid data={projects} />
               </div>
             ) : (

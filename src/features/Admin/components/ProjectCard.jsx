@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
   return (
-    <div className="card card-compact max-w-[24rem] shadow-xl bg-[#4A55A2] text-white">
+    <div className="card card-compact max-w-[24rem] shadow-xl bg-[#228be6] text-white">
       <div className="card-body ">
         <h2 className="card-title">{project.name}</h2>
         <p className="lines-5">{project.description}</p>
@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
         </section>
         <div className="card-actions justify-end mt-6">
           <button
-            className=" btn bg-[#339af0] text-gray-100 hover:bg-[#228be6]"
+            className=" btn bg-[#CCCCCC] text-gray-600 hover:bg-[#228be6]"
             onClick={() => {
               navigate(`/admin/project/${project.id}`);
             }}

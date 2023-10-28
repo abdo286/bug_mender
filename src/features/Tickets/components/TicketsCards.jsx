@@ -14,12 +14,10 @@ const TicketsCards = ({ tickets, loading, error }) => {
   return (
     <section className="mt-24">
       <h2 className="text-2xl xl:text-3xl font-medium">Tickets</h2>
-      <div className="mt-8 rounded-md py-6 bg-white shadow-md">
-        <div className="grid gap-x-8 gap-y-8 px-8 grid-cols-card justify-around">
-          {tickets.map((ticket) => {
-            return <TicketCard key={ticket.id} ticket={ticket} />;
-          })}
-        </div>
+      <div className="grid gap-x-12 gap-y-8 px-8 grid-cols-card justify-around bg-white shadow-md py-6 rounded-md mt-8">
+        {tickets.map((ticket) => {
+          return <TicketCard key={ticket.id} ticket={ticket} />;
+        })}
       </div>
     </section>
   );

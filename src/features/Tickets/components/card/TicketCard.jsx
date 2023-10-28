@@ -33,9 +33,11 @@ const TicketCard = ({ ticket }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="card shadow-xl bg-[#1c70d6] text-white max-w-[24rem]">
+    <div className="card shadow-xl bg-[#228be6] text-white max-w-[24rem]">
       <div className="card-body">
-        <h2 className="text-base font-semibold sm:card-title lines-3">{ticket?.name}</h2>
+        <h2 className="text-base font-semibold sm:card-title lines-3">
+          {ticket?.name}
+        </h2>
         <p className="lines-5 text-base mb-3">{ticket?.description}</p>
         <section className="flex flex-col gap-3">
           <p className="text-sm">

@@ -58,7 +58,7 @@ const Dashboard = () => {
           error={ticketsError}
         />
 
-        <section className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-[30fr_35fr_35fr] mt-12 mb-8 gap-9">
+        <section className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-[30fr_35fr] mt-12 mb-8 gap-9">
           <UserStats
             newUsers={newUsers}
             totalUsers={totalUsers}
@@ -68,11 +68,11 @@ const Dashboard = () => {
             error={usersError}
           />
           {/* <CompanyData /> */}
-          <PriorityProjects
+          {/* <PriorityProjects
             data={projects}
             loading={projectsLoading}
             error={projectsError}
-          />
+          /> */}
           <RolesByProjects />
         </section>
 

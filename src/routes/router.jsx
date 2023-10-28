@@ -20,7 +20,6 @@ const Account = lazy(() => import("../pages/Account"));
 const Auth = lazy(() => import("../pages/Auth"));
 const Login = lazy(() => import("../pages/Login"));
 const SignUp = lazy(() => import("../pages/SignUp"));
-const Invite = lazy(() => import("../pages/Invite"));
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,7 +42,6 @@ export const router = createBrowserRouter(
         <Route path="admin" element={<Admin />} />
         <Route path="admin/project/:id" element={<AdminProjectRoles />} />
         <Route path="account" element={<Account />} errorElement={<Error />} />
-        <Route path="Invite" element={<Invite />} />
       </Route>
       <Route element={<Auth />} errorElement={<Error />}>
         <Route path="login" element={<Login />} />

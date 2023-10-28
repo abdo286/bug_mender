@@ -57,27 +57,25 @@ const Header = ({ setShouldHideSidebar, user }) => {
         scrolling ? "bg-[#ced4da]" : ""
       }`}
     >
-   
-        <section className="flex items-center gap-3 text-xl md:text-2xl px-6">
-          <button
-            className="hover:scale-110"
-            onClick={() =>
-              setShouldHideSidebar((shouldHideSidebar) => !shouldHideSidebar)
-            }
-          >
-            <AiOutlineMenu
-              className={`cursor-pointer ${scrolling && "text-black"} `}
-            />
-          </button>
-          <Link
-            className={`  ${
-              scrolling ? "#003366" : "text-red-500"
-            }  font-semibold " to="/`}
-          >
-            BugMender
-          </Link>
-        </section>
-    
+      <section className="flex items-center gap-3 text-xl md:text-2xl px-6">
+        <button
+          className="hover:scale-110"
+          onClick={() =>
+            setShouldHideSidebar((shouldHideSidebar) => !shouldHideSidebar)
+          }
+        >
+          <AiOutlineMenu
+            className={`cursor-pointer ${scrolling && "text-black"} `}
+          />
+        </button>
+        <Link
+          className={`  ${
+            scrolling ? "#003366" : "text-red-500"
+          }  font-semibold " to="/`}
+        >
+          BugMender
+        </Link>
+      </section>
 
       <section className="flex items-center justify-center gap-8 px-6">
         <button
@@ -85,7 +83,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
           onClick={() => {
             navigate("/create-ticket");
           }}
-        > 
+        >
           Create Ticket
         </button>
         <div className="relative" ref={notificationRef}>
@@ -106,7 +104,6 @@ const Header = ({ setShouldHideSidebar, user }) => {
           ) : null}
         </div>
 
-        <ToggleMode scrolling={scrolling} />
         <div className="relative" ref={userImageRef}>
           <div
             className="w-12 h-12"
@@ -146,4 +143,3 @@ Header.propTypes = {
 };
 
 export default Header;
-

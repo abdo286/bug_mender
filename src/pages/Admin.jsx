@@ -26,7 +26,7 @@ const Project = () => {
           ) : error ? (
             <Error />
           ) : (
-            <div className="xl:w-[99%] xl:mx-auto pt-12 gap-12 grid l:px-8 py-8 border-2 border-gray-200 rounded-2xl shadow-sm bg-gray-50 grid-cols-card px-8 mx-auto">
+            <div className="w-[90%] lg:w-[95%] xl:w-[99%] xl:mx-auto pt-12 gap-12 grid l:px-8 py-8 border-2 border-gray-200 rounded-2xl shadow-sm bg-gray-50 grid-cols-card px-8 mx-auto">
               {projects.map((project) => (
                 <div key={project.id} className="flex justify-center">
                   <ProjectCard project={project} />

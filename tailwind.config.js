@@ -4,7 +4,7 @@ export default {
     extend: {
       //   gridTemplateColumns: { card: "repeat(auto-fit, minmax(20em, 1fr))" },
       // },
-      gridTemplateColumns: { card: "repeat(auto-fill, minmax(22rem, 1fr))" },
+      gridTemplateColumns: { card: "repeat(auto-fit, minmax(24rem, 1fr))" },
     },
   },
   daisyui: {
