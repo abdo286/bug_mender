@@ -48,13 +48,13 @@ const Login = () => {
   };
 
   return (
-    <main className="h-full w-full bg-white xl:px-12 pt-8 lg:py-44">
-      <div className="mb-3 lg:mb-6">
-        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-[#333] mb-1 lg:mb-2 text-center">
+    <main className="h-full w-full lg:bg-white xl:px-12 pt-6 lg:py-44 ">
+      <div className="mb-3 lg:mb-6  ">
+        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-gray-100 lg:text-[#333] mb-1 lg:mb-2 text-center">
           Create Your Bug Tracker Account
         </h2>
         <div className="flex justify-center">
-          <p className="xl:text-lg text-center max-w-[85%] xl:max-w-[80%] lines-5 text-sm text-gray-500">
+          <p className="xl:text-lg text-center max-w-[85%] xl:max-w-[80%] lines-5 text-sm lg:text-gray-500   text-gray-100 leading-[1.5] ">
             Join our bug tracking community and start managing your projects
             with ease.
             <span className="sm:block lg:inline">
@@ -72,12 +72,18 @@ const Login = () => {
           errors={errors}
           label="name"
           placeholder="John Doe"
+          labelClassName="text-gray-200"
+          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+          inputClassName="bg-gray-100"
         />
         <FormInput
           register={register}
           errors={errors}
           label="email"
           placeholder="Email"
+          labelClassName="text-gray-200"
+          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+          inputClassName="bg-gray-100"
         />
         <FormInput
           register={register}
@@ -85,12 +91,15 @@ const Login = () => {
           label="password"
           type={"password"}
           placeholder="Password"
+          labelClassName="text-gray-200"
+          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+          inputClassName="bg-gray-100"
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
           Submit
         </button>
       </form>
-      <div className="flex justify-center mt-4 text-[#339af0] text-sm xl:text-base xl:font-medium">
+      <div className="flex justify-center pt-3 text-gray-100 lg:text-[#339af0] text-sm xl:text-base xl:font-medium">
         <Link to="/login">Have an Account Login Instead</Link>
       </div>
     </main>

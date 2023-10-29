@@ -11,10 +11,16 @@ const Auth = () => {
   const { isLg, is2Xl } = useResponsiveContext();
 
   return (
-    <main>
+    <main className="relative pb-28">
+      <div className="absolute top-0 bottom-0 left-0 right-0 ">
+        <img
+          src={`https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
+          alt=""
+          className="w-full h-full object-cover object-center brightness-50"
+        />
+      </div>
       <ToastContainer />
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen w-full  gap-8 lg:gap-0 bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen w-full  gap-8 lg:gap-0  relative z-5">
         {isLg ? (
           <section className="bg-blue-500 flex flex-col justify-center items-center">
             <div className="w-3/4 h-3/4 sm:w-1/2 sm:h-1/2 md:w-2/3 md:h-2/3 lg:w-3/4 lg:h-3/4 xl:w-4/5 xl:h-4/5 2xl:w-3/4 2xl:h-3/4">

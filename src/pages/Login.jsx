@@ -29,12 +29,12 @@ const Login = () => {
   // className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8"
 
   return (
-    <main className="h-full w-full bg-white xl:px-12 pt-8 lg:py-44">
+    <main className="h-full w-full lg:bg-white xl:px-12 pt-6 lg:py-44">
       <section className="mb-3 lg:mb-6">
-        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-[#333] mb-1 lg:mb-2 text-center">
+        <h2 className="text-2xl lg:text-2xl 2xl:text-3xl font-semibold text-gray-100 lg:text-[#333] mb-1 lg:mb-2 text-center">
           Welcome Back!
         </h2>
-        <p className="xl:text-lg text-center text-sm text-gray-500">
+        <p className="xl:text-lg text-center text-sm  lg:text-gray-500   text-gray-100">
           Log in to your account to access the bug tracking system.
         </p>
       </section>
@@ -47,19 +47,25 @@ const Login = () => {
           errors={errors}
           label="email"
           placeholder="John Doe"
+          labelClassName="text-gray-200"
+          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+          inputClassName="bg-gray-100"
         />
         <FormInput
           register={register}
           errors={errors}
           label="password"
           type={"password"}
-          placeholder='Password'
+          placeholder="Password"
+          labelClassName="text-gray-200"
+          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+          inputClassName="bg-gray-100"
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
           Log In
         </button>
       </form>{" "}
-      <div className="flex justify-center mt-4 text-[#339af0] text-sm xl:text-base xl:font-medium">
+      <div className="flex justify-center pt-3 text-gray-100 lg:text-[#339] text-sm xl:text-base xl:font-medium">
         <Link to="/sign-up">Don&apos;t Have an Account Sign up Instead</Link>
       </div>
     </main>
