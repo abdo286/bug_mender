@@ -27,7 +27,6 @@ const Notification = ({ shouldShowImage = true, notification }) => {
           >
             {projectHeader}{" "}
           </Link>{" "}
-          {/* {notification.message} */}
         </h3>
         <p className="text-xs">
           {formatDistanceToNow(parseISO(notification.createdAt), {

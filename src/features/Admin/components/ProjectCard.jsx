@@ -43,12 +43,12 @@ const ProjectCard = ({ project }) => {
 
 ProjectCard.propTypes = {
   project: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    priority: PropTypes.string.isRequired,
-    createdAt: PropTypes.string.isRequired,
-    id: PropTypes.string,
-  }).isRequired,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    priority: PropTypes.string,
+    createdAt: PropTypes.string,
+    id: PropTypes.any,
+  }),
 };
 
 export default ProjectCard;

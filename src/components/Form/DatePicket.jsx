@@ -20,11 +20,11 @@ const DatePickerField = ({ field }) => {
 
 DatePickerField.propTypes = {
   field: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     value: PropTypes.instanceOf(Date),
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-  }).isRequired,
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+  }),
 };
 
 export default DatePickerField;

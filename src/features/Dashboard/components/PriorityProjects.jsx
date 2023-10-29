@@ -20,7 +20,6 @@ const PriorityProjects = ({ data, loading, error }) => {
     return null;
   }, [data, loading, error]);
 
-  console.log("priorityCounts", priorityCounts);
   return (
     <div className="bg-white py-6 px-5 flex flex-col rounded-md shadow-sm hover:shadow-md transition-all duration-150 ease-in-out">
       <div>

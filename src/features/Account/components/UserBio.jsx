@@ -29,12 +29,12 @@ const UserBio = ({ userProfile: { data } }) => {
 UserBio.propTypes = {
   userProfile: PropTypes.shape({
     data: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      role: PropTypes.string,
       image: PropTypes.string,
-      about: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+      about: PropTypes.string,
+    }),
+  }),
 };
 
 export default UserBio;

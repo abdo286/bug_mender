@@ -27,7 +27,7 @@ const useResponsiveContext = () => {
 };
 
 ResponsiveProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default useResponsiveContext;

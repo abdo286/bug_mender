@@ -26,11 +26,11 @@ const FormSelect = ({ label, register, options, name, errors }) => {
 };
 
 FormSelect.propTypes = {
-  label: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  name: PropTypes.string.isRequired,
-  errors: PropTypes.object.isRequired,
+  label: PropTypes.string,
+  register: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.string),
+  name: PropTypes.string,
+  errors: PropTypes.object,
 };
 
 export default FormSelect;

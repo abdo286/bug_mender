@@ -84,7 +84,6 @@ const useCreateTicket = ({ ticketId, historyId }) => {
       data.createdAt = new Date();
       // data.createdBy = userProfile.id;
       // I could log in but I had to hardcode the value of createdBy
-      console.log("war", userProfile);
       data.createdBy = userProfile.data.id;
     }
 
@@ -108,7 +107,6 @@ const useCreateTicket = ({ ticketId, historyId }) => {
         .from("tickets")
         .update(dataWithoutProjects)
         .eq("id", mode == "editing" ? data.id : data.ticketId);
-      console.log("data.ticketId", data.ticketId);
 
       const { error: addingToHistoryError } = await supabase
         .from("ticketHistory")

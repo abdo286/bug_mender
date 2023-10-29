@@ -26,11 +26,11 @@ Comment.propTypes = {
   comment: PropTypes.shape({
     profiles: PropTypes.shape({
       image: PropTypes.string,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-    createdAt: PropTypes.string.isRequired,
-    comment: PropTypes.string.isRequired,
-  }).isRequired,
+      name: PropTypes.string,
+    }),
+    createdAt: PropTypes.string,
+    comment: PropTypes.string,
+  }),
 };
 
 export default Comment;

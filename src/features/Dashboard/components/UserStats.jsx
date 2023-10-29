@@ -30,10 +30,10 @@ const UserStats = ({
 };
 
 UserStats.propTypes = {
-  newUsers: PropTypes.number.isRequired,
-  totalUsers: PropTypes.number.isRequired,
-  developmentTickets: PropTypes.number.isRequired,
-  totalDevelopers: PropTypes.number.isRequired,
+  newUsers: PropTypes.number,
+  totalUsers: PropTypes.number,
+  developmentTickets: PropTypes.number,
+  totalDevelopers: PropTypes.number,
 };
 
 export default UserStats;

@@ -17,10 +17,10 @@ const TicketsHistory = ({ ticketHistoryData }) => {
 
 TicketsHistory.propTypes = {
   ticketHistoryData: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
     error: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.object),
-  }).isRequired,
+  }),
 };
 
 export default TicketsHistory;

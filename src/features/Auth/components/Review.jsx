@@ -28,10 +28,10 @@ const Review = ({ userImage, userName, reviewCreatedAt, comment }) => {
 };
 
 Review.propTypes = {
-  userImage: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  reviewCreatedAt: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
+  userImage: PropTypes.string,
+  userName: PropTypes.string,
+  reviewCreatedAt: PropTypes.string,
+  comment: PropTypes.string,
 };
 
 export default Review;

@@ -15,7 +15,6 @@ export default [
     Header: "Priority",
     accessor: "priority",
     Cell: ({ row }) => {
-      console.log("row", row);
       const {
         id,
         original: { priority },
@@ -78,29 +77,29 @@ export default [
     accessor: "type",
     canSort: true,
   },
-  {
-    Header: "AssignedTo",
-    accessor: "assignedTo",
-    canSort: true,
-  },
-  {
-    Header: "CreatedBy",
-    accessor: "createdBy",
-    canSort: true,
-  },
-  {
-    // change the name format
-    Header: "CreatedAt",
-    accessor: "createdAt",
-    Cell: ({ row }) => {
-      return (
-        <p key={row.id}>
-          {format(new Date(row.original.createdAt), "yyyy-MM-dd")}
-        </p>
-      );
-    },
-    canSort: true,
-  },
+  // {
+  //   Header: "AssignedTo",
+  //   accessor: "assignedTo",
+  //   canSort: true,
+  // },
+  // {
+  //   Header: "CreatedBy",
+  //   accessor: "createdBy",
+  //   canSort: true,
+  // },
+  // {
+  //   // change the name format
+  //   Header: "CreatedAt",
+  //   accessor: "createdAt",
+  //   Cell: ({ row }) => {
+  //     return (
+  //       <p key={row.id}>
+  //         {format(new Date(row.original.createdAt), "yyyy-MM-dd")}
+  //       </p>
+  //     );
+  //   },
+  //   canSort: true,
+  // },
   {
     Header: "Action",
     accessor: "id",

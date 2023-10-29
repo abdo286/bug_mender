@@ -29,6 +29,7 @@ const TableSection = ({
           <h2 className="text-lg lg:text-xl xl:text-2xl font-medium">
             {title}
           </h2>
+
           <div>
             <RTable
               columns={columns}
@@ -44,18 +45,18 @@ const TableSection = ({
 
 TableSection.propTypes = {
   tableContainerClassName: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   columns: PropTypes.arrayOf(
     PropTypes.shape({
-      Header: PropTypes.string.isRequired,
-      accessor: PropTypes.string.isRequired,
+      Header: PropTypes.string,
+      accessor: PropTypes.string,
       Cell: PropTypes.func,
       canSort: PropTypes.bool,
     })
-  ).isRequired,
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  ),
+  data: PropTypes.arrayOf(PropTypes.object),
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 export default TableSection;

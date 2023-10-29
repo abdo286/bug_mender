@@ -20,14 +20,11 @@ const changes = supabase
       event: "*", // Listen to all changes
     },
     (payload) => {
-      console.log("payload10000000000000000000", payload);
       const channels = supabase.getChannels();
 
-      console.log("channels", channels);
     }
   )
   .subscribe();
 
-console.log(changes);
 
 export { supabase };

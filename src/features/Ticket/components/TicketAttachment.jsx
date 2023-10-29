@@ -32,11 +32,11 @@ const TicketAttachment = ({ attachment }) => {
 
 TicketAttachment.propTypes = {
   attachment: PropTypes.shape({
-    createdAt: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    userId: PropTypes.number.isRequired,
-  }).isRequired,
+    createdAt: PropTypes.string,
+    description: PropTypes.string,
+    url: PropTypes.string,
+    userId: PropTypes.number,
+  }),
 };
 
 export default TicketAttachment;

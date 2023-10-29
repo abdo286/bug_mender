@@ -50,7 +50,7 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
 
   return (
     <div
-      className={`bg-white  p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName} text-xs lg:text-sm xl:text-base`}
+      className={`bg-white xl:p-8 mb-12 rounded-md shadow-md h-fit ${tableContainerClassName} text-xs lg:text-sm xl:text-base`}
     >
       <div className="mb-4 flex justify-between items-center ">
         <div className="flex items-center">
@@ -75,7 +75,7 @@ const Table = ({ columns, data = dummyData, tableContainerClassName = "" }) => {
           />
         </div>
       </div>
-      <table {...getTableProps()} className="min-w-full shadow-md my-8 ">
+      <table {...getTableProps()} className="min-w-full shadow-md z ">
         <TableHeader headerGroups={headerGroups}  />
         <TableBody
           page={page}
@@ -99,14 +99,14 @@ Table.propTypes = {
   columns: PropTypes.array,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      developer: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-      priority: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      developer: PropTypes.string,
+      status: PropTypes.string,
+      priority: PropTypes.string,
+      date: PropTypes.string,
     })
   ),
-  tableContainerClassName: PropTypes.string.isRequired,
+  tableContainerClassName: PropTypes.string,
 };
 export default Table;

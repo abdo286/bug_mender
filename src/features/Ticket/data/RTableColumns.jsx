@@ -15,7 +15,6 @@ export default [
     Header: "Priority",
     accessor: "priority",
     Cell: ({ row }) => {
-      console.log("row", row);
       const {
         id,
         original: { priority },

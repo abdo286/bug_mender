@@ -68,13 +68,14 @@ const MenuSettings = forwardRef(function MenuSettings(
 });
 
 MenuSettings.propTypes = {
-  setShowMenuOptions: PropTypes.func.isRequired,
+  setShowMenuOptions: PropTypes.func,
   user: PropTypes.shape({
-    created_at: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    updated_at: PropTypes.string.isRequired,
-    last_sign_in_at: PropTypes.string.isRequired,
-  }).isRequired,
+    created_at: PropTypes.string,
+    email: PropTypes.string,
+    id: PropTypes.string,
+    updated_at: PropTypes.any,
+    last_sign_in_at: PropTypes.string,
+    userImage: PropTypes.string,
+  }),
 };
 export default MenuSettings;

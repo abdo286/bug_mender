@@ -59,8 +59,6 @@ const addNotificationToUser = async ({
     type,
   });
   if (error) {
-    console.log(projectId, developerId, userFirstName, projectName);
-    console.log("notification error");
     console.log(error);
   }
 };
@@ -225,7 +223,6 @@ const useCreateProjects = () => {
     };
     delete data["Project Manager"];
 
-    console.log("data", data);
     const developers = data.developers;
     delete data.developers;
     let error;
@@ -236,7 +233,6 @@ const useCreateProjects = () => {
         .from("projects")
         .update(data)
         .eq("id", project.id);
-      console.log("developers", developers);
       if (developers) {
         const developersToAdd = getDevelopersToAdd(
           projectDevelopers,
@@ -246,8 +242,6 @@ const useCreateProjects = () => {
           projectDevelopers,
           developers
         );
-        console.log("developersToAdd", developersToAdd);
-        console.log("developersToRemove", developersToRemove);
 
         if (developersToAdd.length > 0) {
           addDevelopersToProject(
@@ -273,7 +267,6 @@ const useCreateProjects = () => {
       const { error: insertingError } = await supabase
         .from("projects")
         .insert(data);
-      console.log(data);
 
       if (developers.length > 0) {
         addDevelopersToProject(

@@ -15,7 +15,6 @@ export default [
     Header: "Priority",
     accessor: "priority",
     Cell: ({ row }) => {
-      console.log("row", row);
       const {
         id,
         original: { priority },
@@ -90,19 +89,7 @@ export default [
     Header: "Action",
     accessor: "id",
     Cell: ({ row }) => {
-      // const handleDelete = async () => {
-      //   console.log("row.original.id", row.original);
-      //   const { error } = await supabase
-      //     .from("projects")
-      //     .delete()
-      //     .eq("id", row.original.id);
-      //   if (error) {
-      //     console.log(error);
-      //     toast("There was an error deleting project ");
-      //     return;
-      //   }
-      //   toast("project was deleted successfully");
-      // };
+
 
       return (
         <div className="flex justify-center space-x-2" key={row.id}>

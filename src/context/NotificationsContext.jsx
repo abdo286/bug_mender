@@ -48,6 +48,6 @@ const useNotificationsContext = () => {
 };
 
 NotificationsProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 export default useNotificationsContext;

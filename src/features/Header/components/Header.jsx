@@ -1,7 +1,5 @@
 import { RiNotificationLine } from "react-icons/ri";
-// import { CgSearch } from "react-icons/cg";
 import userImage from "../../../assets/images/userImage.avif";
-import ToggleMode from "./ToggleMode";
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +7,7 @@ import MenuSettings from "./MenuSettings";
 import Notifications from "./Notifications";
 import PropTypes from "prop-types";
 import useAuthContext from "../../../context/AuthContext";
+import useResponsiveContext from "../../../context/ResponsiveContext";
 
 const Header = ({ setShouldHideSidebar, user }) => {
   const [scrolling, setScrolling] = useState(false);
@@ -19,6 +18,7 @@ const Header = ({ setShouldHideSidebar, user }) => {
   const notificationRef = useRef(null);
   const notificationsRef = useRef(null);
   const { userProfile } = useAuthContext();
+  const { isXl } = useResponsiveContext();
 
   const navigate = useNavigate();
 
@@ -53,25 +53,32 @@ const Header = ({ setShouldHideSidebar, user }) => {
 
   return (
     <header
-      className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0 z-50 ${
+      className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0  z-[2000] ${
         scrolling ? "bg-[#ced4da]" : ""
       }`}
     >
-      <section className="flex items-center gap-3 text-xl md:text-2xl px-6">
-        <button
-          className="hover:scale-110"
-          onClick={() =>
-            setShouldHideSidebar((shouldHideSidebar) => !shouldHideSidebar)
-          }
-        >
-          <AiOutlineMenu
-            className={`cursor-pointer ${scrolling && "text-black"} `}
-          />
-        </button>
+      <section
+        className={`flex items-center gap-3 text-xl md:text-2xl ${
+          isXl ? "px-6" : "px-3"
+        }`}
+      >
+        {isXl && (
+          <button
+            className="hover:scale-110"
+            onClick={() =>
+              setShouldHideSidebar((shouldHideSidebar) => !shouldHideSidebar)
+            }
+          >
+            <AiOutlineMenu
+              className={`cursor-pointer ${scrolling && "text-black"} `}
+            />
+          </button>
+        )}
         <Link
           className={`  ${
             scrolling ? "#003366" : "text-red-500"
-          }  font-semibold " to="/`}
+          } font-semibold`}
+          to="/"
         >
           BugMender
         </Link>
@@ -91,7 +98,6 @@ const Header = ({ setShouldHideSidebar, user }) => {
             className={`text-2xl text-blue-500 cursor-pointer ${
               scrolling && "!text-gray-800"
             }`}
-            ref={notificationsRef}
             onClick={() => {
               setShowNotifications((showNotifications) => !showNotifications);
             }}
@@ -132,14 +138,14 @@ const Header = ({ setShouldHideSidebar, user }) => {
 };
 
 Header.propTypes = {
-  setShouldHideSidebar: PropTypes.func.isRequired,
+  setShouldHideSidebar: PropTypes.func,
   user: PropTypes.shape({
-    created_at: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    updated_at: PropTypes.string.isRequired,
-    last_sign_in_at: PropTypes.string.isRequired,
-  }).isRequired,
+    created_at: PropTypes.string,
+    email: PropTypes.string,
+    id: PropTypes.string,
+    updated_at: PropTypes.any,
+    last_sign_in_at: PropTypes.string,
+  }),
 };
 
 export default Header;

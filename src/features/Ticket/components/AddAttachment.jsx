@@ -110,6 +110,6 @@ const AddAttachment = ({ ticketId }) => {
 };
 
 AddAttachment.propTypes = {
-  ticketId: PropTypes.string.isRequired,
+  ticketId: PropTypes.string,
 };
 export default AddAttachment;

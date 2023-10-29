@@ -23,15 +23,15 @@ const TableHeader = ({ headerGroups }) => {
 TableHeader.propTypes = {
   headerGroups: PropTypes.arrayOf(
     PropTypes.shape({
-      getHeaderGroupProps: PropTypes.func.isRequired,
+      getHeaderGroupProps: PropTypes.func,
       headers: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          getSortByToggleProps: PropTypes.func.isRequired,
-          render: PropTypes.func.isRequired,
+          id: PropTypes.string,
+          getSortByToggleProps: PropTypes.func,
+          render: PropTypes.func,
         })
-      ).isRequired,
+      ),
     })
-  ).isRequired,
+  ),
 };
 export default TableHeader;

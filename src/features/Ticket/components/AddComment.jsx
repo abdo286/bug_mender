@@ -73,6 +73,6 @@ const TicketComments = ({ ticketId }) => {
 };
 
 TicketComments.propTypes = {
-  ticketId: PropTypes.string.isRequired,
+  ticketId: PropTypes.string,
 };
 export default TicketComments;

@@ -10,7 +10,7 @@ const TicketsStats = ({
   error,
 }) => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-4 sm:gap-x-12 gap-y-8 w-[100%] flex gap-x-8 px-5">
+    <section className="grid grid-cols-1 md:grid-cols-4 sm:gap-x-12 gap-y-8 w-[100%] px-3 ">
       <StatCard
         color="#fff"
         backgroundColor="#12b886"

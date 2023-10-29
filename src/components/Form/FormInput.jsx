@@ -32,10 +32,10 @@ const FormInput = ({
 };
 
 FormInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  register: PropTypes.func,
   required: PropTypes.bool,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object,
   type: PropTypes.string,
 };
 

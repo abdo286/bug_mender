@@ -34,6 +34,6 @@ const useTicketsContext = () => {
 };
 
 TicketsContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 export default useTicketsContext;

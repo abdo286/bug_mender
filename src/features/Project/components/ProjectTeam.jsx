@@ -38,15 +38,15 @@ const ProjectTeam = ({ projectTeam }) => {
 ProjectTeam.propTypes = {
   projectTeam: PropTypes.arrayOf(
     PropTypes.shape({
-      userId: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
+      userId: PropTypes.any,
+      role: PropTypes.string,
       profiles: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        email: PropTypes.string,
         image: PropTypes.string,
-      }).isRequired,
+      }),
     })
-  ).isRequired,
+  ),
 };
 
 export default ProjectTeam;

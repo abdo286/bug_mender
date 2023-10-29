@@ -31,16 +31,16 @@ const SelectSection = ({ label, name, control, options, errors }) => {
 };
 
 SelectSection.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  control: PropTypes.object.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  control: PropTypes.object,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
+      value: PropTypes.string,
+      label: PropTypes.string,
     })
-  ).isRequired,
-  errors: PropTypes.object.isRequired,
+  ),
+  errors: PropTypes.object,
 };
 
 export default SelectSection;

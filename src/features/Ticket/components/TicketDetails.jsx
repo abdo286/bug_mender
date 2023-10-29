@@ -78,7 +78,7 @@ const TicketDetails = ({ ticket }) => {
         </p>
       </section>
       <footer className="px-6 py-6 mb-3">
-        <devi className="flex items-centesRequirer gap-4 justify-end">
+        <div className="flex items-centesRequirer gap-4 justify-end">
           <LuEdit
             className="text-xl text-blue-500 cursor-pointer "
             onClick={() => {
@@ -89,7 +89,7 @@ const TicketDetails = ({ ticket }) => {
             className="text-xl text-red-500 cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           />
-        </devi>
+        </div>
       </footer>
       <Modal
         isOpen={isModalOpen}
@@ -123,19 +123,19 @@ const TicketDetails = ({ ticket }) => {
 
 TicketDetails.propTypes = {
   ticket: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.id,
-    description: PropTypes.string.isRequired,
-    updated: PropTypes.string.isRequired,
-    assignedTo: PropTypes.string.isRequired,
+    id: PropTypes.any,
+    name: PropTypes.any,
+    description: PropTypes.string,
+    updated: PropTypes.string,
+    assignedTo: PropTypes.string,
     projects: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-    priority: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-  }).isRequired,
-  ticketsLoading: PropTypes.string,
-  ticketsError: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    priority: PropTypes.string,
+    type: PropTypes.string,
+  }),
+  ticketsLoading: PropTypes.any,
+  ticketsError: PropTypes.any,
 };
 
 export default TicketDetails;

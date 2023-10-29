@@ -25,6 +25,6 @@ const useUsersContext = () => {
 };
 
 UsersContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 export default useUsersContext;

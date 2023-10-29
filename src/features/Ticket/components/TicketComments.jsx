@@ -20,15 +20,15 @@ const TicketComments = ({ ticketId, comments }) => {
 };
 
 TicketComments.propTypes = {
-  ticketId: PropTypes.string.isRequired,
+  ticketId: PropTypes.string,
   comments: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
     data: PropTypes.arrayOf(
       PropTypes.shape({
-        key: PropTypes.string.isRequired,
+        key: PropTypes.string,
       })
-    ).isRequired,
-  }).isRequired,
+    ),
+  }),
 };
 export default TicketComments;

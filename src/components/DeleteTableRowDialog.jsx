@@ -22,8 +22,8 @@ const DeleteTableRowDialog = ({ rowId, rowType, handleDelete }) => {
 };
 
 DeleteTableRowDialog.propTypes = {
-  rowId: PropTypes.number.isRequired,
-  rowType: PropTypes.string.isRequired,
-  handleDelete: PropTypes.func.isRequired,
+  rowId: PropTypes.number,
+  rowType: PropTypes.string,
+  handleDelete: PropTypes.func,
 };
 export default DeleteTableRowDialog;

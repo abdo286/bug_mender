@@ -7,8 +7,8 @@ import Error from "./Error";
 const Account = () => {
   const { userProfile } = useAuthContext();
 
-  if (!userProfile.data) <Loading />;
   if (userProfile.error) return <Error />;
+  if (!userProfile.data) return <Loading />;
   return (
     <main>
       <nav className="mt-3">

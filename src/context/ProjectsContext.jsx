@@ -31,6 +31,6 @@ const useProjectsContext = () => {
 };
 
 ProjectsContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 export default useProjectsContext;

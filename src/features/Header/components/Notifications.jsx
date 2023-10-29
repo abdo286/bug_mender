@@ -54,7 +54,7 @@ const Notifications = forwardRef(function Notifications(
 });
 
 Notifications.propTypes = {
-  setShowNotifications: PropTypes.func.isRequired,
+  setShowNotifications: PropTypes.func,
   ref: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };
 export default Notifications;

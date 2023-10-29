@@ -1,6 +1,6 @@
 const TableBody = ({ page, prepareRow, getTableBodyProps }) => {
   return (
-    <tbody {...getTableBodyProps()}>
+    <tbody {...getTableBodyProps()} >
       {page.map((row, index) => {
         prepareRow(row);
         return (

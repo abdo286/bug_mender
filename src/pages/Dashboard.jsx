@@ -2,7 +2,6 @@ import { Breadcrumbs, TableSection } from "../components";
 import {
   TicketsStats,
   UserStats,
-  PriorityProjects,
   RolesByProjects,
 } from "../features/Dashboard";
 
@@ -35,9 +34,8 @@ const Dashboard = () => {
     totalTickets,
   } = getTicketStats(tickets);
   const { newUsers, totalUsers, totalDevelopers } = getUsersStats(users);
-
   return (
-    <main className="overflow-x-hidden sm:w-[95%]">
+    <main className="overflow-x-hidden sm:w-[95%] mx-auto">
       <nav className="mt-3">
         <Breadcrumbs
           optionsData={{
@@ -48,7 +46,7 @@ const Dashboard = () => {
         />
       </nav>
 
-      <section className="sm:w-[95%] md:w-[90%] md:mx-auto mt-12 grid ">
+      <section className="sm:w-[95%] md:w-[90%] mt-12  mx-auto">
         <TicketsStats
           unsignedTickets={unassignedTickets}
           totalTickets={totalTickets}
@@ -58,7 +56,7 @@ const Dashboard = () => {
           error={ticketsError}
         />
 
-        <section className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-[30fr_35fr] mt-12 mb-8 gap-9">
+        <section className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-[30fr_35fr] mt-12 mb-8 gap-9 ">
           <UserStats
             newUsers={newUsers}
             totalUsers={totalUsers}
@@ -67,12 +65,7 @@ const Dashboard = () => {
             loading={usersLoading}
             error={usersError}
           />
-          {/* <CompanyData /> */}
-          {/* <PriorityProjects
-            data={projects}
-            loading={projectsLoading}
-            error={projectsError}
-          /> */}
+
           <RolesByProjects />
         </section>
 

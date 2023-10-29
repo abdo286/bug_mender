@@ -29,16 +29,16 @@ const TicketAttachments = ({ ticketId, attachments }) => {
 };
 
 TicketAttachments.propTypes = {
-  ticketId: PropTypes.string.isRequired,
+  ticketId: PropTypes.string,
   attachments: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    error: PropTypes.bool,
     data: PropTypes.arrayOf(
       PropTypes.shape({
-        key: PropTypes.string.isRequired,
+        key: PropTypes.string,
       })
-    ).isRequired,
-  }).isRequired,
+    ),
+  }),
 };
 
 export default TicketAttachments;

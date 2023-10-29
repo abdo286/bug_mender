@@ -5,24 +5,7 @@ import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 
-// const addNotificationToUser = async ({
-//   projectId,
-//   developerId,
-//   userFirstName,
-//   projectName,
-// }) => {
-//   const { error } = await supabase.from("notifications").insert({
-//     userId: developerId,
-//     projectId: projectId,
-//     message: `You have been add to project Id ${projectId} by ${userFirstName} - ${projectName}`,
-//     type: "project added",
-//   });
-//   if (error) {
-//     console.log(projectId, developerId, userFirstName, projectName);
-//     console.log("notification error");
-//     console.log(error);
-//   }
-// };
+
 
 const addDeveloperToProject = async ({ userId, projectId, role, reset }) => {
   const { error: insertError } = await supabase.from("UsersProjects").insert({

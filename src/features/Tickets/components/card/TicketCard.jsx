@@ -99,12 +99,12 @@ TicketCard.propTypes = {
     priority: PropTypes.string,
     status: PropTypes.string,
     assignedTo: PropTypes.string,
-    createdBy: PropTypes.string,
-    id: PropTypes.string,
+    createdBy: PropTypes.any,
+    id: PropTypes.any,
     projects: PropTypes.shape({
       name: PropTypes.string,
     }),
-  }).isRequired,
+  }),
 };
 
 export default TicketCard;
