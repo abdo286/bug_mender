@@ -219,7 +219,7 @@ const useCreateProjects = () => {
       id: mode === "editing" ? project.id : generateUniqueBigInt(),
       developers: formData.developers.map((cur) => cur.value),
       createdBy: userProfile?.data?.id,
-      projectManager: formData["Project Manager"],
+      projectManager: formData["Project Manager"]?.value || null,
     };
     delete data["Project Manager"];
 
@@ -267,7 +267,6 @@ const useCreateProjects = () => {
       const { error: insertingError } = await supabase
         .from("projects")
         .insert(data);
-
       if (developers.length > 0) {
         addDevelopersToProject(
           developers,

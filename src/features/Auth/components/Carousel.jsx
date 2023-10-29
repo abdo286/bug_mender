@@ -1,4 +1,5 @@
 import  { useState } from "react";
+import DOMPurify from 'dompurify'
 
 // Your component code...
 
@@ -28,7 +29,12 @@ const Carousel = ({ features }) => {
             <h2 className="text-3xl font-semibold text-[#dee2e6] mb-2 text-center">
               {feature.name}
             </h2>
-            <p className="text-[#dee2e6] mx-auto">{feature.description}</p>
+            <p
+              className="text-[#dee2e6] mx-auto"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(feature.description),
+              }}
+            />
           </div>
         </div>
       ))}

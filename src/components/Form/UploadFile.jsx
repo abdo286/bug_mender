@@ -13,11 +13,12 @@ const UploadFile = forwardRef(function UploadFile(_, ref) {
         cacheControl: "3600",
         upsert: false,
       });
+    setLoading(false);
 
     if (error) {
       toast.error("There was an error uploading the file");
-
       console.log(error);
+      ref.current = null;
       return;
     }
     toast.success("File uploaded successfully");

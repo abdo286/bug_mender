@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import DOMPurify from 'dompurify'
 
 const getPriorityClass = (priority) => {
   let priorityClass = "";
@@ -38,7 +39,13 @@ const TicketCard = ({ ticket }) => {
         <h2 className="text-base font-semibold sm:card-title lines-3">
           {ticket?.name}
         </h2>
-        <p className="lines-5 text-base mb-3">{ticket?.description}</p>
+        <p
+          className="lines-5 text-base mb-3"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(ticket?.description),
+          }}
+        />
+
         <section className="flex flex-col gap-3">
           <p className="text-sm">
             <span className="font-medium ">Type: </span> {ticket?.type}

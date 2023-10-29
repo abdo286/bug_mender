@@ -41,15 +41,18 @@ const AppLayout = () => {
           }}
         />
 
-        {shouldShowSidebar && isXl ? (
+        {isXl && shouldShowSidebar ? (
           <section className={`grid grid-cols-[17fr_83fr] !w-full !ml-0 `}>
             <Sidebar />
             <Outlet />
           </section>
+        ) : isXl ? (
+          <div className={`grid w-full ml-auto relative`}>
+            <Outlet />
+          </div>
         ) : (
           <div className={`grid w-[100vw] ml-auto relative`}>
             <Sidebar />
-
             <Outlet />
           </div>
         )}
@@ -58,3 +61,4 @@ const AppLayout = () => {
   );
 };
 export default AppLayout;
+// &&

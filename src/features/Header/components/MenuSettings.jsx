@@ -17,7 +17,6 @@ const MenuSettings = forwardRef(function MenuSettings(
     localStorage.removeItem("session");
     console.warn(error);
   };
-
   return (
     <motion.div>
       <motion.div
@@ -25,19 +24,21 @@ const MenuSettings = forwardRef(function MenuSettings(
         ref={ref}
       >
         <header className="flex gap-3 pt-2 bg-[#2ed0e6] px-2 py-3 items-center w-[16rem] overflow-hidden text-sm md:text-base">
-          <div className="w-12 h-12 relative ">
+          <div className="w-12 h-12 relative rounded-full">
             <img
               src={
                 userImage ||
                 "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
               }
               alt="user profile"
-              className="w-full h-full rounded-full object-cover"
+              className="w-full h-full rounded-full  object-cover"
             />
             <div className="absolute inset-0 rounded-full shadow-md"></div>
           </div>
           <div>
-            <h3 className="overflow-hidden max-w-[80%] ">Demo Admin</h3>
+            <h3 className="overflow-hidden max-w-[80%] ">
+              {user?.email?.split("@")[0]}
+            </h3>
             <p className="overflow-hidden max-w-[80%] "> {user?.email}</p>
           </div>
         </header>

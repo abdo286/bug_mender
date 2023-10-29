@@ -30,11 +30,11 @@ const TeamMember = ({ member }) => {
         </div>
       </div>
       {isProjectManager ? (
-        <button className="text-sm border-2 px-3 py-1 rounded-md border-blue-500 text-blue-500 font-medium hover:bg-blue-500 hover:text-white transition-all duration-150 ease-in-out">
+        <button className="text-sm border-2 px-3 py-1 rounded-md border-blue-500 text-blue-500 font-medium hover:bg-blue-500 hover:text-white transition-all duration-150 ease-in-out ">
           Change PM
         </button>
       ) : (
-        <button className="text-sm border-2 px-3 py-1 rounded-md border-blue-500 text-blue-500 font-medium whitespace-nowrap hover:bg-blue-500 hover:text-white transition-all duration-150 ease-in-out">
+        <button className="text-sm border-2 px-3 py-1 rounded-md border-blue-500 text-blue-500 font-medium whitespace-nowrap hover:bg-blue-500 hover:text-white transition-all duration-150 ease-in-out ">
           Assign Role
         </button>
       )}

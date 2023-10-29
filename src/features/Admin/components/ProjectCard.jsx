@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import DOMPurify from "dompurify";
 
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
@@ -8,7 +9,12 @@ const ProjectCard = ({ project }) => {
     <div className="card card-compact max-w-[24rem] shadow-xl bg-[#228be6] text-white">
       <div className="card-body ">
         <h2 className="card-title">{project.name}</h2>
-        <p className="lines-5">{project.description}</p>
+        <p
+          className="lines-5"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(project.description),
+          }}
+        />
         <section className="flex flex-col gap-3 mt-6">
           <p>
             <span className="font-medium mr-1">Priority:</span>

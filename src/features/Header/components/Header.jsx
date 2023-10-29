@@ -16,7 +16,6 @@ const Header = ({ setShouldHideSidebar, user }) => {
   const userImageRef = useRef(null);
   const menuRef = useRef(null);
   const notificationRef = useRef(null);
-  const notificationsRef = useRef(null);
   const { userProfile } = useAuthContext();
   const { isXl } = useResponsiveContext();
 
@@ -53,9 +52,9 @@ const Header = ({ setShouldHideSidebar, user }) => {
 
   return (
     <header
-      className={`flex items-center justify-between rounded-md px-3 py-2 sticky top-0  z-[2000] ${
-        scrolling ? "bg-[#ced4da]" : ""
-      }`}
+      className={`flex items-center justify-between rounded-md px-3 py-2 sticky ${
+        !isXl && scrolling ? "top-0 " : null
+      } z-[2000] ${scrolling ? "bg-[#ced4da]" : ""}`}
     >
       <section
         className={`flex items-center gap-3 text-xl md:text-2xl ${

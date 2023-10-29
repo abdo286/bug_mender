@@ -5,8 +5,6 @@ import { supabase } from "../../../libs/supabaseClient";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 
-
-
 const addDeveloperToProject = async ({ userId, projectId, role, reset }) => {
   const { error: insertError } = await supabase.from("UsersProjects").insert({
     userId,
@@ -72,7 +70,7 @@ const UserAssignmentForm = ({ developers, projectId }) => {
         label="Role"
         name="role"
         register={register}
-        options={["user", "developer", "project_manager"]}
+        options={["developer", "project_manager"]}
       />
       <div className="flex justify-end mt-3 mb-2 ">
         <button

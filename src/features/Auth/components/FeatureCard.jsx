@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 const FeatureCard = ({ feature }) => {
   return (
     <div className="mb-6 flex justify-center">
@@ -5,7 +6,12 @@ const FeatureCard = ({ feature }) => {
         <h2 className="text-2xl 2xl:text-3xl font-semibold text-[#dee2e6] mb-2 text-center">
           {feature.name}
         </h2>
-        <p className="text-[#dee2e6] mx-auto mb-6 ">{feature.description}</p>
+        <p
+          className="text-[#dee2e6] mx-auto mb-6 "
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(feature.description),
+          }}
+        />
       </div>
     </div>
   );

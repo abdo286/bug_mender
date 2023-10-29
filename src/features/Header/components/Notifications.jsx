@@ -42,11 +42,17 @@ const Notifications = forwardRef(function Notifications(
         <Loading />
       ) : (
         <div className="flex flex-col gap-1 w-[20rem] bg-white py-1 px-1 rounded-md">
-          {notifications.map((notification) => (
-            <li key={notification.id}>
-              <Notification notification={notification} />
-            </li>
-          ))}
+          {notifications.length > 0 ? (
+            notifications.map((notification) => (
+              <li key={notification.id}>
+                <Notification notification={notification} />
+              </li>
+            ))
+          ) : (
+            <div className="h-36 grid place-items-center text-sm text-gray-600">
+              <p>You have not Notification</p>
+            </div>
+          )}
         </div>
       )}
     </section>

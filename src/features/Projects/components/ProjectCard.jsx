@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { parseISO, format } from "date-fns";
+import DOMPurify from "dompurify";
 
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
@@ -14,7 +15,13 @@ const ProjectCard = ({ project }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{project.name}</h2>
-        <p>{project.description}</p>
+
+        <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(project.description),
+          }}
+        />
+
         <section className="flex flex-col gap-3 mt-6">
           <p>
             <span className="font-medium mr-1">Priority:</span>

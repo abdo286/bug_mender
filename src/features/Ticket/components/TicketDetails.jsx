@@ -1,4 +1,4 @@
-import { LuEdit } from "react-icons/lu";
+import { VscEdit } from "react-icons/vsc";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { supabase } from "../../../libs/supabaseClient";
 import { useState } from "react";
 import Modal from "react-modal";
+import DOMPurify from "dompurify";
 
 const customStyles = {
   content: {
@@ -54,7 +55,12 @@ const TicketDetails = ({ ticket }) => {
         </p>
         <p className="text-sm lg:text-base">
           <span className="font-medium"> Description: </span>
-          <span className="text-gray-600">{ticket.description}</span>
+          <span
+            className="text-gray-600"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(ticket.description),
+            }}
+          />
         </p>
         <p className="text-sm lg:text-base">
           <span className="font-medium"> Updated: </span>
@@ -79,7 +85,7 @@ const TicketDetails = ({ ticket }) => {
       </section>
       <footer className="px-6 py-6 mb-3">
         <div className="flex items-centesRequirer gap-4 justify-end">
-          <LuEdit
+          <VscEdit
             className="text-xl text-blue-500 cursor-pointer "
             onClick={() => {
               navigate(`/create-ticket/${ticket.id}`);

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { supabase } from "../../../libs/supabaseClient";
 import { DeleteTableRowDialog } from "../../../components";
+import DOMPurify from 'dompurify'
 
 const ProjectDetails = ({ project }) => {
   const { name, description } = project[0];
@@ -24,7 +25,9 @@ const ProjectDetails = ({ project }) => {
     <div className="bg-white text-gray-600 px-6 py-5 flex flex-col gap-6 shadow-sm hover:shadow-md transition-all duration-100 ease-in-out rounded-md">
       <div>
         <h2 className="text-xl font-medium mb-1">{name}</h2>
-        <p>{description}</p>{" "}
+        <p
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
       </div>
       <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <p className="mb-1 font-medium">Project Status: </p>

@@ -1,5 +1,5 @@
 import { BiShow } from "react-icons/bi";
-import { LuEdit } from "react-icons/lu";
+import { VscEdit } from "react-icons/vsc";
 import { RiDeleteBin7Line } from "react-icons/ri";
 
 export const data = [
@@ -28,7 +28,7 @@ export const state = {
         return (
           <devi className="flex items-center gap-4 justify-center">
             <BiShow className="text-xl text-gray-500 cursor-pointer " />
-            <LuEdit className="text-xl text-blue-500 cursor-pointer " />
+            <VscEdit className="text-xl text-blue-500 cursor-pointer " />
             <RiDeleteBin7Line className="text-xl text-red-500 cursor-pointer " />
           </devi>
         );

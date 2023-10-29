@@ -11,6 +11,22 @@ body {
   min-height: 100vh;
 }
 
+/* Hide the scrollbar track */
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
 @layer components {
   .tooltip-arrow,
   .tooltip-arrow::before,

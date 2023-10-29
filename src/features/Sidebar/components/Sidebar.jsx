@@ -6,6 +6,7 @@ import { MdPersonAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
+import useResponsiveContext from "../../../context/ResponsiveContext";
 
 const sidebarData = [
   {
@@ -41,6 +42,8 @@ const sidebarData = [
 ];
 const Sidebar = () => {
   const [isScrolling, setIsScrolling] = useState(false);
+  const { isXl } = useResponsiveContext();
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) setIsScrolling(true);
@@ -53,7 +56,7 @@ const Sidebar = () => {
   return (
     <div
       className={`flex flex-col sticky z-[1000] ${
-        isScrolling ? "bg-[#ced4da] top-12" : "top-5"
+        isScrolling && !isXl ? "bg-[#ced4da] top-12" : "top-5"
       }`}
     >
       <nav className={`xl:mt-12 mt-5  ${isScrolling && "mb-1"}`}>

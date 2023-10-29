@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import ReactImageZoom from "react-image-zoom";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 const TicketAttachment = ({ attachment }) => {
   const { createdAt, description, url, userId } = attachment;
@@ -8,7 +9,13 @@ const TicketAttachment = ({ attachment }) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <p className="text-gray-600 text-sm mb-2">{createdAt}</p>
-      <p className="text-lg font-semibold mb-2">{description}</p>
+
+      <p
+        className="text-lg font-semibold mb-2"
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(description),
+        }}
+      />
 
       <Link to={url}>
         <div className="w-full max-h-[20rem] cursor-pointer">
