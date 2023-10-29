@@ -75,7 +75,6 @@ bugMender is designed to streamline bug tracking and project management, ensurin
 ![Screenshot from 2023-10-29 19-07-01](https://github.com/abdo286/bug_mender/assets/123945345/6e3ee8fa-7bb9-4aa6-9393-b6d4586fbfa2)
 ![Screenshot from 2023-10-29 19-07-06](https://github.com/abdo286/bug_mender/assets/123945345/f45270c5-57bb-42e9-a15e-2cc0b329730c)
 ![Screenshot from 2023-10-29 19-07-13](https://github.com/abdo286/bug_mender/assets/123945345/1b07c8ef-91d2-412f-9ec3-e09754991edb)
-![Screenshot from 2023-10-29 19-13-36](https://github.com/abdo286/bug_mender/assets/123945345/4f71aa62-1bb8-4ee6-a6dd-d16432e51dea)
 ![Screenshot from 2023-10-29 19-14-00](https://github.com/abdo286/bug_mender/assets/123945345/f45bc114-de87-41b0-ac79-6f20325ed38a)
 ![Screenshot from 2023-10-29 19-14-04](https://github.com/abdo286/bug_mender/assets/123945345/bc488fd6-858e-42ce-8fa1-66a919d9b618)
 ![Screenshot from 2023-10-29 19-17-10](https://github.com/abdo286/bug_mender/assets/123945345/0605a04a-c1d2-4028-a83b-2ed6c5a6d46d)
