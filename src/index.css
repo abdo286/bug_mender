@@ -27,6 +27,11 @@ body {
   background-color: #aaa;
 }
 
+li.notification::marker {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 @layer components {
   .tooltip-arrow,
   .tooltip-arrow::before,

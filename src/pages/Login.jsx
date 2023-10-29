@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../libs/supabaseClient";
 import { toast } from "react-toastify";
+import useResponsiveContext from "../context/ResponsiveContext";
 
 const Login = () => {
   const {
@@ -12,6 +13,7 @@ const Login = () => {
     reset,
   } = useForm({ mode: "onTouched" });
   const navigate = useNavigate();
+  const { isLg } = useResponsiveContext();
 
   const onSubmit = async (formData) => {
     const { error } = await supabase.auth.signInWithPassword({
@@ -26,7 +28,6 @@ const Login = () => {
     navigate("/");
     reset();
   };
-  // className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-8"
 
   return (
     <main className="h-full w-full lg:bg-white xl:px-12 pt-6 lg:py-44">
@@ -47,9 +48,13 @@ const Login = () => {
           errors={errors}
           label="email"
           placeholder="John Doe"
-          labelClassName="text-gray-200"
-          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
-          inputClassName="bg-gray-100"
+          labelClassName={!isLg ? " text-gray-200" : ""}
+          errorsClassName={
+            !isLg
+              ? "text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+              : ""
+          }
+          inputClassName={!isLg ? "bg-gray-100" : ""}
         />
         <FormInput
           register={register}
@@ -57,9 +62,13 @@ const Login = () => {
           label="password"
           type={"password"}
           placeholder="Password"
-          labelClassName="text-gray-200"
-          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
-          inputClassName="bg-gray-100"
+          labelClassName={!isLg ? " text-gray-200" : ""}
+          errorsClassName={
+            !isLg
+              ? "text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+              : ""
+          }
+          inputClassName={!isLg ? "bg-gray-100" : ""}
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
           Log In

@@ -52,9 +52,9 @@ const Header = ({ setShouldHideSidebar, user }) => {
 
   return (
     <header
-      className={`flex items-center justify-between rounded-md px-3 py-2 sticky ${
+      className={`flex items-center justify-between rounded-md px-3 py-2 sticky lg:top-0 z-[2000] ${
         !isXl && scrolling ? "top-0 " : null
-      } z-[2000] ${scrolling ? "bg-[#ced4da]" : ""}`}
+      } ${scrolling ? "bg-[#ced4da]" : null}`}
     >
       <section
         className={`flex items-center gap-3 text-xl md:text-2xl ${

@@ -6,19 +6,22 @@ import { Carousel } from "react-responsive-carousel";
 import features from "../features/Auth/constants/features";
 import useResponsiveContext from "../context/ResponsiveContext";
 import { Reviews } from "../features/Auth";
+import AuthImage from '../assets/auth.jpg'
 
 const Auth = () => {
   const { isLg, is2Xl } = useResponsiveContext();
 
   return (
-    <main className="relative pb-28">
-      <div className="absolute top-0 bottom-0 left-0 right-0 ">
-        <img
-          src={`https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
-          alt=""
-          className="w-full h-full object-cover object-center brightness-50"
-        />
-      </div>
+    <main className={`relative ${!isLg && "pb-28"}`}>
+      {!isLg && (
+        <div className="absolute top-0 bottom-0 left-0 right-0 ">
+          <img
+            src={AuthImage}
+            alt=""
+            className="w-full h-full object-cover object-center brightness-50"
+          />
+        </div>
+      )}
       <ToastContainer />
       <div className="grid grid-cols-1 lg:grid-cols-2 h-screen w-full  gap-8 lg:gap-0  relative z-5">
         {isLg ? (

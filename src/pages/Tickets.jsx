@@ -21,7 +21,7 @@ const Tickets = () => {
           }}
         />
       </nav>
-      <section className="w-[90%] mx-auto">
+      <section className="w-[90%] lg:w-[95%] mx-auto">
         
         <MainHeader
           view={view}

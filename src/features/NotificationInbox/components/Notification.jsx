@@ -7,7 +7,7 @@ const Notification = ({ shouldShowImage = true, notification }) => {
   const [notificationPrefix, projectHeader] = notification.message.split(" - ");
 
   return (
-    <section className="flex items-center gap-5 bg-white px-6 py-2 shadow-sm rounded-md">
+    <section className="grid grid-cols-[10fr_90fr] gap-5 bg-white px-6 py-2 shadow-sm rounded-md">
       {shouldShowImage ? (
         <div className="w-12 h-12">
           <img

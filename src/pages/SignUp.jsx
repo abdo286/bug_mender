@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../libs/supabaseClient";
 import { toast } from "react-toastify";
+import useResponsiveContext from "../context/ResponsiveContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Login = () => {
     formState: { errors },
     reset,
   } = useForm({ mode: "onTouched" });
+  const { isLg } = useResponsiveContext();
 
   const onSubmit = async (formData) => {
     const { error } = await supabase.auth.signUp({
@@ -72,18 +74,26 @@ const Login = () => {
           errors={errors}
           label="name"
           placeholder="John Doe"
-          labelClassName="text-gray-200"
-          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
-          inputClassName="bg-gray-100"
+          labelClassName={!isLg ? " text-gray-200" : ""}
+          errorsClassName={
+            !isLg
+              ? "text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+              : ""
+          }
+          inputClassName={!isLg ? "bg-gray-100" : ""}
         />
         <FormInput
           register={register}
           errors={errors}
           label="email"
           placeholder="Email"
-          labelClassName="text-gray-200"
-          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
-          inputClassName="bg-gray-100"
+          labelClassName={!isLg ? " text-gray-200" : ""}
+          errorsClassName={
+            !isLg
+              ? "text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+              : ""
+          }
+          inputClassName={!isLg ? "bg-gray-100" : ""}
         />
         <FormInput
           register={register}
@@ -91,9 +101,13 @@ const Login = () => {
           label="password"
           type={"password"}
           placeholder="Password"
-          labelClassName="text-gray-200"
-          errorsClassName="text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
-          inputClassName="bg-gray-100"
+          labelClassName={!isLg ? " text-gray-200" : ""}
+          errorsClassName={
+            !isLg
+              ? "text-blue-200 bg-red-500 font-bold w-fit px-3 text-sm rounded-md mt-1"
+              : ""
+          }
+          inputClassName={!isLg ? "bg-gray-100" : ""}
         />
         <button className="btn btn-active btn-neutral text-sm xl:text-base">
           Submit

@@ -41,7 +41,7 @@ const TicketDetails = ({ ticket }) => {
     <div className="bg-white h-fit shadow-md">
       <header className="bg-[#22b8cf] px-6 py-3">
         <h3 className="text-white lines-1 text-base ">
-          {ticket.description} <span>Details</span>
+          {ticket.name} <span>Details</span>
         </h3>
       </header>
       <section className="bg-white px-6 py-5 flex flex-col gap-2">
