@@ -65,3 +65,33 @@ bugMender is a comprehensive bug tracking platform built with ReactJS, Supabase,
 - Notifications keep all users informed of important updates within the platform.
 
 bugMender is designed to streamline bug tracking and project management, ensuring effective collaboration and communication among team members.
+
+
+![Login Page](https://github.com/abdo286/bug_mender/assets/123945345/88f21056-c864-4815-ad3a-b9ddb087f8ed)
+![Screenshot from 2023-10-29 19-04-47](https://github.com/abdo286/bug_mender/assets/123945345/34d39dd3-ec6c-4bae-846d-5cac84853749)
+![Screenshot from 2023-10-29 19-05-00](https://github.com/abdo286/bug_mender/assets/123945345/4019689d-a89d-457b-90dd-bc8fa52e0f38)
+![Screenshot from 2023-10-29 19-05-13](https://github.com/abdo286/bug_mender/assets/123945345/309d42db-49ff-4e20-a408-b8d69931724b)
+![Screenshot from 2023-10-29 19-05-44](https://github.com/abdo286/bug_mender/assets/123945345/d8d78709-9c71-40e2-b652-188849332328)
+![Screenshot from 2023-10-29 19-07-01](https://github.com/abdo286/bug_mender/assets/123945345/6e3ee8fa-7bb9-4aa6-9393-b6d4586fbfa2)
+![Screenshot from 2023-10-29 19-07-06](https://github.com/abdo286/bug_mender/assets/123945345/f45270c5-57bb-42e9-a15e-2cc0b329730c)
+![Screenshot from 2023-10-29 19-07-13](https://github.com/abdo286/bug_mender/assets/123945345/1b07c8ef-91d2-412f-9ec3-e09754991edb)
+![Screenshot from 2023-10-29 19-13-36](https://github.com/abdo286/bug_mender/assets/123945345/4f71aa62-1bb8-4ee6-a6dd-d16432e51dea)
+![Screenshot from 2023-10-29 19-14-00](https://github.com/abdo286/bug_mender/assets/123945345/f45bc114-de87-41b0-ac79-6f20325ed38a)
+![Screenshot from 2023-10-29 19-14-04](https://github.com/abdo286/bug_mender/assets/123945345/bc488fd6-858e-42ce-8fa1-66a919d9b618)
+![Screenshot from 2023-10-29 19-17-10](https://github.com/abdo286/bug_mender/assets/123945345/0605a04a-c1d2-4028-a83b-2ed6c5a6d46d)
+![Screenshot from 2023-10-29 19-17-13](https://github.com/abdo286/bug_mender/assets/123945345/e744c41e-89a1-4db7-b144-2575302f7bef)
+![Screenshot from 2023-10-29 19-17-22](https://github.com/abdo286/bug_mender/assets/123945345/41c169fc-7dfa-46f0-86e7-ab6001036fcd)
+![Screenshot from 2023-10-29 19-17-52](https://github.com/abdo286/bug_mender/assets/123945345/86d15483-9b84-4852-8ad3-8f595d2638e2)
+![Screenshot from 2023-10-29 19-17-56](https://github.com/abdo286/bug_mender/assets/123945345/44bdbf00-1561-4eac-b8ec-991a9010adf5)
+![Screenshot from 2023-10-29 19-18-05](https://github.com/abdo286/bug_mender/assets/123945345/dfd1c6d2-f325-48b7-b1f9-55fbeb61b688)
+![Screenshot from 2023-10-29 19-18-08](https://github.com/abdo286/bug_mender/assets/123945345/9f793ab3-5f1e-4dd9-a8da-054c7a118668)
+![Screenshot from 2023-10-29 19-18-08](https://github.com/abdo286/bug_mender/assets/123945345/07021ec7-e3ff-43c5-81bf-8221f4642e42)
+![Screenshot from 2023-10-29 19-18-25](https://github.com/abdo286/bug_mender/assets/123945345/90bbc3d1-d4e0-455e-919e-60338df6876a)
+![Screenshot from 2023-10-29 19-18-27](https://github.com/abdo286/bug_mender/assets/123945345/358b593f-7599-47db-8f4d-0679c343066e)
+![Screenshot from 2023-10-29 19-29-35](https://github.com/abdo286/bug_mender/assets/123945345/140b663c-bd69-4743-b06c-98f179f5ebee)
+![Screenshot from 2023-10-29 19-30-01](https://github.com/abdo286/bug_mender/assets/123945345/d41e8e21-512c-4c67-8f2f-c89a92858b04)
+![Screenshot from 2023-10-29 19-30-10](https://github.com/abdo286/bug_mender/assets/123945345/5821da13-7fee-4a5c-8cde-c9db2d1e8bd4)
+![Screenshot from 2023-10-29 19-30-23](https://github.com/abdo286/bug_mender/assets/123945345/78a7a49a-1a4b-4384-bc4c-d3fa7989144c)
+![Screenshot from 2023-10-29 19-30-31](https://github.com/abdo286/bug_mender/assets/123945345/5af72293-3b56-4821-a780-8b697d939421)
+![Screenshot from 2023-10-29 19-30-49](https://github.com/abdo286/bug_mender/assets/123945345/6a493bf2-df09-4af7-9a43-07e5e2dd388c)
+![Screenshot from 2023-10-29 19-30-54](https://github.com/abdo286/bug_mender/assets/123945345/88c5b5c4-db5c-4196-a48f-16fe0e1416c2)
